@@ -13,6 +13,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 import '../core/theme.dart';
+import '../core/turkish.dart';
 import '../data/dictionary_repository.dart';
 import '../data/models.dart';
 import 'search_screen.dart';
@@ -95,7 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  '${_days[now.weekday - 1].toUpperCase()}  ·  ${_months[now.month - 1].toUpperCase()} ${now.day}',
+                  '${turkishUpper(_days[now.weekday - 1])}  ·  ${turkishUpper(_months[now.month - 1])} ${now.day}',
                   style: AppType.label(10, color: context.mutedText),
                 ),
                 const SizedBox(height: Gap.xs),

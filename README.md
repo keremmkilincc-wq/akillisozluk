@@ -4,9 +4,59 @@ Kelime anlamlarına bakan statik bir sözlük değil; kelimelerin etimolojik kö
 dil bilgisi kurallarını, edebi alntılarını ve telaffuz detaylarını keşfettiğimiz
 bir Türkçe dil ekosistemi platformu.
 
-**Durum:** Plan aşaması. Kod henüz yazılmadı — önce veri üretim hattı kuruluyor.
+**Durum:** Faz 0 tamamlandı (veri hattı + arama motoru + arayüz iskeleti).
+**Faz 1** (çekirdek sözlük ekranları) sırada.
 
-## Temel ilkeler
+## Kurulum
+
+### Veritabanını üret
+
+`mobile/assets/dict.db` bu komutla yeniden üretilir:
+
+```bash
+python tools/build_dict.py
+```
+
+Betik yalnızca Python 3.10+ ve standart kütüphane ister. Çıktıyı
+konsola yazar ve bütünlük denetimi yapar: anlamsız kelime, hatalı Türkçe
+küçük harf çevrimi, tekrarlı kelime, boş FTS indeksi ve **uydurma alıntı**
+denetimi bu aşamada yakalanır.
+
+### Uygulamayı çalıştır
+
+```bash
+cd mobile
+flutter pub get
+flutter run
+```
+
+### Testleri çalıştır
+
+```bash
+cd mobile
+flutter test
+```
+
+`test/search_test.dart` süs değil; Türkçe arama motorunun sessizce
+bozulmasını yakalar. `I → ı` ve `İ → i` dönüşümleri hem Dart'ta hem
+Python'da varsayılan olarak yanlıştır — bu yüzden açıkça yazıldı ve test edildi.
+
+## Mevcut kapsam
+
+| Alan | Durum |
+|---|---|
+| Veri şeması | ✅ `data/schema.sql` |
+| 136 kelimelik tad verisi | ✅ 270 anlam, 313 ilişki, 157 morfoloji |
+| Veri üretim hattı | ✅ `tools/build_dict.py` |
+| Türkçe normalizasyon | ✅ Dart + Python, testli |
+| Damerau-Levenshtein arama | ✅ testli |
+| Ana ekran | ✅ |
+| Arama + "bunu mu demek istediniz" | ✅ |
+| Kelime detay ekranı | ✅ |
+| İlişki ağı görselleştirmesi | ✅ |
+| Kelime detay ekranı → SQLite okuması | ⏳ Faz 1 sonu |
+| TTS seslendirme | ⏳ cihazda doğrulanacak |
+| YKS/KPSS/ALES/YDS modu | ⏳ Faz 5 |
 
 **Veri önce, kod sonra.** Sözlük uygulamasının kalitesi verisinin kalitesidir.
 Arama, ekranlar, oyunlar ve sınav modları hepsi verinin şekline göre kurulur;

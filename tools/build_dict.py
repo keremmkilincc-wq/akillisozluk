@@ -68,44 +68,26 @@ def normalize(text: str) -> str:
 # -----------------------------------------------------------------------------
 #  Yazım kuralları — Modül 6'nın kalbi
 #
-#  Tamamen özgün ve kurallara dayalı olduğu için telif riski sıfırdır.
-#  Uygulama kural tablosunu okuyup kullanıcıya anında geri bildirim verir.
+#  Kaynak: data/seed/words_sample.json içindeki "writing_rules" dizisi.
+#  Burada sabit liste TUTULMAZ; iki kaynak birbirinden ayrılırsa veri
+#  sessizce tutarsızlaşır.
+#
+#  Bu kurallar tamamen özgündür ve dilbilgisel kurala dayanır — telif riski
+#  sıfırdır. Uygulama kural tablosunu okuyup kullanıcıya anında geri bildirim
+#  verir: "kitabe" yazdıysa "doğrusu: kitabı" der.
 # -----------------------------------------------------------------------------
 
-WRITING_RULES = [
-    # (temel, yaygın hata, doğru, kural türü, açıklama, sınavlar, güven)
-    ("kitap", "kitabe", "kitabı", "suffix_sound",
-     "Tek heceli sözcüklere -d/-e eki gelirken son ünsüz yumuşatılır: kitap → kitab-ı. "
-     "'Kitabe' yanlış yazımdır; kökün 'e' hâli kullanılmaz.", "yks,kpss,ales", 1.0),
+WRITING_RULE_FIELDS = (
+    "base_word", "wrong_form", "correct_form",
+    "rule_type", "rule_explanation", "exam_tags", "confidence",
+)
 
-    ("ağaç", "ağaca", "ağacı", "hard_consonant",
-     "'Aç' ünsüzü eke gelince sertleşir: ağaç → ağac-ı. Ağaca değil, ağacı.", "kpss,ales", 1.0),
 
-    ("burç", "burca", "burcu", "hard_consonant",
-     "Sert ünsüz (ç) eke gelince korunur ama ünsüz sertleşmez; 'c' olmaz: burcu.", "yks", 0.95),
-
-    ("bilgi", "bilgi", "bilgi", "vowel_drop",
-     "Sözcük ünsüzle bitiyorsa belirtme eki -i değil -yi olur: bilgiyi. "
-     "Yanlış: 'bilgiyi' — yalnız 'bilgi' değil, 'bilgiyi'.", "yds", 1.0),
-
-    ("tarih", "tarih", "tarihî", "spelling",
-     "'Tarihî' sözcüğü uzun i ile yazılır: târihî değil, tarihî. "
-     "Belirtme hâli 'tarihi' olur ama niteleme anlamında 'tarihî' dir.", "yks,kpss", 1.0),
-
-    ("kâğıt", "kağıt", "kâğıt", "spelling",
-     "'Kâğıt' sözcüğünde a uzundur. Yanlış: kağıt.", "kpss,yds", 1.0),
-
-    ("milyar", "milyar", "milyar", "spelling",
-     "Doğrusu 'milyar' (y harfi önce). 'Milyyar' ve 'milyar' yanlıştır.", "yds", 0.9),
-
-    ("dolap", "dolabı", "dolabı", "suffix_sound",
-     "Anlam: 'dolap'ın içindeki eşyalar → dolabı. Ünsüz yumuşaması geçerlidir, "
-     "bu bir hata değil.", "yks", 1.0),
-
-    ("vakit", "vaakit", "vakit", "spelling",
-     "'Vakit' tek a ile yazılır. Vurgulu kullanımda vâkit olabilir ama "
-     "standart yazım vakittir.", "yds", 0.85),
-]
+def load_writing_rules(seed: dict) -> list[dict]:
+    return [
+        {k: r.get(k) for k in WRITING_RULE_FIELDS}
+        for r in seed.get("writing_rules", [])
+    ]
 
 
 # -----------------------------------------------------------------------------
@@ -203,8 +185,8 @@ def build(seed_path: Path, out_path: Path) -> int:
                 ),
             )
 
-    # Yazım kuralları
-    for base, wrong, correct, rtype, expl, exams, conf in WRITING_RULES:
+    # Yazım kuralları — kaynak JSON (tek doğru kaynak)
+    for rule in load_writing_rules(seed):
         conn.execute(
             """
             INSERT OR IGNORE INTO writing_rules
@@ -212,7 +194,11 @@ def build(seed_path: Path, out_path: Path) -> int:
                  rule_explanation, exam_tags, confidence)
             VALUES (?, ?, ?, ?, ?, ?, ?)
             """,
-            (base, wrong, correct, rtype, expl, exams, conf),
+            (
+                rule["base_word"], rule["wrong_form"], rule["correct_form"],
+                rule["rule_type"], rule["rule_explanation"],
+                rule["exam_tags"] or "", float(rule["confidence"] or 1.0),
+            ),
         )
 
     # Tam metin indeksini doldur (external content tablosu)

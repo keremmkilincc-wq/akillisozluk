@@ -8,8 +8,11 @@
 //  - Her renk açık ve koyu temada ayrı ayrı tanımlı — tema çalışıyor.
 // ============================================================================
 
+import 'package:flutter/cupertino.dart' show CupertinoPageTransitionsBuilder;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import 'turkish.dart';
 
 /// Palet kaynakları.
 class _Palette {
@@ -73,7 +76,7 @@ String senseLabel(String sense) {
     case 'argo':
       return 'ARGO / GÜNLÜK DİL';
     default:
-      return sense.toUpperCase();
+      return turkishUpper(sense);
   }
 }
 
@@ -98,12 +101,17 @@ class Radii {
 /// Tipografi ailesi.
 class AppType {
   /// Büyük sözcük başlıkları — serif, edebî
-  static TextStyle display(double size, {Color? color, FontWeight? weight}) =>
+  static TextStyle display(
+    double size, {
+    Color? color,
+    FontWeight? weight,
+    double? height,
+  }) =>
       GoogleFonts.lora(
         fontSize: size,
         color: color,
         fontWeight: weight ?? FontWeight.w600,
-        height: 1.12,
+        height: height ?? 1.12,
         letterSpacing: -0.4,
       );
 
@@ -283,4 +291,9 @@ extension ThemeShade on BuildContext {
       isDark ? _Palette.hairlineDark : _Palette.hairline;
   Color get mutedText => isDark ? _Palette.chalkSoft : _Palette.inkSoft;
   Color get paperSurface => isDark ? _Palette.nightDim : Colors.white;
+
+  /// Yazım uyarıları ve hata durumları için. Material'daki `error` rengi
+  /// ile aynıdır; `destructive` adı tasarım dilimizde karşılık gelir
+  /// (uyarı ≠ kırılma, bu yüzden ayrı isim).
+  Color get destructive => scheme.error;
 }

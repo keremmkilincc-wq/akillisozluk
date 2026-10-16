@@ -42,7 +42,7 @@ class Relation {
   factory Relation.fromJson(Map<String, dynamic> j) => Relation(
         word: j['word'] as String,
         type: j['type'] as String,
-        note: j['note'] as String,
+        note: j['note'] as String?,
       );
 
   String get typeLabel {
@@ -160,6 +160,58 @@ class Word {
     if (morphology.isNotEmpty) return morphology.first.root;
     return null;
   }
+}
+
+/// Yazım kuralı — Modül 6'nın kalbi.
+///
+/// Tamamen özgündür: kural dilbilgisinden türetilir, hiçbir sözlük metni
+/// kopyalanmaz. Telif riski sıfır.
+class WritingRule {
+  final String baseWord;
+  final String wrongForm;
+  final String correctForm;
+  final String ruleType;
+  final String explanation;
+  final String examTags;
+  final double confidence;
+
+  const WritingRule({
+    required this.baseWord,
+    required this.wrongForm,
+    required this.correctForm,
+    required this.ruleType,
+    required this.explanation,
+    required this.examTags,
+    required this.confidence,
+  });
+
+  factory WritingRule.fromJson(Map<String, dynamic> j) => WritingRule(
+        baseWord: j['base_word'] as String,
+        wrongForm: j['wrong_form'] as String,
+        correctForm: j['correct_form'] as String,
+        ruleType: j['rule_type'] as String,
+        explanation: j['rule_explanation'] as String? ?? '',
+        examTags: j['exam_tags'] as String? ?? '',
+        confidence: (j['confidence'] as num?)?.toDouble() ?? 1.0,
+      );
+
+  String get typeLabel {
+    switch (ruleType) {
+      case 'suffix_sound':
+        return 'Ünsüz yumuşaması';
+      case 'hard_consonant':
+        return 'Ünsüz sertleşmesi';
+      case 'vowel_drop':
+        return 'Ünlü düşmesi';
+      case 'consonant_drop':
+        return 'Ünsüz düşmesi';
+      default:
+        return 'Yazım';
+    }
+  }
+
+  List<String> get exams =>
+      examTags.isEmpty ? const [] : examTags.split(',');
 }
 
 /// Uygulamanın veri seti hakkında taşıdığı bilgi.

@@ -189,7 +189,6 @@ class _GraphPainter extends CustomPainter {
 
     // Yerleşim: tür başına ayrı yarım daire dilimi
     final nodes = <_Node>[];
-    var index = 0;
 
     for (final type in typeOrder) {
       final ofType = relations.where((r) => r.type == type).toList();
@@ -210,7 +209,6 @@ class _GraphPainter extends CustomPainter {
             angle,
           ),
         );
-        index++;
       }
     }
 

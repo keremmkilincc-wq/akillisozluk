@@ -19,7 +19,10 @@ import 'widgets/common.dart';
 import 'word_detail_screen.dart';
 
 class SearchScreen extends StatefulWidget {
-  const SearchScreen({super.key});
+  /// URL üzerinden gelinen başlangıç sorgusu (QA için).
+  final String? initialQuery;
+
+  const SearchScreen({super.key, this.initialQuery});
 
   @override
   State<SearchScreen> createState() => _SearchScreenState();
@@ -31,6 +34,10 @@ class _SearchScreenState extends State<SearchScreen> {
 
   List<Word> _results = [];
   List<SearchHit> _suggestions = [];
+
+  /// Kullanıcının yazdığı hâli standart yazımdan ayrık ise doğru hâli.
+  /// "şöför" → "şoför". Yazım kuralı tablosundan gelir.
+  String? _correction;
   bool _hasQuery = false;
 
   /// Yazım hatası örnekleri — bu fazın amacı bu davranışı göstermek.
@@ -39,8 +46,13 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   void initState() {
     super.initState();
+    if (widget.initialQuery != null && widget.initialQuery!.isNotEmpty) {
+      _controller.text = widget.initialQuery!;
+      _controller.selection =
+          TextSelection.collapsed(offset: widget.initialQuery!.length);
+    }
     _controller.addListener(_run);
-    WidgetsBinding.instance.addPostFrameCallback((_) => _focus.requestFocus());
+    WidgetsBinding.instance.addPostFrameCallback((_) => _run());
   }
 
   @override
@@ -59,15 +71,23 @@ class _SearchScreenState extends State<SearchScreen> {
       setState(() {
         _results = [];
         _suggestions = [];
+        _correction = null;
         _hasQuery = false;
       });
       return;
     }
 
     final outcome = repo.search(q);
+
+    // Kullanıcının yazdığı hâli standart Türkçe yazımdan ayrık mı?
+    // "şöför" katlamada "şoför" ile aynı hâle gelir; kullanıcı yine de
+    // yanlış yazdığını bilmelidir.
+    final correction = repo.correctSpelling(q);
+
     setState(() {
       _results = outcome.results.map((h) => repo.lookup(h.word)).whereType<Word>().toList();
       _suggestions = outcome.suggestions;
+      _correction = correction;
       _hasQuery = true;
     });
   }
@@ -246,11 +266,10 @@ class _SearchScreenState extends State<SearchScreen> {
 
   // ------------------------------------------------------------- sonuçlar
   Widget _resultsList(BuildContext context) {
-    final repo = context.read<DictionaryRepository>();
-
     return ListView(
       padding: const EdgeInsets.fromLTRB(Gap.xl, 0, Gap.xl, Gap.lg),
       children: [
+        if (_correction != null) _correctionBanner(context, _correction!),
         if (_suggestions.isNotEmpty) _suggestionBanner(context),
         for (final w in _results)
           WordRow(
@@ -269,6 +288,59 @@ class _SearchScreenState extends State<SearchScreen> {
             ),
           ),
       ],
+    );
+  }
+
+  /// "şöför yazdınız, doğru yazım şoför" şeridi.
+  Widget _correctionBanner(BuildContext context, String correct) {
+    final c = context.scheme;
+
+    return Container(
+      margin: const EdgeInsets.only(bottom: Gap.md),
+      padding: const EdgeInsets.all(Gap.lg),
+      decoration: BoxDecoration(
+        color: context.destructive.withValues(alpha: 0.07),
+        borderRadius: Radii.md,
+        border: Border.all(color: context.destructive.withValues(alpha: 0.25)),
+      ),
+      child: Row(
+        children: [
+          Icon(Icons.spellcheck_rounded, size: 16, color: context.destructive),
+          const SizedBox(width: Gap.md),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'DOĞRU YAZIM',
+                  style: AppType.label(9.5, color: context.destructive),
+                ),
+                const SizedBox(height: 3),
+                Text(
+                  correct,
+                  style: AppType.display(17, color: c.onSurface),
+                ),
+              ],
+            ),
+          ),
+          Material(
+            color: context.destructive.withValues(alpha: 0.10),
+            shape: const StadiumBorder(),
+            child: InkWell(
+              onTap: () {
+                _controller.text = correct;
+                _controller.selection =
+                    TextSelection.collapsed(offset: correct.length);
+              },
+              customBorder: const StadiumBorder(),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: Gap.lg, vertical: 8),
+                child: Text('Kabul et', style: AppType.body(12, color: context.destructive, weight: FontWeight.w600)),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 

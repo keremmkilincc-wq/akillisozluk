@@ -7,6 +7,7 @@ library;
 import 'package:flutter/material.dart';
 
 import '../../core/theme.dart';
+import '../../core/turkish.dart';
 
 /// Köken rozeti: "Öz Türkçe", "Arapça" … renkli etiket
 class OriginBadge extends StatelessWidget {
@@ -57,7 +58,7 @@ class SenseChip extends StatelessWidget {
         const SizedBox(width: 6),
         Flexible(
           child: Text(
-            '${senseLabel(sense)}  ·  ${wordType.toUpperCase()}',
+            '${senseLabel(sense)}  ·  ${turkishUpper(wordType)}',
             style: AppType.label(10, color: color),
             overflow: TextOverflow.ellipsis,
           ),
@@ -122,7 +123,7 @@ class SectionHeader extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: Gap.md, top: Gap.xs),
       child: Row(
         children: [
-          Text(label.toUpperCase(), style: AppType.label(10.5, color: context.mutedText)),
+          Text(turkishUpper(label), style: AppType.label(10.5, color: context.mutedText)),
           const SizedBox(width: Gap.md),
           Expanded(child: Container(height: 1, color: context.subtleLine)),
           if (trailing != null) ...[
@@ -217,6 +218,96 @@ class QuickTile extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+/// Yazım uyarısı kartı — Modül 6'nın kalbi.
+///
+/// "kitabe" yazıldığında "doğrusu: kitabı" der ve NEDEN'ini açıklar.
+/// Kural tamamen özgündür, hiçbir sözlük metni kopyalanmaz.
+class WritingRuleCard extends StatelessWidget {
+  final String wrongForm;
+  final String correctForm;
+  final String ruleLabel;
+  final String explanation;
+  final List<String> exams;
+
+  const WritingRuleCard({
+    super.key,
+    required this.wrongForm,
+    required this.correctForm,
+    required this.ruleLabel,
+    required this.explanation,
+    this.exams = const [],
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.scheme;
+
+    return Container(
+      padding: const EdgeInsets.all(Gap.lg),
+      decoration: BoxDecoration(
+        color: context.destructive.withValues(alpha: 0.07),
+        borderRadius: Radii.md,
+        border: Border.all(color: context.destructive.withValues(alpha: 0.22)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(Icons.edit_note_rounded, size: 14, color: context.destructive),
+              const SizedBox(width: Gap.sm),
+              Text('YAZIM UYARISI', style: AppType.label(9.5, color: context.destructive)),
+              const Spacer(),
+              Text(ruleLabel, style: AppType.body(10.5, color: context.mutedText)),
+            ],
+          ),
+          const SizedBox(height: Gap.md),
+          Row(
+            children: [
+              Text(
+                wrongForm,
+                style: AppType.display(15, color: context.mutedText).copyWith(
+                  decoration: TextDecoration.lineThrough,
+                  decorationColor: context.destructive.withValues(alpha: 0.6),
+                ),
+              ),
+              const SizedBox(width: Gap.sm),
+              Icon(Icons.arrow_forward_rounded, size: 13, color: context.mutedText),
+              const SizedBox(width: Gap.sm),
+              Text(correctForm, style: AppType.display(16, color: c.onSurface)),
+            ],
+          ),
+          const SizedBox(height: Gap.sm),
+          Text(
+            explanation,
+            style: AppType.body(12, color: context.mutedText, height: 1.55),
+          ),
+          if (exams.isNotEmpty) ...[
+            const SizedBox(height: Gap.md),
+            Wrap(
+              spacing: Gap.sm,
+              children: [
+                for (final e in exams)
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
+                    decoration: BoxDecoration(
+                      color: c.secondary.withValues(alpha: 0.10),
+                      borderRadius: Radii.sm,
+                    ),
+                    child: Text(
+                      turkishUpper(e),
+                      style: AppType.label(8.5, color: c.secondary),
+                    ),
+                  ),
+              ],
+            ),
+          ],
+        ],
       ),
     );
   }

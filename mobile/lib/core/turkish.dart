@@ -33,7 +33,7 @@ String turkishLower(String input) {
         buffer.writeCharCode(0x0069); // i
         break;
       default:
-        buffer.writeCharCode(rune.toLowerCase().runes.first);
+        buffer.write(String.fromCharCode(rune).toLowerCase());
     }
   }
   return buffer.toString();
@@ -51,7 +51,7 @@ String turkishUpper(String input) {
         buffer.writeCharCode(0x0130); // İ
         break;
       default:
-        buffer.writeCharCode(rune.toUpperCase().runes.first);
+        buffer.write(String.fromCharCode(rune).toUpperCase());
     }
   }
   return buffer.toString();
@@ -78,6 +78,16 @@ String foldChar(String ch) {
       return 's';
     case 'ü':
     case 'Ü':
+      return 'u';
+    // Düzeltme imli harfler (rûgar, âdet, îrade)
+    case 'â':
+    case 'Â':
+      return 'a';
+    case 'î':
+    case 'Î':
+      return 'i';
+    case 'û':
+    case 'Û':
       return 'u';
     case 'ı':
     case 'I':
@@ -124,59 +134,67 @@ String? checkSpelling(String word) {
   return _knownTraps[folded];
 }
 
-/// Türkçe hece tahmini (telaffuz ipuçları için).
+/// Türkçe hece ayrımı.
 ///
-/// Türkçede hece yapısı son çekimli ünsüze göre: VCV → VCeV,
-/// VCCV → VCeCV (sert ünsüzler: ç, f, h, k, p, s, ş, t; sertlik ünsüzü beklemez).
+/// Kural basit: bir ünlüden sonra tek ünsüz geliyorsa hece ünlüde biter
+/// (ki-tap, ka-dın). İki ünsüz geliyorsa birincisi önceki hecede kalır
+/// (kit-ta-lar). Sertlik yalnızca üç ünsüzden sonra bir hece bırakmadığında
+/// devreye girer; basit bir kuralda sert ünsüzü yumuşak saymak yanlış
+/// heceleme üretir.
+///
+/// Çıktı: "ki-tap"
 String syllabify(String word) {
   final letters = turkishLower(word).split('');
   if (letters.length < 2) return word;
 
-  const hard = {'f', 'h', 'k', 'p', 's', 'ş', 'ç', 't'};
-  const soft = {'b', 'c', 'd', 'g', 'ğ', 'j', 'l', 'm', 'n', 'r', 's', 'v', 'z'};
-
   final vowels = 'aeıioöuü'.split('').toSet();
-  final isVowel = (String c) => vowels.contains(c);
+  bool isVowel(String c) => vowels.contains(c);
 
   final syllables = <String>[];
-  var current = '';
+  var start = 0;
+  var i = 0;
 
-  for (var i = 0; i < letters.length; i++) {
-    current += letters[i];
-    final nextIsLast = i == letters.length - 1;
-    if (nextIsLast) break;
-
-    final next = letters[i + 1];
-    final nextNext = i + 2 < letters.length ? letters[i + 2] : null;
-
-    // Ünsüz çifti: araya ünlü girer (VCCV → VCeCV)
-    if (!isVowel(next) && nextNext != null) {
-      if (isVowel(nextNext)) {
-        // sert ünsüzse bölme, yumuşak ünsüzse böl
-        if (!hard.contains(next)) {
-          syllables.add(current);
-          current = '';
-        }
-      }
+  while (i < letters.length) {
+    if (!isVowel(letters[i])) {
+      i++;
       continue;
     }
 
-    // Ünsüz + ünlü: sert ünsüz ünlüyü çeker, yumuşak bırakır (VCV → VCeV)
-    if (!isVowel(next) && i + 2 < letters.length) {
-      final after = letters[i + 2];
-      if (isVowel(after)) {
-        if (hard.contains(next)) {
-          syllables.add(current);
-          current = '';
-        } else if (soft.contains(next)) {
-          // yumuşak ünsüz: sonraki ünlü yeni heceyi başlatır
-          syllables.add(current);
-          current = '';
-        }
+    // i: bir ünlü. Sonrasına bakalım.
+    final after = i + 1;
+    if (after >= letters.length) {
+      // Sözcük ünlüyle bitiyor → hece burada kapanır
+      syllables.add(letters.sublist(start, after).join());
+      start = after;
+      i = after;
+      continue;
+    }
+
+    // V tek ünsüz V → hece ünlüde kapanır (ki-tap, ka-dın)
+    var nextStart = after;
+
+    // İki ünsüz üst üste mi? (VCCV → ilk ünsüz önceki hecede kalır)
+    if (!isVowel(letters[after]) &&
+        after + 1 < letters.length &&
+        !isVowel(letters[after + 1])) {
+      nextStart = after + 1;
+    }
+
+    syllables.add(letters.sublist(start, nextStart).join());
+    start = nextStart;
+    i = nextStart;
+  }
+
+  if (start < letters.length) {
+    final tail = letters.sublist(start).join();
+    if (tail.isNotEmpty) {
+      if (syllables.isEmpty) {
+        syllables.add(tail);
+      } else {
+        syllables[syllables.length - 1] += tail;
       }
     }
   }
 
-  if (current.isNotEmpty) syllables.add(current);
   return syllables.where((s) => s.isNotEmpty).join('-');
 }

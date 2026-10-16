@@ -14,7 +14,9 @@ void main() {
   group('Türkçe büyük/küçük harf', () {
     test('I küçük harfi ı olur, i olmaz', () {
       expect(turkishLower('I'), 'ı');
-      expect(turkishLower('KIRGI'), 'kırğı');
+      expect(turkishLower('IŞIK'), 'ışık');
+      // G, Ğ değil: KIRGI → kırgı (kırğı DEĞİL)
+      expect(turkishLower('KIRGI'), 'kırgı');
     });
 
     test('İ küçük harfi i olur, birleşik noktasız', () {
@@ -73,7 +75,9 @@ void main() {
   group('Jaro-Winkler', () {
     test('aynı ve yakın sözcükler yüksek benzerlik', () {
       expect(jaroWinkler('kitap', 'kitap'), 1.0);
-      expect(jaroWinkler('şoför', 'şöför'), greaterThan(0.9));
+      // 0.88 matematiksel olarak doğru değer (4/5 eşleşme, 1 uyuşmazlık)
+      expect(jaroWinkler('şoför', 'şöför'), greaterThan(0.85));
+      expect(jaroWinkler('kirkit', 'kibrit'), greaterThan(0.85));
     });
 
     test('alakasız sözcükler düşük benzerlik', () {
@@ -109,14 +113,23 @@ void main() {
     });
 
     test('yazım hatası öneri üretir', () {
+      // Diyakritik hatası katlamada kaybolur, bu yüzden öneri değil
+      // SONUÇ döner; arayüz "doğru yazımı" diye işaretler.
       final r = engine.search('şöför', const []);
-      expect(r.suggestions, isNotEmpty);
-      expect(r.suggestions.first.word, 'şoför');
+      expect(r.results.first.word, 'şoför');
+      expect(r.results.first.kind, MatchKind.spellingVariant);
     });
 
     test('harf yer değişikliği öneri üretir', () {
+      // Trigram indeksinin kaçırdığı durum: 'kirbit' ve 'kibrit'
+      // yalnızca 'bit' trigramını paylaşır.
       final r = engine.search('kirbit', const []);
       expect(r.suggestions.map((s) => s.word), contains('kibrit'));
+    });
+
+    test('eksik harf öneri üretir', () {
+      final r = engine.search('kitaba', const []);
+      expect(r.suggestions.map((s) => s.word), contains('kitap'));
     });
 
     test('öneki yazınca aday listelenir', () {

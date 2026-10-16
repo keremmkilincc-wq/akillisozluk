@@ -79,6 +79,7 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
         slivers: [
           _appBar(context, word),
           SliverToBoxAdapter(child: _identity(context, word)),
+          SliverToBoxAdapter(child: _writingRules(context, word, repo)),
           SliverToBoxAdapter(child: _morphology(context, word)),
           SliverToBoxAdapter(child: _meanings(context, word)),
           SliverToBoxAdapter(child: _relations(context, word, repo)),
@@ -208,7 +209,7 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
                             borderRadius: Radii.pill,
                           ),
                           child: Text(
-                            e.toUpperCase(),
+                            turkishUpper(e),
                             style: AppType.label(9, color: c.secondary),
                           ),
                         ),
@@ -279,6 +280,33 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
     );
   }
 
+  // ------------------------------------------------------- yazım uyarıları
+  Widget _writingRules(BuildContext context, Word word, DictionaryRepository repo) {
+    final rules = repo.rulesForWord(word.word);
+    if (rules.isEmpty) return const SizedBox.shrink();
+
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(Gap.xl, 0, Gap.xl, Gap.xl),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SectionHeader(label: 'Sık Karıştırılan Yazım'),
+          for (final r in rules.take(2))
+            Padding(
+              padding: const EdgeInsets.only(bottom: Gap.sm),
+              child: WritingRuleCard(
+                wrongForm: r.wrongForm,
+                correctForm: r.correctForm,
+                ruleLabel: r.typeLabel,
+                explanation: r.explanation,
+                exams: r.exams,
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+
   // ------------------------------------------------------- kök ve ekler
   Widget _morphology(BuildContext context, Word word) {
     if (word.morphology.isEmpty) return const SizedBox.shrink();
@@ -302,31 +330,48 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  // İki satır: yüzey → kök, sonra ekler. Tek satırda
+                  // "kitaplarımızdan + lar + ımız + dan" dar ekranda taşar.
                   Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text(m.surface, style: AppType.display(16, color: c.onSurface)),
+                      Flexible(
+                        child: Text(
+                          m.surface,
+                          style: AppType.display(16, color: c.onSurface),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
                       const SizedBox(width: Gap.sm),
                       Text('→', style: AppType.body(12, color: context.mutedText)),
                       const SizedBox(width: Gap.sm),
-                      Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                        decoration: BoxDecoration(
-                          color: c.secondary.withValues(alpha: 0.16),
-                          borderRadius: Radii.sm,
-                        ),
-                        child: Text(
-                          m.root,
-                          style: AppType.display(14, color: c.secondary),
+                      Flexible(
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                          decoration: BoxDecoration(
+                            color: c.secondary.withValues(alpha: 0.16),
+                            borderRadius: Radii.sm,
+                          ),
+                          child: Text(
+                            m.root,
+                            style: AppType.display(14, color: c.secondary),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
                         ),
                       ),
-                      const Spacer(),
-                      if (m.suffixes.isNotEmpty)
-                        Text(
-                          '+ ${m.suffixes.join(' + ')}',
-                          style: AppType.mono(10.5, color: context.mutedText),
-                        ),
                     ],
                   ),
+                  if (m.suffixes.isNotEmpty) ...[
+                    const SizedBox(height: Gap.sm),
+                    Text(
+                      '+ ${m.suffixes.join(' + ')}',
+                      style: AppType.mono(10.5, color: context.mutedText),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
                   const SizedBox(height: Gap.sm),
                   Text(m.explanation, style: AppType.body(12, color: context.mutedText)),
                   if (m.note != null) ...[
@@ -455,7 +500,7 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
         children: [
           Text('“$sentence”', style: AppType.quote(13.5, color: context.scheme.onSurface)),
           const SizedBox(height: 3),
-          Text(source.toUpperCase(), style: AppType.label(9, color: accent)),
+          Text(turkishUpper(source), style: AppType.label(9, color: accent)),
         ],
       ),
     );

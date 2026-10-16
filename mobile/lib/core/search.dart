@@ -165,6 +165,10 @@ enum MatchKind {
   /// Birebir eşleşme
   exact,
 
+  /// Katlama sonrası birebir (kullanıcı diyakritik hatası yapmış —
+  /// "şöför" katlanınca "şoför" ile aynı hâle gelir)
+  spellingVariant,
+
   /// Kök eki ayrıldıktan sonra eşleşme ("kitaplarımızdan" → "kitap")
   root,
 
@@ -190,15 +194,35 @@ class SearchHit {
   });
 }
 
-/// Arama motoru. Sözlüğü bir kez katlar, sonra bellekten döner.
+/// Arama motoru. Sözlüğü bir kez indeksler, sonra bellekten döner.
+///
+/// İndeksler:
+///   1. Katlanmış sözcük → gerçek yazım        (tam eşleşme)
+///   2. Trigram → sözcükler                     (yumuşak eşleşme)
+///   3. Silme komşuluğu → sözcükler            (harf yer değişikliği)
+///
+/// Üçüncü indeks şart. Trigram tek başına yetmez: "kirbit" ile "kibrit"
+/// yalnızca "bit" trigramını paylaşır, geri kalan üçü farklıdır. Yani
+/// yazım hatası olan kullanıcı hiçbir aday bulunamaz ve motor "bulunamadı"
+/// der. Silme komşuluğu ikisini de "kibit"te buluşturur.
 class FuzzySearch {
-  final Map<String, String> _foldedWords; // katlanmış -> gerçek yazım
-  final Map<String, List<String>> _trigramIndex;
+  late final Map<String, String> _foldedWords;
+  late final Map<String, List<String>> _trigramIndex;
+  late final Map<String, Set<String>> _deletionIndex;
   final List<String> _allWords;
+
+  /// Silme indeksine alınacak azami sözcük uzunluğu. Uzun sözcükler
+  /// yazım hatası hedefi olmaz ve indeksi şişirirler.
+  static const _maxIndexedLength = 14;
+
+  /// Silme indeksi için makul sözcük sınırı. Bu sınır aşılırsa indeks
+  /// kurulmaz ve arama trigram'a düşer (100k kelime hedefi için not).
+  static const _maxWordsForDeletionIndex = 60000;
 
   FuzzySearch(List<String> words) : _allWords = List.unmodifiable(words) {
     _foldedWords = {};
     _trigramIndex = {};
+    _deletionIndex = {};
 
     for (final w in words) {
       final f = foldTurkish(w);
@@ -208,6 +232,27 @@ class FuzzySearch {
         _trigramIndex.putIfAbsent(t, () => <String>[]).add(w);
       }
     }
+
+    if (words.length <= _maxWordsForDeletionIndex) {
+      for (final w in words) {
+        final f = foldTurkish(w);
+        if (f.length < 3 || f.length > _maxIndexedLength) continue;
+        for (final variant in _deletions(f)) {
+          _deletionIndex
+              .putIfAbsent(variant, () => <String>{})
+              .add(w);
+        }
+      }
+    }
+  }
+
+  /// Sözcükten tek harf silerek elde edilen tüm varyantlar.
+  static Set<String> _deletions(String s) {
+    final out = <String>{s};
+    for (var i = 0; i < s.length; i++) {
+      out.add(s.substring(0, i) + s.substring(i + 1));
+    }
+    return out;
   }
 
   /// Sözlükteki toplam kelime sayısı.
@@ -228,17 +273,24 @@ class FuzzySearch {
     // --- Katman A: aday üretimi -------------------------------------------
     final candidateWords = <String>{};
 
-    // Tam önek eşleşmesi — "kit" → kitap, kitabe, kitalya
+    // Tam önek — "kit" → kitap, kitabe
     for (final entry in _foldedWords.entries) {
       if (entry.key.startsWith(fq)) candidateWords.add(entry.value);
     }
 
-    // Trigram benzerliği ile yakın adaylar
-    final qTri = trigrams(q);
-    for (final t in qTri) {
+    // Trigram benzerliği
+    for (final t in trigrams(q)) {
       final bucket = _trigramIndex[t];
       if (bucket != null && bucket.length <= 200) {
         candidateWords.addAll(bucket);
+      }
+    }
+
+    // Silme komşuluğu — harf yer değişikliği ve atlanan/eklenen harf
+    if (fq.length >= 3 && fq.length <= _maxIndexedLength) {
+      for (final variant in _deletions(fq)) {
+        final bucket = _deletionIndex[variant];
+        if (bucket != null) candidateWords.addAll(bucket);
       }
     }
 
@@ -255,10 +307,15 @@ class FuzzySearch {
     for (final word in candidateWords) {
       final fw = foldTurkish(word);
 
-      // Birebir
+      // Katlanmış hâlleri aynı. Gerçek yazımlar farklı mı?
       if (fw == fq) {
+        final sameSpelling = turkishLower(word) == turkishLower(q);
         results.add(
-          SearchHit(word: word, kind: MatchKind.exact, score: 1.0),
+          SearchHit(
+            word: word,
+            kind: sameSpelling ? MatchKind.exact : MatchKind.spellingVariant,
+            score: sameSpelling ? 1.0 : 0.97,
+          ),
         );
         continue;
       }
@@ -272,7 +329,7 @@ class FuzzySearch {
         continue;
       }
 
-      // Transpozisyon içeren yakınlık
+      // Yakın yazım: uzaklık + ön ek benzerliği birlikte değerlendirilir.
       final distance = damerauLevenshtein(fq, fw);
       final maxAllowed = fq.length <= 4
           ? 1
@@ -281,20 +338,19 @@ class FuzzySearch {
               : 3;
 
       if (distance <= maxAllowed) {
-        final sim = jaroWinkler(fq, fw);
-        if (sim >= 0.82) {
-          // En yakın öneriyi öne al
-          if (suggestions.isEmpty || sim > suggestions.first.score) {
-            suggestions.insert(0, SearchHit(
+        // Damerau tek başına yeterli değil: "kitap" ile "kitaba" 1 uzaklıkta
+        // ama ön ek puanı bunları ayırır.
+        final similarity = jaroWinkler(fq, fw);
+        final adjusted = similarity * 0.75 + (1 - distance / 4) * 0.25;
+
+        if (adjusted >= 0.70) {
+          suggestions.add(
+            SearchHit(
               word: word,
               kind: MatchKind.suggestion,
-              score: sim,
-            ));
-          } else {
-            suggestions.add(
-              SearchHit(word: word, kind: MatchKind.suggestion, score: sim),
-            );
-          }
+              score: adjusted.clamp(0.0, 1.0),
+            ),
+          );
         }
       }
     }
@@ -302,7 +358,6 @@ class FuzzySearch {
     results.sort((a, b) => b.score.compareTo(a.score));
     suggestions.sort((a, b) => b.score.compareTo(a.score));
 
-    // Aynı öneriyi tekrar etme
     final seen = <String>{};
     final uniqueSuggestions = suggestions
         .where((s) => seen.add(s.word))

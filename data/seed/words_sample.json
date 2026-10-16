@@ -4864,6 +4864,192 @@
       "morphology": [
         { "surface": "sabaha karşı", "root": "sabah", "suffixes": ["a"], "explanation": "dativ hâli (-a) + ayrılma hâli (-a)" }
       ]
+    },
+
+    {
+      "word": "şoför",
+      "origin": "Fransızca (chauffeur)",
+      "origin_period": "19. yy",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.9,
+      "confidence": 1.0,
+      "phonetics": "[ʃøˈfœɾ]",
+      "meanings": [
+        {
+          "order": 1, "type": "isim", "sense": "gercek",
+          "definition": "Taşıt süren, araç kullanma görevi olan kimse.",
+          "example_classic": null,
+          "example_author": null,
+          "example_modern": "Şoför camları buğulandırmadan yola koydu.",
+          "confidence": 1.0
+        },
+        {
+          "order": 2, "type": "isim", "sense": "mecaz",
+          "definition": "Bir işi yönlendiren, yöneten kişi.",
+          "example_classic": null,
+          "example_author": null,
+          "example_modern": "Toplantının asıl şoförü belli değildi.",
+          "confidence": 0.9
+        }
+      ],
+      "relations": [
+        { "word": "sürücü", "type": "synonym" },
+        { "word": "taşıt", "type": "related" },
+        { "word": "şoförlük", "type": "derivative" }
+      ],
+      "morphology": [
+        { "surface": "şoförü", "root": "şoför", "suffixes": ["ü"], "explanation": "belirtme hâli (-ü)" },
+        { "surface": "şoförler", "root": "şoför", "suffixes": ["ler"], "explanation": "çoğul eki (-ler)" }
+      ]
+    },
+
+    {
+      "word": "yanlış",
+      "origin": "Öz Türkçe (yan- + -lış)",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.97,
+      "confidence": 1.0,
+      "phonetics": "[janˈlɯʃ]",
+      "exam_tags": "yks,kpss,ales,yds",
+      "meanings": [
+        {
+          "order": 1, "type": "sıfat", "sense": "gercek",
+          "definition": "Gerçeğe, doğrusuna uymayan; hatalı.",
+          "example_classic": null,
+          "example_author": null,
+          "example_modern": "Yanlış kapıya çalmışız, kimse açmadı.",
+          "confidence": 1.0
+        },
+        {
+          "order": 2, "type": "isim", "sense": "gercek",
+          "definition": "Hata, yanılgı; doğrunun karşıtı.",
+          "example_classic": null,
+          "example_author": null,
+          "example_modern": "En zor olanı kendi yanlışını kabul etmek.",
+          "confidence": 1.0
+        },
+        {
+          "order": 3, "type": "zarf", "sense": "mecaz",
+          "definition": "Yanlış biçimde, gereği gibi olmayan şekilde.",
+          "example_classic": null,
+          "example_author": null,
+          "example_modern": "Kelimeyi yanlış yerde kullandı, herkes sustu.",
+          "confidence": 1.0
+        }
+      ],
+      "relations": [
+        { "word": "doğru", "type": "antonym" },
+        { "word": "hata", "type": "synonym" },
+        { "word": "yanlışlık", "type": "derivative" },
+        { "word": "yanlış anlamak", "type": "idiom" }
+      ],
+      "morphology": [
+        { "surface": "yanlışlar", "root": "yanlış", "suffixes": ["lar"], "explanation": "çoğul eki (-lar)" },
+        { "surface": "yanlışlık", "root": "yanlış", "suffixes": ["lık"], "explanation": "-lık soyutluk eki → hata, yanılgı" }
+      ]
+    },
+
+    {
+      "word": "kibrit",
+      "origin": "Yunanca (kibri̇́ti)",
+      "origin_period": "19. yy",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.82,
+      "confidence": 0.8,
+      "phonetics": "[kiˈbɾit]",
+      "exam_tags": "yks,kpss",
+      "meanings": [
+        {
+          "order": 1, "type": "isim", "sense": "gercek",
+          "definition": "Sürtüldüğünde yanarak alev veren, ucunda yanıcı madde bulunan ince çubuk.",
+          "example_classic": null,
+          "example_author": null,
+          "example_modern": "Kibrit kutusu boşmuş, ocak hiç yanmadı.",
+          "confidence": 1.0
+        },
+        {
+          "order": 2, "type": "isim", "sense": "mecaz",
+          "definition": "Kolayca tutuşan, çabuk sinirlenen kimse için kullanılır.",
+          "example_classic": null,
+          "example_author": null,
+          "example_modern": "Kibrit gibisin, bir cümleyle yanarsın.",
+          "confidence": 0.95
+        }
+      ],
+      "relations": [
+        { "word": "ateş", "type": "related" },
+        { "word": "çakmak", "type": "related" },
+        { "word": "kibritsiz", "type": "derivative" }
+      ],
+      "morphology": [
+        { "surface": "kibriti", "root": "kibrit", "suffixes": ["i"], "explanation": "belirtme hâli (-i)" },
+        { "surface": "kibritler", "root": "kibrit", "suffixes": ["ler"], "explanation": "çoğul eki (-ler)" }
+      ],
+      "source_note": "Köken Yunanca olarak geçer; Faz 0.2 doğrulama listesinde tekrar kontrol edilecek."
+    }
+  ],
+
+  "writing_rules": [
+    {
+      "base_word": "kitap", "wrong_form": "kitabe", "correct_form": "kitabı",
+      "rule_type": "suffix_sound",
+      "rule_explanation": "Tek heceli sözcüklere -d/-e eki gelirken son ünsüz yumuşatılır: kitap → kitab-ı. 'Kitabe' yanlış yazımdır; kökün 'e' hâli kullanılmaz.",
+      "exam_tags": "yks,kpss,ales", "confidence": 1.0
+    },
+    {
+      "base_word": "ağaç", "wrong_form": "ağaca", "correct_form": "ağacı",
+      "rule_type": "hard_consonant",
+      "rule_explanation": "'Aç' ünsüzü eke gelince sertleşir: ağaç → ağac-ı. 'Ağaca' değil, 'ağacı'.",
+      "exam_tags": "kpss,ales", "confidence": 1.0
+    },
+    {
+      "base_word": "burç", "wrong_form": "burca", "correct_form": "burcu",
+      "rule_type": "hard_consonant",
+      "rule_explanation": "Sert ünsüz (ç) eke gelince korunur ama ünsüz sertleşmez; 'c' olmaz: burcu.",
+      "exam_tags": "yks", "confidence": 0.95
+    },
+    {
+      "base_word": "bilgi", "wrong_form": "bilgiyi yazarken -i eki", "correct_form": "bilgiyi",
+      "rule_type": "vowel_drop",
+      "rule_explanation": "Sözcük ünsüzle bitiyorsa belirtme eki -i değil -yi olur: bilgiyi. Ünsüz düşmesi vardır, yumuşama değil.",
+      "exam_tags": "yds", "confidence": 1.0
+    },
+    {
+      "base_word": "tarih", "wrong_form": "tarihi", "correct_form": "tarihî",
+      "rule_type": "spelling",
+      "rule_explanation": "Niteleme anlamında kullanıldığında 'tarihî' düzeltme imli yazılır. Belirtme hâli 'tarihi' olur ama niteleme sıfatı 'tarihî'dir.",
+      "exam_tags": "yks,kpss", "confidence": 1.0
+    },
+    {
+      "base_word": "kâğıt", "wrong_form": "kağıt", "correct_form": "kâğıt",
+      "rule_type": "spelling",
+      "rule_explanation": "'Kâğıt' sözcüğünde a uzundur.",
+      "exam_tags": "kpss,yds", "confidence": 1.0
+    },
+    {
+      "base_word": "milyar", "wrong_form": "milyar", "correct_form": "milyar",
+      "rule_type": "spelling",
+      "rule_explanation": "Doğrusu 'milyar' (y önce). 'Milyyar' ve 'milyar' yanlış yazımdır.",
+      "exam_tags": "yds", "confidence": 0.9
+    },
+    {
+      "base_word": "dolap", "wrong_form": "dolabe", "correct_form": "dolabı",
+      "rule_type": "suffix_sound",
+      "rule_explanation": "Burada ünsüz yumuşaması GEÇERLİDİR ve hata değildir: dolap → dolab-ı. Sık yanlış anlaşılan kural: yumuşama hep hata değildir.",
+      "exam_tags": "yks", "confidence": 1.0
+    },
+    {
+      "base_word": "vakit", "wrong_form": "vaakit", "correct_form": "vakit",
+      "rule_type": "spelling",
+      "rule_explanation": "'Vakit' tek a ile yazılır. Vurgulu kullanımda 'vâkit' olabilir ama standart yazım 'vakit'tir.",
+      "exam_tags": "yds", "confidence": 0.85
+    },
+    {
+      "base_word": "kibrit", "wrong_form": "kirbit", "correct_form": "kibrit",
+      "rule_type": "spelling",
+      "rule_explanation": "Kısa sözcüklerde i/ı karışır: 'kibrit' (yanma maddesi), 'kirbit' değil. Arama motoru bu karışıklığı yakalar.",
+      "exam_tags": "yks,kpss", "confidence": 1.0
     }
   ]
 }

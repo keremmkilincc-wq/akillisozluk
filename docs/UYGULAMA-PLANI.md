@@ -3,7 +3,15 @@
 ## Steps
 
 - [ ] Faz 0 — Veri üretim hattı ve veri modeli (her şeyin temeli)
+  - [x] Şema (`data/schema.sql`) — words / meanings / relations / morphology / writing_rules / FTS5
+  - [x] 136 kelimelik tad verisi — 270 anlam, 313 ilişki, 157 morfoloji kaydı
+  - [x] Veri üretim betiği (`tools/build_dict.py`) — bütünlük denetimli, hatalı çıkış kodu
+  - [x] Türkçe normalizasyon — Dart + Python, testli
+  - [ ] **Zemberek morfoloji entegrasyonu** — şu an elle yazılmış kök/ek verisiyle çalışıyor, otomatik analiz henüz bağlanmadı
 - [ ] Faz 1 — Çekirdek sözlük: Modül 1 + Modül 2
+  - [x] Arama motoru (Damerau-Levenshtein + silme indeksi + Jaro-Winkler)
+  - [x] Ana ekran, arama ekranı, kelime detay ekranı, ilişki ağı görselleştirmesi
+  - [ ] Kelime detay ekranı SQLite'a taşınması (şu an JSON varlığından okuyor)
 - [ ] Faz 2 — AI katmanı: Modül 3 (offline-first)
 - [ ] Faz 3 — Kamera/OCR ve telaffuz: Modül 4
 - [ ] Faz 4 — Oyunlar: Modül 5
