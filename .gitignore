@@ -1,0 +1,53 @@
+# --- Flutter / Dart ---
+.dart_tool/
+.packages
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+*.iml
+.idea/
+.vscode/
+*.swp
+
+# --- Python (backend) ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# --- Sözlük verisi (büyük dosyalar — LFS veya dağıtım ayrı planlanır) ---
+data/*.db
+data/*.sqlite
+data/*.sqlite3
+data/dict/
+*.bin
+*.onnx
+*.npy
+*.vector
+
+# --- Ses kayıtları ---
+assets/audio/generated/
+*.wav
+*.mp3
+
+# --- Sırlar — ASLA commit edilmez ---
+.env
+.env.*
+!.env.example
+secrets.json
+*.pem
+*.key
+google-services.json
+GoogleService-Info.plist
+service-account*.json
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+desktop.ini
