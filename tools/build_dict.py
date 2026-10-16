@@ -1,0 +1,344 @@
+#!/usr/bin/env python3
+# =============================================================================
+#  VERİ ÜRETİM HATTI — Faz 0
+#
+#  data/seed/*.json  →  mobile/assets/dict.db  (salt okunur, uygulamayla gelir)
+#
+#  Bu betik verinin tek giriş noktasıdır. Elle veritabanına dokunulmaz.
+#
+#  Kullanım:
+#     python tools/build_dict.py --seed data/seed/words_sample.json \
+#                                --out  mobile/assets/dict.db
+#
+#  Sonraki fazda Zemberek morfoloji analizinin çıktısı da bu dosyaya
+#  beslenecek (--morph kaynak.csv).
+# =============================================================================
+
+from __future__ import annotations
+
+import argparse
+import json
+import sqlite3
+import sys
+import unicodedata
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+SCHEMA = ROOT / "data" / "schema.sql"
+
+# -----------------------------------------------------------------------------
+#  Türkçe metin normalizasyonu
+#
+#  Python'un str.lower() metodu da Dart'ın varsayılanı gibi Türkçe için
+#  YANLIŞTIR: 'I'.lower() → 'i' (doğrusu 'ı'), 'İ'.lower() → 'i̇'
+#  (birleşik noktalı). Aynı hatanın iki dilde de tekrarlanması iyi bir
+#  işaret: bu bir kütüphane eksiği, kural hatası değil.
+# -----------------------------------------------------------------------------
+
+_LOWER_MAP = str.maketrans({"I": "ı", "İ": "i"})
+
+
+def turkish_lower(text: str) -> str:
+    """Türkçe kurallarına uygun küçük harf."""
+    return text.translate(_LOWER_MAP).lower()
+
+
+_FOLD_MAP = str.maketrans(
+    {
+        "ç": "c", "ğ": "g", "ö": "o", "ş": "s", "ü": "u", "â": "a", "î": "i", "û": "u",
+        "Ç": "c", "Ğ": "g", "Ö": "o", "Ş": "s", "Ü": "u", "Â": "a", "Î": "i", "Û": "u",
+    }
+)
+
+
+def fold(text: str) -> str:
+    """Arama için katlanmış hâl: diyakritikler yok, ı/i aynı."""
+    lowered = turkish_lower(text)
+    # NFD ile ayrıştırılan birleşik işaretleri at (İ → i + U+0307 gibi)
+    decomposed = unicodedata.normalize("NFD", lowered)
+    stripped = "".join(ch for ch in decomposed if unicodedata.category(ch) != "Mn")
+    return unicodedata.normalize("NFC", stripped).translate(_FOLD_MAP)
+
+
+def normalize(text: str) -> str:
+    """Veritabanı normalized_word alanı: diyakritik KORUNUR."""
+    return turkish_lower(text.strip())
+
+
+# -----------------------------------------------------------------------------
+#  Yazım kuralları — Modül 6'nın kalbi
+#
+#  Tamamen özgün ve kurallara dayalı olduğu için telif riski sıfırdır.
+#  Uygulama kural tablosunu okuyup kullanıcıya anında geri bildirim verir.
+# -----------------------------------------------------------------------------
+
+WRITING_RULES = [
+    # (temel, yaygın hata, doğru, kural türü, açıklama, sınavlar, güven)
+    ("kitap", "kitabe", "kitabı", "suffix_sound",
+     "Tek heceli sözcüklere -d/-e eki gelirken son ünsüz yumuşatılır: kitap → kitab-ı. "
+     "'Kitabe' yanlış yazımdır; kökün 'e' hâli kullanılmaz.", "yks,kpss,ales", 1.0),
+
+    ("ağaç", "ağaca", "ağacı", "hard_consonant",
+     "'Aç' ünsüzü eke gelince sertleşir: ağaç → ağac-ı. Ağaca değil, ağacı.", "kpss,ales", 1.0),
+
+    ("burç", "burca", "burcu", "hard_consonant",
+     "Sert ünsüz (ç) eke gelince korunur ama ünsüz sertleşmez; 'c' olmaz: burcu.", "yks", 0.95),
+
+    ("bilgi", "bilgi", "bilgi", "vowel_drop",
+     "Sözcük ünsüzle bitiyorsa belirtme eki -i değil -yi olur: bilgiyi. "
+     "Yanlış: 'bilgiyi' — yalnız 'bilgi' değil, 'bilgiyi'.", "yds", 1.0),
+
+    ("tarih", "tarih", "tarihî", "spelling",
+     "'Tarihî' sözcüğü uzun i ile yazılır: târihî değil, tarihî. "
+     "Belirtme hâli 'tarihi' olur ama niteleme anlamında 'tarihî' dir.", "yks,kpss", 1.0),
+
+    ("kâğıt", "kağıt", "kâğıt", "spelling",
+     "'Kâğıt' sözcüğünde a uzundur. Yanlış: kağıt.", "kpss,yds", 1.0),
+
+    ("milyar", "milyar", "milyar", "spelling",
+     "Doğrusu 'milyar' (y harfi önce). 'Milyyar' ve 'milyar' yanlıştır.", "yds", 0.9),
+
+    ("dolap", "dolabı", "dolabı", "suffix_sound",
+     "Anlam: 'dolap'ın içindeki eşyalar → dolabı. Ünsüz yumuşaması geçerlidir, "
+     "bu bir hata değil.", "yks", 1.0),
+
+    ("vakit", "vaakit", "vakit", "spelling",
+     "'Vakit' tek a ile yazılır. Vurgulu kullanımda vâkit olabilir ama "
+     "standart yazım vakittir.", "yds", 0.85),
+]
+
+
+# -----------------------------------------------------------------------------
+#  Yükleme
+# -----------------------------------------------------------------------------
+
+def build(seed_path: Path, out_path: Path) -> int:
+    seed = json.loads(seed_path.read_text(encoding="utf-8"))
+    words = seed["words"]
+    meta = seed.get("meta", {})
+
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    if out_path.exists():
+        out_path.unlink()
+
+    conn = sqlite3.connect(out_path)
+    conn.executescript(SCHEMA.read_text(encoding="utf-8"))
+
+    word_ids: dict[str, int] = {}
+
+    for w in words:
+        surface = w["word"]
+        cursor = conn.execute(
+            """
+            INSERT INTO words (
+                word, normalized_word, search_folded,
+                origin, origin_period, is_pure_turkish, phonetics,
+                usage_frequency, confidence, source_note, exam_tags, has_audio
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0)
+            """,
+            (
+                surface,
+                normalize(surface),
+                fold(surface),
+                w.get("origin"),
+                w.get("origin_period"),
+                1 if w.get("is_pure_turkish") else 0,
+                w.get("phonetics"),
+                float(w.get("usage_frequency", 0.5)),
+                float(w.get("confidence", 1.0)),
+                w.get("source_note", "Faz 0 tad testi"),
+                w.get("exam_tags", ""),
+            ),
+        )
+        word_id = int(cursor.lastrowid)
+        word_ids[surface] = word_id
+
+        for m in w.get("meanings", []):
+            conn.execute(
+                """
+                INSERT INTO meanings (
+                    word_id, meaning_order, word_type, sense_label,
+                    definition, example_classic, example_author,
+                    example_modern, example_note, confidence
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    word_id,
+                    int(m["order"]),
+                    m["type"],
+                    m.get("sense", "gercek"),
+                    m["definition"],
+                    m.get("example_classic"),
+                    m.get("example_author"),
+                    m.get("example_modern"),
+                    m.get("example_note"),
+                    float(m.get("confidence", 1.0)),
+                ),
+            )
+
+        for r in w.get("relations", []):
+            conn.execute(
+                """
+                INSERT OR IGNORE INTO relations
+                    (word_id, related_word, relation_type, note, confidence)
+                VALUES (?, ?, ?, ?, 1.0)
+                """,
+                (word_id, r["word"], r["type"], r.get("note")),
+            )
+
+        for m in w.get("morphology", []):
+            conn.execute(
+                """
+                INSERT OR IGNORE INTO morphology
+                    (word_id, surface, root, suffixes, explanation, note)
+                VALUES (?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    word_id,
+                    m["surface"],
+                    m["root"],
+                    json.dumps(m.get("suffixes", []), ensure_ascii=False),
+                    m.get("explanation"),
+                    m.get("note"),
+                ),
+            )
+
+    # Yazım kuralları
+    for base, wrong, correct, rtype, expl, exams, conf in WRITING_RULES:
+        conn.execute(
+            """
+            INSERT OR IGNORE INTO writing_rules
+                (base_word, wrong_form, correct_form, rule_type,
+                 rule_explanation, exam_tags, confidence)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+            """,
+            (base, wrong, correct, rtype, expl, exams, conf),
+        )
+
+    # Tam metin indeksini doldur (external content tablosu)
+    conn.execute(
+        "INSERT INTO definitions_fts(definitions_fts) VALUES('rebuild')"
+    )
+
+    counts = {
+        "words": conn.execute("SELECT COUNT(*) FROM words").fetchone()[0],
+        "meanings": conn.execute("SELECT COUNT(*) FROM meanings").fetchone()[0],
+        "relations": conn.execute("SELECT COUNT(*) FROM relations").fetchone()[0],
+        "morphology": conn.execute("SELECT COUNT(*) FROM morphology").fetchone()[0],
+        "writing_rules": conn.execute("SELECT COUNT(*) FROM writing_rules").fetchone()[0],
+    }
+
+    conn.execute(
+        "UPDATE dataset_meta SET value = ? WHERE key = 'word_count'", (str(counts["words"]),)
+    )
+    conn.execute(
+        "UPDATE dataset_meta SET value = ? WHERE key = 'dataset_version'",
+        (meta.get("dataset_version", "0.1.0"),),
+    )
+    conn.commit()
+
+    # Bütünlük denetimi
+    problems = verify(conn)
+
+    conn.execute("VACUUM")
+    conn.close()
+
+    size_mb = out_path.stat().st_size / 1_048_576
+    print(f"  dict.db yazildi: {out_path}")
+    print(f"  boyut          : {size_mb:.2f} MB")
+    for key, value in counts.items():
+        print(f"  {key:<14}: {value}")
+
+    if problems:
+        print("\n  UYARILAR")
+        for p in problems:
+            print(f"    - {p}")
+    else:
+        print("\n  Butunluk denetimi temiz.")
+
+    return 0 if not problems else 1
+
+
+def verify(conn: sqlite3.Connection) -> list[str]:
+    """Veri hattının kendi kendini denetlemesi."""
+    problems: list[str] = []
+
+    # 1. Anlamı olmayan kelime var mı?
+    orphan = conn.execute(
+        "SELECT COUNT(*) FROM words w "
+        "WHERE NOT EXISTS (SELECT 1 FROM meanings m WHERE m.word_id = w.id)"
+    ).fetchone()[0]
+    if orphan:
+        problems.append(f"{orphan} kelimenin hiç anlamı yok")
+
+    # 2. normalize/fold doğru mu?  (Python tarafında, çünkü SQL'de yok)
+    bad_normalized = []
+    bad_folded = []
+    for word, norm, fld in conn.execute(
+        "SELECT word, normalized_word, search_folded FROM words"
+    ):
+        if norm != turkish_lower(word):
+            bad_normalized.append(word)
+        if fld != fold(word):
+            bad_folded.append(word)
+
+    if bad_normalized:
+        problems.append(
+            f"{len(bad_normalized)} kelimede Türkçe küçük harf kuralı bozuk: "
+            f"{bad_normalized[:3]}"
+        )
+    if bad_folded:
+        problems.append(
+            f"{len(bad_folded)} kelimede katlama hatalı: {bad_folded[:3]}"
+        )
+
+    # 3. Aynı kelime iki kez var mı?
+    dupes = conn.execute(
+        "SELECT word, COUNT(*) c FROM words GROUP BY word HAVING c > 1"
+    ).fetchall()
+    if dupes:
+        problems.append(f"tekrar eden kelimeler: {[d[0] for d in dupes]}")
+
+    # 4. FTS indeksi dolu mu?
+    fts_count = conn.execute("SELECT COUNT(*) FROM definitions_fts").fetchone()[0]
+    meaning_count = conn.execute("SELECT COUNT(*) FROM meanings").fetchone()[0]
+    if fts_count != meaning_count:
+        problems.append(f"FTS indeksi boş: {fts_count}/{meaning_count}")
+
+    # 5. Uydurma alıntı denetimi
+    #    Yazar adı yazılı ama alıntı metni yoksa bu bir hatadır.
+    ghost = conn.execute(
+        "SELECT COUNT(*) FROM meanings "
+        "WHERE example_author IS NOT NULL AND example_classic IS NULL "
+        "AND example_note IS NULL"
+    ).fetchone()[0]
+    if ghost:
+        problems.append(f"{ghost} kayıtta yazar var ama cümle yok")
+
+    return problems
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description="Sözlük veritabanını üretir")
+    parser.add_argument(
+        "--seed",
+        type=Path,
+        default=ROOT / "data" / "seed" / "words_sample.json",
+    )
+    parser.add_argument(
+        "--out",
+        type=Path,
+        default=ROOT / "mobile" / "assets" / "dict.db",
+    )
+    args = parser.parse_args()
+
+    if not args.seed.exists():
+        print(f"HATA: seed dosyasi bulunamadi: {args.seed}", file=sys.stderr)
+        return 2
+
+    print(f"  kaynak : {args.seed}")
+    return build(args.seed, args.out)
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
