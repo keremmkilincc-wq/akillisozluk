@@ -47,5 +47,9 @@ API anahtarı mobil uygulamada bulunmaz; yalnızca FastAPI proxy üzerinden geç
 
 ## Lisans
 
-Karar aşamasında. Veri kaynakları (Zemberek, Wiktionary vb.) için ayrı
-değerlendirme notu eklenecek.
+MIT — bkz. [LICENSE](LICENSE).
+
+Sözlük verisinin telif durumu ayrıca ele alınacak: tanımlar bu repo tarafından
+sıfırdan üretiliyor, TDK metinleri kopyalanmıyor. Kullanılacak dış veri
+kaynaklarının (Zemberek, Wiktionary vb.) lisansları veri hattında kayıt altına
+alınacak.
