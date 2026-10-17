@@ -24,6 +24,13 @@ dependencies:
 
   # Sözlük veritabanı — TEK doğru kaynak (Faz 0'dan itibaren)
   sqflite: ^2.4.1
+  # Web derlemesi icin: sqflite'in web uygulamasi YOK.
+  # Web yalnizca QA icin kullanilir ama ekranlari gorsel dogrulamanin
+  # tek yolu; SQLite'a gecis onu sessizce kirmisti.
+  sqflite_common_ffi_web: ^1.2.0
+  # Web derlemesi icin: sqflite'in web uygulamasi YOK.
+  # Web yalnizca QA icin kullanilir ama ekranlari gorsel
+  # dogrulamamizin tek yolu; SQLite'a gecis onu kirmisti.
   path: ^1.9.0
   path_provider: ^2.1.5
 

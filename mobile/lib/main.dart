@@ -2,8 +2,12 @@
 //  AKILLI TÜRKÇE SÖZLÜK — giriş noktası
 // ============================================================================
 
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sqflite/sqflite.dart' as sqflite;
+import 'package:sqflite/sqflite.dart' show DatabaseFactory;
+import 'package:sqflite_common_ffi_web/sqflite_ffi_web.dart';
 
 import 'core/theme.dart';
 import 'data/dictionary_repository.dart';
@@ -20,12 +24,39 @@ import 'ui/writing_rules_screen.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Sözlük belleğe alınır. Faz 1'de SQLite'a taşınacak; buradaki tek
-  // değişiklik repository'nin iç yüzü olacak.
+  // Sözlük SQLite'tan okunur. Fabrika platforma göre seçilir.
+  //
+  // NEDEN: sqflite'in WEB UYGULAMASI YOKTUR. Veri tabanını SQLite'a
+  // taşıdığımızda web derlemesi sessizce bozuldu — ekranlar tarayıcıda
+  // hiç açılmadı, konsolda tek satırlık bir hata. Bu derleme yalnızca QA
+  // için kullanılıyor ama görsel doğrulamanın tek yolu; kaybedilmesi
+  // kabul edilemezdi.
+  //
+  // Mobil: sqflite'ın kendi fabrikası.
+  // Web:    wasm tabanlı SQLite (sqflite_common_ffi_web).
+  final factory = await resolveDatabaseFactory();
+
   final repo = DictionaryRepository();
-  await repo.load();
+  await repo.load(factory: factory);
 
   runApp(AkilliSozlukApp(repository: repo));
+}
+
+/// Platforma uygun veritabanı fabrikası.
+Future<DatabaseFactory> resolveDatabaseFactory() async {
+  if (kIsWeb) {
+    // Web'de SQLite bir SharedWorker üzerinden çalışır; wasm motoru ve
+    // worker önce kurulur.
+    //
+    // Bu kurulum web/ klasöründeki sqlite3.wasm ve sqflite_sw.js dosyalarını
+    // gerektirir. Bunlar
+    //   dart run sqflite_common_ffi_web:setup
+    // ile indirilir. Bu komut olmadan web derlemesi açılır ama veritabanını
+    // açamaz.
+    await sqfliteFfiWebLoadSqlite3Wasm(SqfliteFfiWebOptions());
+    return databaseFactoryFfiWeb;
+  }
+  return sqflite.databaseFactory;
 }
 
 /// Geliştirme/QA için: URL parametresiyle ekran seçimi.
