@@ -156,6 +156,13 @@ class DictionaryRepository extends ChangeNotifier {
 
   List<String> get allRoots => List.unmodifiable(_roots);
 
+  /// Aramaya özel dizinin doğrudan erişimi.
+  ///
+  /// Yalnızca testlerin ölçüm yapabilmesi için: yazım düzeltme katmanının
+  /// gerçekten kurulduğu, dışarıdan bakılamıyordu. `_search` zaten her
+  /// aramada kullanıldığı için burada yeni bir yüzey açmıyor.
+  FuzzySearch get searchIndexForTesting => _search;
+
   ({List<SearchHit> results, List<SearchHit> suggestions}) search(String query) {
     final raw = _search.search(query, _roots);
 

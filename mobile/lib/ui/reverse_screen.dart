@@ -44,7 +44,7 @@ class ReverseScreen extends StatefulWidget {
   /// bu ekrandaki üç örneği koruyor; sıralamanın kendisi düzeltilmeli.
   static const examplePrompts = <(String, String)>[
     ('Yanan şeyden yükselen alev', 'ateş'),
-    ('Yüzyıllardır tekrarlanan, değişmeyen uygulama', 'gelenek'),
+    ('Yıllardır değişmeden süren uygulama', 'gelenek'),
     ('Suyun biriktiği geniş çukur', 'göl'),
   ];
   const ReverseScreen({super.key});

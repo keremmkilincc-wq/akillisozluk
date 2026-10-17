@@ -39,6 +39,22 @@ ROOT = Path('data/seed')
 # Kiril ve Yunanca alfabeleri. Turkce bunlari icermez.
 YABANCI_HARF = re.compile(r'[\u0400-\u04FF\u0370-\u03FF]')
 
+# Birlestirilen aksan isaretleri (U+0300..U+036F).
+#
+# DIKKAT: bu isaretler her yerde HATA degildir. "phonetics" alaninda IPA
+# yazimi icin ZORUNLUDUR: "[d͡ynja]" dogru yazimdir, isaret olmadan
+# "[dynja]" sesi bozar. Ilk denemede tum satirlari taradim ve dort dogru
+# yazimi hata olarak gosterdi — kural cok genis yazilmisti.
+#
+# KURAL DARALTILDI: yalnizca word / root / surface alanlari duz Turkce
+# yazim olmalidir; bunlar IPA icermez ve birlestirilmis isaret tasimaz.
+#
+# Bu parti 007'de nasil bulundu: bir morphology girdisine Dart'a ozgu
+# bir ifade tasimistim ("shi̇ir".replace(...)) ve dosya JSON olarak
+# ayristirilamaz oldu. Kiril taramasi YAKALAMAMISTI, cunku isaret Latin.
+BIRLESTIRILEN_ISARET = re.compile(r'[\u0300-\u036F]')
+DUZ_TURKCE_ALANLAR = ('word', 'root', 'surface')
+
 HATA = 0
 
 for f in sorted(ROOT.glob('words*.json')):
@@ -55,7 +71,9 @@ for f in sorted(ROOT.glob('words*.json')):
 
     gorsulen = set()
 
-    # Dosya genelinde harf taramasi (meta alani dahil)
+    # Dosya genelinde Kiril/Yunanca taramasi (meta alani dahil).
+    # Birlestirilmis isaret taramasi ASAGIDA alan bazinda yapilir; IPA
+    # geregi burada yanlis pozitif uretirdi.
     for i, line in enumerate(f.read_text(encoding='utf-8').split('\n'), 1):
         if YABANCI_HARF.search(line):
             print(f"  HATA satir {i}: Kiril/Yunanca harf -> {line.strip()[:70]}")
@@ -68,6 +86,16 @@ for f in sorted(ROOT.glob('words*.json')):
             print(f"  HATA tekrarli kelime: {ad}")
             HATA += 1
         gorsulen.add(ad)
+
+        def duz_turkce_mi(deger, yer):
+            """word / root / surface düz Türkçe yazım olmalı; IPA içermez."""
+            if not isinstance(deger, str):
+                return
+            if BIRLESTIRILEN_ISARET.search(deger):
+                print(f"  HATA {yer}: birlestirilmis isaret -> {deger!r}")
+                globals()['HATA'] = globals()['HATA'] + 1
+
+        duz_turkce_mi(ad, f"{ad}: word")
 
         ph = w.get('phonetics')
         if isinstance(ph, list):
@@ -104,6 +132,8 @@ for f in sorted(ROOT.glob('words*.json')):
         yuzeyler = set()
         for m in w.get('morphology', []):
             y = m.get('surface', '<isimsiz>')
+            duz_turkce_mi(y, f"{ad}: morphology.surface")
+            duz_turkce_mi(m.get('root'), f"{ad}: morphology.root")
             if y in yuzeyler:
                 print(f"  HATA {ad}: tekrarli morfoloji yuzeyi: {y}")
                 HATA += 1

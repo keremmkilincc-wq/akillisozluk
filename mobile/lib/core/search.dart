@@ -224,8 +224,13 @@ class FuzzySearch {
   /// Indeks bu cumle ile bir kez kuruldu mu?
   bool _deletionIndexReady = false;
 
-  /// Indeksin kurulup kurulmadigini disa bildirir (yukleme gostergesi icin).
-  bool get deletionIndexReady => _deletionIndexReady;
+  /// Indeks gercekten KURULDU mu? [_deletionIndexReady] tek basina yeterli
+  /// degildi: atama `if` blogunun disinda oldugu icin, indeks hic kurulmasa
+  /// bile "hazir" gorunuyordu.
+  bool _deletionIndexBuilt = false;
+
+  /// Indeks kurulmadan atlandiysa nedeni. null ise sorun yok.
+  String? _deletionIndexSkipReason;
 
   Map<String, Set<String>> _ensure() {
     if (_deletionIndexReady) return _deletionIndex!;
@@ -233,31 +238,70 @@ class FuzzySearch {
     return _deletionIndex!;
   }
 
+  /// Silme indeksinin GERÇEKTEN kurulup kurulmadığı.
+  ///
+  /// [_deletionIndexReady] bunu YANLIŞ bildiriyordu: atama, `if` bloğunun
+  /// DIŞINDA olduğu için indeks hiç kurulmasa da `true` dönüyordu. Yani
+  /// "hazır" olan bir şey "hazır değil" diyordu. Ölçüm: 60.298 yüzeylik
+  /// gerçek korpusta indeks kurulmadı ve bu bayrak yine `true` idi.
+  bool get deletionIndexReady => _deletionIndexReady && _deletionIndexBuilt;
+
+  /// İndeksin kurulmadan atlandığı neden — varsa. Testler ve ölçümler
+  /// bunu okur. Sessiz bir sınır, sessiz bir ölüm demektir.
+  String? get deletionIndexSkippedReason => _deletionIndexSkipReason;
+
   int _ensureDeletionIndex() {
     if (_deletionIndexReady) return 0;
     final started = DateTime.now();
     final index = <String, Set<String>>{};
+
     if (_allWords.length <= _maxWordsForDeletionIndex) {
       for (final w in _allWords) {
         final f = foldTurkish(w);
-        if (f.length < 3 || f.length > _maxIndexedLength) continue;
+        if (f.length < _minIndexedLength || f.length > _maxIndexedLength) continue;
         for (final variant in _deletions(f)) {
           index.putIfAbsent(variant, () => <String>{}).add(w);
         }
       }
+      _deletionIndexBuilt = true;
+    } else {
+      // SESSİZCE ATLAMAK YANLIŞTI. Bu yol bir kez çalıştı: korpus 60.298
+      // yüzeye çıkınca (sınır 60.000) yazım düzeltme katmanı tamamen ve
+      // fark edilmeden öldü. "kirbit" yazınca "kibrit" önerilmiyordu.
+      _deletionIndexSkipReason =
+          'yüzey sayısı ${_allWords.length} > sınır $_maxWordsForDeletionIndex';
+      _deletionIndexBuilt = false;
     }
+
     _deletionIndex = index;
     _deletionIndexReady = true;
     return DateTime.now().difference(started).inMilliseconds;
   }
 
-  /// Silme indeksine alınacak azami sözcük uzunluğu. Uzun sözcükler
-  /// yazım hatası hedefi olmaz ve indeksi şişirirler.
-  static const _maxIndexedLength = 14;
+  /// Silme indeksine alınacak en kısa sözcük. Üç harften kısası için
+  /// silme komşuluğu anlamsız: "at" için iki harf silmek, her şeyi getirir.
+  static const _minIndexedLength = 3;
 
-  /// Silme indeksi için makul sözcük sınırı. Bu sınır aşılırsa indeks
-  /// kurulmaz ve arama trigram'a düşer (100k kelime hedefi için not).
-  static const _maxWordsForDeletionIndex = 60000;
+  /// Silme indeksine alınacak azami sözcük uzunluğu.
+  ///
+  /// ÖLÇÜLDÜ (58.813 kelime, masaüstü):
+  ///
+  ///   uzunluk 3..14   1.091 ms   +118,6 MB
+  ///   uzunluk 3..10     976 ms     +5,5 MB
+  ///
+  /// Uzun sözcükler indekse çok sayıda varyant üretir ve bellek buna orantısız
+  /// öder. 10 harften uzun sözcüklerdeki yazım hataları zaten ön ek ve
+  /// trigram katmanlarıyla yakalanıyor. 14 → 10: bellek 118 MB'tan 5,5 MB'a.
+  ///
+  /// (Tek RSS örneği gürültülüdür; oran güvenilir, mutlak değerler az.)
+  static const _maxIndexedLength = 10;
+
+  /// Silme indeksi için sözcük sayısı sınırı.
+  ///
+  /// ÖLÇÜLEN KORPUS: 58.813 kelime + 1.485 morfoloji yüzeyi = 60.298.
+  /// Eski sınır 60.000 idi ve aşıldığı için indeks kurulmuyordu. Sınır
+  /// artık gerçek verinin çok üstünde; asıl koruma uzunluk kısıtı.
+  static const _maxWordsForDeletionIndex = 200000;
 
   /// Indeks KURULMAZ; ilk aramada kurulur (bkz. [_ensureDeletionIndex]).
   FuzzySearch(List<String> words) : _allWords = List.unmodifiable(words) {

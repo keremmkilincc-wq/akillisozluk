@@ -112,6 +112,36 @@ void main() {
       final r = repo.search('kirbit');
       expect(r.suggestions.map((s) => s.word), contains('kibrit'));
     });
+
+    // BU TEST BİR HATAYI KALICI OLARAK KAPATIYOR.
+    //
+    // Silme indeksi, yazım hatası yakalayan katman. İndeks bir sözcük sayısı
+    // sınırının ALTINDA kalındığında kuruluyordu ve aşıldığında KURULMUYORDU.
+    // Sınır 60.000, gerçek korpus 60.298 yüzeye çıkınca (58.813 kelime +
+    // 1.485 morfoloji yüzeyi) katman sessizce öldü: "kirbit" yazınca
+    // "kibrit" önerilmiyordu.
+    //
+    // Dahası: `deletionIndexReady` bayrağı da YANLIŞ bildiriyordu, çünkü
+    // `_deletionIndexReady = true` ataması `if` bloğunun DIŞINDAYDİ. İndeks
+    // hiç kurulmamışken "hazır" diyordu.
+    //
+    // Bu iki satır ikisini de korur: indeks gerçekten kurulmuş olmalı ve
+    // gerçek bir yazım hatası gerçek bir kelimeyi bulmalı.
+    test('silme indeksi gercek korpus olceginde kuruluyor', () {
+      final fus = repo.searchIndexForTesting;
+      // önce bir arama: indeks tembel kuruluyor
+      fus.search('kibrit', const <String>[]);
+      expect(fus.deletionIndexReady, isTrue,
+          reason: 'silme indeksi kurulmadı: ${fus.deletionIndexSkippedReason}');
+      expect(fus.deletionIndexSkippedReason, isNull);
+    });
+
+    test('gercek yazim hatasi gercek kelimeyi buluyor', () {
+      final r = repo.search('kirbit');
+      expect(r.suggestions.map((s) => s.word), contains('kibrit'));
+      final r2 = repo.search('yalnıs');
+      expect(r2.suggestions.map((s) => s.word), contains('yanlış'));
+    });
   });
 
   group('arama', () {
