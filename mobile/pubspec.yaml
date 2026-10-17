@@ -1,7 +1,10 @@
 name: akilli_sozluk
 description: "Akıllı Türkçe Sözlük ve Dil Asistanı"
 publish_to: 'none'
-version: 0.1.0+1
+# 0.1.0  Faz 0 — veri tad testi
+# 0.2.0  Ozellik 1-4 — 4 oyun/modul
+# 0.3.0  Altyapi — SQLite tek kaynak, kok bulucu, Wordle, 58.809 madde
+version: 0.3.0+3
 
 environment:
   sdk: ^3.13.0
