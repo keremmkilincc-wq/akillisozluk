@@ -32,6 +32,11 @@
 //      zor dal    (24 vaka)   ilk 12/24  (%50)  ilk3 13/24
 //      temel dal  (63 vaka)   ilk 55/63  (%87)  ilk3 58/63
 //
+//  Parti 005 (52 yeni tanım) bu değerleri DEĞİŞTİRMEDİ. Parti 003 ve
+//  004'teki birer vaka düşüşü, büyük küme ile ölçüldüğünde görünmüyor —
+//  yani o kayıtlar küçük kümenin gürültüsüyle açıklanabiliyor. "Veri
+//  eklemek ölçümü kaydırır" varsayımı zayıfladı, henüz çürütülmedi.
+//
 //  ZOR DAL TARİHÇESİ (26 vaka idi, bir kısmı temel dala taşındı):
 //      parti 002 verisi + düzeltmeler   ilk 12/26  ilk3 15/26
 //      parti 003 verisi                ilk 11/26  ilk3 15/26

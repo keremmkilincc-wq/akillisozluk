@@ -19,7 +19,26 @@ Kirpma denetimi:
   4. confidence 0..1 araliginda mi
   5. meanings bos mu (yazilmamis madde icin bos olabilir ama seed'te olmamali)
   6. tekrarli kelime var mi (ayni dosyada)
+  7. tekrarli morfoloji yuzeyi, tekrarli iliski
+  8. Kiril/Yunanca harf var mi
+
+  8) EKLENDI: iki kez yapildi. Birinde 'emeк' icindeki Kirilca 'к'
+  Turkce k ile ayni gorunuyor ama foldTurkish onu Turkce harf saymiyor,
+  esanlamli sessizce HIC karsi lastirmiyordu. Ikincisinde parti 005'in
+  aday listesine yazdigim 'tepе' icinde Kirilca 'е' vardi.
+  Gozle bulunamayan bir hata — tarama ile bulunur.
 """
+
+import json
+import re
+import sys
+from pathlib import Path
+
+ROOT = Path('data/seed')
+
+# Kiril ve Yunanca alfabeleri. Turkce bunlari icermez.
+YABANCI_HARF = re.compile(r'[\u0400-\u04FF\u0370-\u03FF]')
+
 HATA = 0
 
 for f in sorted(ROOT.glob('words*.json')):
@@ -35,6 +54,12 @@ for f in sorted(ROOT.glob('words*.json')):
     print(f"  kelime : {len(kelimeler)}")
 
     gorsulen = set()
+
+    # Dosya genelinde harf taramasi (meta alani dahil)
+    for i, line in enumerate(f.read_text(encoding='utf-8').split('\n'), 1):
+        if YABANCI_HARF.search(line):
+            print(f"  HATA satir {i}: Kiril/Yunanca harf -> {line.strip()[:70]}")
+            HATA += 1
 
     for w in kelimeler:
         ad = w.get('word', '<isimsiz>')

@@ -161,21 +161,26 @@ final _cases = <(String, String)>[..._casesZor, ..._casesTemel];
 /// Ayrıntı aşağıda yorum olarak duruyor. Buraya yazılanların hepsi
 /// ÖLÇÜLMÜŞTÜR; "yaklaşık" ya da "muhtemelen" diye yazılmış bir kalem yok.
 const _knownLimits = <String>[
-  // ZOR DAL TABLOSU (26 vaka, parti 002–004):
+  // ZOR DAL TARİHÇESİ — 26 vaka iken ölçüldü, sonra kümenin bir kısmı temel
+  // dala taşındı ve 24'e düştü. 87 vakalık küme ikiye bölününce yeniden
+  // ölçüldü:
   //   parti 002 verisi + düzeltmeler   ilk 12/26  ilk3 15/26
   //   parti 003 verisi                ilk 11/26  ilk3 15/26
   //   parti 004 verisi                ilk 11/26  ilk3 14/26
+  //   iki dala bölündükten sonra       ilk 12/24  ilk3 13/24
+  //   parti 005 verisi (52 tanım)      ilk 12/24  ilk3 13/24
   //
-  // Parti 003'te ilk sıra, parti 004'te ilk-3 birer vaka geriledi. Bu bir
-  // regresyon DEĞİL, ölçümün çalıştığının kanıtı: yeni tanımlar bazı
-  // eşleşmelerin ayrımını bozuyor. Tek vaka gürültü sınırında.
-  // Asıl düştüğümüz eşik 9/26; altına inen her düşüş gerçek kayıp.
+  // SON DÜZELTME: parti 005 HİÇBİR DALI DÜŞÜRMEDİ. Parti 003 ve 004'teki
+  // birer vaka düşüşü, büyük küme ile yeniden ölçüldüğünde görünmüyor.
+  // Yani o iki kayıt küçük kümenin gürültüsüyle açıklanabiliyor. Aşağıdaki
+  // etiket bu yüzden "belirsiz" oldu — varsayım zayıfladı, çürütülmedi.
   'agirliga duyarsiz',
 
-  // VERİ EKLEMEK SIRALAMAYI KAYDIRIR: iki partide birer vaka düştü.
-  // Kademeli yazım, ölçümsüz ilerlemeyi bozuyor. Her parti sonrası bu
+  // VERİ EKLEMEK SIRALAMAYI KAYDIRIYOR MU? Parti 003 ve 004'te birer vaka
+  // düştü, ama 26 vakalık kümede ve tek vaka gürültü sınırındaydı. Parti
+  // 005, 87 vakalık iki dalla ölçüldü ve düşürmedi. Her parti sonrası bu
   // tablo yeniden okunmalı.
-  'veri eklemesi kaydiriyor',
+  'veri eklemesi kaydiriyor mu belirsiz',
 
   // VERİ KAPSAMI: tersi sözlük YALNIZCA tanımı yazılmış kelimeleri
   // döndürebilir. 58.812 kelimenin %0,7'si tanımlı. "tereddüt", "susuzluk",
