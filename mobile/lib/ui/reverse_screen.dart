@@ -19,6 +19,26 @@ import 'widgets/common.dart';
 import 'word_detail_screen.dart';
 
 class ReverseScreen extends StatefulWidget {
+
+  /// Örnek cümleler SADECE tanımı verilen kelimeleri örnekler, rastgele
+  /// seçilmiş cümleler değil.
+  ///
+  /// Bu liste bir kez yanlış seçildi ve ekran sessizce bozuldu:
+  /// "tereddüt", "hürmet", "hasret" sözlükte KESİNLİKLE yoktu. Kullanıcı
+  /// örneğe dokununca sıfır sonuç alıyordu ama hiçbir hata görünmüyordu.
+  /// Yani örnek, vaat ettiği şeyi yerine getirmeyen bir vaatti.
+  ///
+  /// Düzeltme iki parçalı:
+  ///   (a) Cümleler ölçülerek seçildi — her biri tersi sözlüğe soruldu ve
+  ///       doğru kelime İLK sırada geldi.
+  ///   (b) Her birinin gerçekten sonuç döndürdüğü tersi_sozluk_test.dart
+  ///       içinde kalıcı bir teste bağlandı. Sözlük değişirse örnek eskirse
+  ///       o test kızar.
+  static const examplePrompts = <(String, String)>[
+  ('Yanan şeyden yükselen alev', 'ateş'),
+  ('Şehirde çalışılan sanat yeri', 'atölye'),
+  ('Bir işe ilk başlama anı', 'başlangıç'),
+  ];
   const ReverseScreen({super.key});
 
   @override
@@ -31,20 +51,7 @@ class _ReverseScreenState extends State<ReverseScreen> {
   List<ReverseHit> _hits = [];
   bool _searched = false;
 
-  static const _examples = <(String, String)>[
-    (
-      'Bir şeyin tam gerçekleşeceği sırada vazgeçme durumu',
-      'tereddüt'
-    ),
-    (
-      'Birine karşı duyulan derin sevgi ve saygı',
-      'hürmet'
-    ),
-    (
-      'Uzun süre bekledikten sonra gelen sevinç',
-      'hasret'
-    ),
-  ];
+
 
   @override
   void dispose() {
@@ -165,7 +172,7 @@ class _ReverseScreenState extends State<ReverseScreen> {
   List<Widget> _idle(BuildContext context) {
     return [
       const SectionHeader(label: 'Örnekler'),
-      for (final (phrase, hint) in _examples)
+      for (final (phrase, hint) in ReverseScreen.examplePrompts)
         Padding(
           padding: const EdgeInsets.only(bottom: Gap.sm),
           child: _exampleCard(context, phrase, hint),

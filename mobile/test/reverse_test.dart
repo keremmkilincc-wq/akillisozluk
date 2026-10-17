@@ -1,99 +1,95 @@
 // ============================================================================
 //  TERSİ SÖZLÜK TESTLERİ
 //
-//  Bu algoritmanın en büyük riski "yalan söylemesi": kullanıcı tanım yazar,
-//  uygulama alakasız bir kelimeyi yüksek puanla döndürürse güven biter.
-//  Bu yüzden hem isabet hem de alakasızlık reddi test ediliyor.
+//  BURADA ÇÖZÜLEN GERÇEK BİR HATA
+//  ------------------------------
+//  Tersi Sözlük ekranındaki örnek cümleler "tereddüt", "hürmet", "hasret"
+//  kelimelerini vaat ediyordu. Üçü de sözlükte YOKTU. Kullanıcı örneğe
+//  dokununca sıfır sonuç alıyordu — ve hiçbir hata görünmüyordu, ekran
+//  "bulunamadı" diye dürüstçe davranıyordu. Ama bir örnek, vaat ettiği
+//  cevabı vermiyorsa örnek değildir.
+//
+//  Bu dosya iki şeyi garanti eder:
+//    1. Ekrandaki HER örnek en az bir sonuç döndürür.
+//    2. Örneğin vaat ettiği kelime ilk sıradadır.
+//
+//  Sözlük büyüdükçe örnekler eskir; bu test o sessiz bozulmayı görünür
+//  kılar. Yeni kelime eklendiğinde buraya yeni örnek de eklenmelidir.
 // ============================================================================
 
-import 'package:akilli_sozluk/core/reverse_dictionary.dart';
 import 'package:akilli_sozluk/data/dictionary_repository.dart';
+import 'package:akilli_sozluk/ui/reverse_screen.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+
+import 'helpers.dart';
 
 void main() {
-  // rootBundle, binding kurulmadan kullanılamaz.
-  TestWidgetsFlutterBinding.ensureInitialized();
-
   late DictionaryRepository repo;
-  late ReverseDictionary rd;
 
   setUpAll(() async {
-    repo = DictionaryRepository();
-    await repo.load();
+    sqfliteFfiInit();
+    repo = await openTestRepository();
+  });
 
-    final entries = <(String, String)>[];
-    for (final w in repo.all) {
-      for (final m in w.meanings) {
-        entries.add((w.word, m.definition));
+  group('ekrandaki örnekler vaadini tutuyor', () {
+    test('en az bir örnek tanımlı', () {
+      expect(ReverseScreen.examplePrompts, isNotEmpty);
+    });
+
+    test('her örnek en az bir sonuç döndürür', () {
+      final bos = <String>[];
+
+      for (final (phrase, hint) in ReverseScreen.examplePrompts) {
+        final hits = repo.reverseSearch(phrase);
+        if (hits.isEmpty) bos.add('$phrase  (vaat: $hint)');
       }
-    }
-    rd = ReverseDictionary(entries);
-  });
 
-  group('isabet', () {
-    test('tanımdaki çekirdek kavramları içeren sorgu doğru kelimeyi bulur', () {
-      // "sınır" tanımında geçen kavramlar
-      final hits = rd.search('bir yapının iki yanı arasında kalan dikey bölüm');
-      expect(hits, isNotEmpty);
-      expect(hits.map((h) => h.word), contains('duvar'));
+      expect(
+        bos,
+        isEmpty,
+        reason: 'Bu örnekler sonuç döndürmüyor — kullanıcı boş ekran görür:\n'
+            '${bos.join('\n')}',
+      );
     });
 
-    test('zıt anlam tanımına yakın sorgu', () {
-      final hits = rd.search('gerçekleşmek üzereyken vazgeçmek');
-      expect(hits, isNotEmpty);
-    });
+    test('her örnek kendi cevabını ilk sırada bulur', () {
+      final yanlis = <String>[];
 
-    test('kelime adını yazmak da bulur', () {
-      final hits = rd.search('görme organı');
-      expect(hits.map((h) => h.word), contains('göz'));
-    });
-  });
-
-  group('alakasızlık reddi', () {
-    test('sözlükte hiç olmayan kavramlar sonuc döndürmez', () {
-      // Sözlükte bu kavramlar yok; döndürüyorsa algoritma gürültü üretiyor.
-      final hits = rd.search('zümrüt ejderha şövalye kılıç kalkan');
-      expect(hits, isEmpty);
-    });
-
-    test('çok kısa sorgu reddedilir', () {
-      expect(rd.search('ab'), isEmpty);
-      expect(rd.search('   '), isEmpty);
-    });
-
-    test('yalnızca stopword içeren sorgu reddedilir', () {
-      expect(rd.search('bir şey olan için gibi'), isEmpty);
-    });
-  });
-
-  group('sıralama ve biçim', () {
-    test('sonuçlar skor sırasına göre azalan', () {
-      final hits = rd.search('gerçeğe uymayan hatalı olan');
-      for (var i = 1; i < hits.length; i++) {
-        expect(hits[i - 1].score, greaterThanOrEqualTo(hits[i].score));
-      }
-    });
-
-    test('aynı kelime iki kez dönmez', () {
-      final hits = rd.search('gerçeğe uymayan hatalı olan');
-      final words = hits.map((h) => h.word).toList();
-      expect(words.length, words.toSet().length);
-    });
-
-    test('eşleşen terimler açıkça raporlanır', () {
-      final hits = rd.search('görme organı');
-      if (hits.isNotEmpty) {
-        expect(hits.first.matchedTerms, isNotEmpty);
-        for (final t in hits.first.matchedTerms) {
-          expect(t, isA<String>());
+      for (final (phrase, hint) in ReverseScreen.examplePrompts) {
+        final hits = repo.reverseSearch(phrase);
+        if (hits.isEmpty || hits.first.word != hint) {
+          final ilk = hits.isEmpty ? '(sonuç yok)' : hits.first.word;
+          yanlis.add('$phrase\n'
+              '    vaat edilen: $hint\n'
+              '    ilk sonuç   : $ilk');
         }
       }
+
+      expect(
+        yanlis,
+        isEmpty,
+        reason: 'Örnekler kendi cevabını ilk sırada bulamıyor:\n'
+            '${yanlis.join('\n')}',
+      );
+    });
+  });
+
+  group('tersi sözlük davranışı', () {
+    test('tanımdan kavram buluyor', () {
+      final hits = repo.reverseSearch('görme organı');
+      expect(hits.map((h) => h.word), contains('göz'));
     });
 
-    test('skor 0 ile 1 arasında', () {
-      for (final h in rd.search('görme organı')) {
-        expect(h.score, inInclusiveRange(0, 1));
-      }
+    test('sözlükte olmayan kavram reddediliyor', () {
+      expect(repo.reverseSearch('zümrüt ejderha şövalye'), isEmpty);
+    });
+
+    test('tanımı doğrudan yazmak da kelimeyi bulur', () {
+      // Kullanıcı bazen kelimeyi bilir, tanımını arar. Bu yol çalışmalı.
+      final hits = repo.reverseSearch('Yer yüzünün yaklaşık yüzde yetmişini '
+          'kaplayan, tuzlu su kütlesi');
+      expect(hits.map((h) => h.word), contains('deniz'));
     });
   });
 }

@@ -1,20 +1,15 @@
-// ============================================================================
-//  FAVORİLER DEPOSU TESTLERİ
-//
-//  Kullanıcı verisi kaybolursa uygulamanın değeri silinir. Kalıcılık
-//  (persist) burada test edilir: ekle → yeni depoya yükle → hâlâ orada mı?
-// ============================================================================
-
 import 'package:akilli_sozluk/data/favorites_store.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+/// Favori deposu — kalıcılık testleri.
+///
+/// Kullanıcı verisi kaybolursa uygulamanın değeri silinir. Burada
+/// "ekle → yeni depo yükle → hâlâ orada mı" zinciri sınanıyor.
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  setUp(() {
-    SharedPreferences.setMockInitialValues({});
-  });
+  setUp(() => SharedPreferences.setMockInitialValues({}));
 
   test('favori ekleme ve çıkarma', () async {
     final store = FavoritesStore();
@@ -41,7 +36,7 @@ void main() {
     expect(second.favorites.length, 2);
   });
 
-  test('liste oluşturma — aynı isim reddedilir', () async {
+  test('liste oluşturma — aynı isim ve boş isim reddedilir', () async {
     final store = FavoritesStore();
     await store.load();
 
@@ -92,7 +87,7 @@ void main() {
     expect(store.lists.containsKey('Gidecek'), isFalse);
   });
 
-  test('dışa aktarma metni kelime içerir', () async {
+  test('dışa aktarma metni liste adını ve kelimeleri içerir', () async {
     final store = FavoritesStore();
     await store.load();
     await store.createList('Deneme');

@@ -22,19 +22,24 @@ dependencies:
   # Favoriler ve kişisel listeler (Modül 7)
   shared_preferences: ^2.3.2
 
-  # Kamera OCR (Faz 3)
-  # google_mlkit_text_recognition: ^0.15.0
-
-  # Yerel kullanıcı verisi
-  # shared_preferences: ^2.3.2
-  # sqflite: ^2.3.3+1
+  # Sözlük veritabanı — TEK doğru kaynak (Faz 0'dan itibaren)
+  sqflite: ^2.4.1
+  path: ^1.9.0
+  path_provider: ^2.1.5
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
 
+  # Testler de AYNI SQLite yolunu dener. JSON'dan okumak gerçek davranışı
+  # test etmezdi — üretim hattı JSON'a değil SQLite'a yazıyor.
+  sqflite_common_ffi: ^2.3.4
+
 flutter:
   uses-material-design: true
   assets:
-    - assets/data/
+    # dict.db uygulamanın tek sözlük kaynağı.
+    # (ÖNEMLİ: buraya eklenmezse APK'ya giremez, repoda olması yetmez —
+    #  bu hata projede bir kez yapıldı ve düzeltildi.)
+    - assets/dict.db

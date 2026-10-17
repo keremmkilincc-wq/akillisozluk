@@ -58,3 +58,8 @@ desktop.ini
 **/dt_out.txt
 **/analyze_out.txt
 mobile/flutter_*.png
+--- Derleme ciktilari ---
+# APK'lar GitHub Releases'e yuklenir, depoya girmez.
+# 4 APK ~107 MB eder; git deposunu sisirir ve hicbir ise yaramaz.
+release/*.apk
+build/**/*.apk
