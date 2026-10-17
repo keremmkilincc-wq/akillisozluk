@@ -3,8 +3,6 @@ import json
 import sys
 from pathlib import Path
 
-ROOT = Path('data/seed')
-
 """Seed dosyalarini uretimden ONCE denetler.
 
 NEDEN BU VAR: Bu projede veri JSON olarak ELLE yaziliyor. Iki kez tirnak
@@ -56,6 +54,41 @@ BIRLESTIRILEN_ISARET = re.compile(r'[\u0300-\u036F]')
 DUZ_TURKCE_ALANLAR = ('word', 'root', 'surface')
 
 HATA = 0
+
+# Denetlenmeyen dosya denetimi.
+#
+# Bu denetim `words*.json` uzerinde gezinir — build_dict.py ile AYNI kalip.
+# Kaliba uymayan bir dosya seed/ icinde durabilir: denetim onu GORMEZ, yani
+# temiz sayilir, ama build de onu YUKLEMEZ.
+#
+# Bu turde boyle oldu: deney dosyasini `_deney_yilan.json` adiyla koydum.
+# check_seed.py "tum seed dosyalari temiz" dedi — ve bu DOGRUYDU, cunku
+# dosyayi hic okumamisti. build_dict.py 580 kelimeyle dondu, deney kelimesi
+# hic girmedi. Denetim yesil, teslimat degismemis.
+#
+# Asagidaki blok, yemek klasorunde yalnizca yemek OLMAYAN dosya varsa
+# uretime girmeyi engeller.
+# Kalip build_dict.py ile ayni tutulmali; ayrilirsa ayni sessiz hat geri gelir.
+# build_dict.py'in YUKLEMEDIGI ama seed/ icinde yasamasi gereken dosyalar.
+#
+# wordle_words.json: Wordle havuzunun kaynagi. Parti degil; tools/build_wordle.py
+# tarafindan okunur. build_dict.py'in yuklememesi DOGRU, bir hata degil.
+YEMEK_OLMAYAN_IZINLI = {'wordle_words.json'}
+
+YENIYE_GIRMEYEN = [
+    _f.name
+    for _f in sorted(ROOT.glob('*.json'))
+    if not _f.name.startswith('words') and _f.name not in YEMEK_OLMAYAN_IZINLI
+]
+
+if YENIYE_GIRMEYEN:
+    print("UYARI: seed/ icinde taninmayan dosyalar var.")
+    print("       Bunlar denetlenmez ve uretime girmez — ama yanlislikla")
+    print("       parti sandiginiz bir dosya olabilir:")
+    for _ad in YENIYE_GIRMEYEN:
+        print(f"         - {_ad}")
+    print("       Adi 'words' ile baslat ya da dosyayi sil.")
+    HATA += 1
 
 for f in sorted(ROOT.glob('words*.json')):
     print(f"\n=== {f.name} ===")

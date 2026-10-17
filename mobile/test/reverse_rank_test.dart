@@ -2,7 +2,7 @@
 //  TERSİ SÖZLÜK — SIRALAMA ÖLÇÜMÜ (İKİ DAL)
 //
 //  test/reverse_test.dart yalnızca EKRANDAKİ ÜÇ örneği koruyor. Bu dosya
-//  genel ölçüm: 86 soru, her biri için tek ve belirli bir doğru cevap.
+//  genel ölçüm: 87 soru, her biri için tek ve belirli bir doğru cevap.
 //
 //  NEDEN İKİ DAL: İlk ölçüm 26 soruydu ve zordu — tanımın anahtar sözcüğü
 //  geçmiyor ya da jenerik sözcükler üzerinden geçiyordu. Parti 004'te 60
@@ -28,131 +28,7 @@ library;
 import 'package:flutter_test/flutter_test.dart';
 
 import 'helpers.dart';
-
-/// ZOR DAL — tanımın anahtar sözcüğü doğrudan geçmiyor, ya da eşleşme
-/// jenerik sözcükler üzerinden oluyor.
-///
-/// 26 vaka; parti 003 ve 004'te tanımlar eklendikçe ölçüldü:
-///   parti 002 verisi + düzeltmeler   ilk 12/26  ilk3 15/26
-///   parti 003 verisi                ilk 11/26  ilk3 15/26
-///   parti 004 verisi                ilk 11/26  ilk3 14/26
-const _casesZor = <(String, String)>[
-  // Tanım eş anlamlıyla yazılmış, doğrudan kelime geçmiyor
-  ('Uzaktan duyulan aracın kornası', 'ses'),
-  ('Çatışma bittikten sonra tarafların anlaşması', 'barış'),
-  ('Kendini başkasının fikrine benimsetme çabası', 'satmak'),
-  ('Bir şeyin ne olduğunu öğrenmek, tanımak', 'tanımak'),
-  ('Kimseye zarar vermeden yaşamak, başkasını gözetmek', 'hoşgörü'),
-  ('Bütün gün dinlenmeden çalışmak, çok uykusuz kalmak', 'yorgun'),
-  ('Karşı tarafın aleyhine olan şey', 'düşman'),
-  ('Hayalindeki şeyi gerçekleşmiş saymak', 'umut'),
-
-  // Zor: eşleşme çoğunlukla jenerik sözcükler üzerinden
-  ('Bir ülkenin başka ülkeye ordusuyla saldırması', 'savaş'),
-  ('Kapalı kalan tartışma, açıklığa kavuşmamış konu', 'sorun'),
-  ('Yaz aylarında havanın bunaltıcı derecede sıcak olması', 'sıcak'),
-  ('Doğum tarihine göre hesaplanan gökyüzü bölgeleri', 'burç'),
-  ('Günün yarıdan sonra güneşin batmasıyla oluşan alacakaranlık', 'akşam'),
-  ('Birbirinin sırrını saklayan yakın dostluk', 'dostluk'),
-  ('Eldeki malın karşılığında yapılan alışveriş', 'pazar'),
-
-  // Parti 004'te tanımlanan kelimelerden, yine zor yazılmış olanlar
-  ('Kanunla belirlenmiş, uyulması zorunlu ölçü', 'kural'),
-  ('Hakkı gözetme, doğru davranma', 'adalet'),
-  ('Yerine getirmesi gereken iş, yükümlülük', 'görev'),
-  ('El becerisiyle, küçük atölyede yapılan iş', 'zanaat'),
-  ('Giderler karşılandıktan sonra kalan para', 'kazanç'),
-  ('El işi, üretim için kullanılan taşıt', 'araba'),
-  ('Dağın iki yakasını bağlayan geçmeye yarayan yapı', 'köprü'),
-  ('Alınıp satılan malların değiş tokuş edilmesi', 'ticaret'),
-  ('Taşıtta ya da eğlencede seyretme hakkı karşılığı kart', 'bilet'),
-];
-
-/// TEMEL DAL — tanımın anahtar sözcükleri doğrudan sorguda geçiyor.
-///
-/// 60 vaka; parti 000–004'te yazılan tanımlardan. Hepsi tanımlı kelimeler
-/// hedef alır (aşağıdaki koruma testi bunu denetler).
-const _casesTemel = <(String, String)>[
-  // Parti 000–002
-  ('Konuşma yoluyla düşünceleri aktarmak için kullanılan işaretler', 'dil'),
-  ('Kumaştan yapılan, mal alınıp satılan yer', 'burç'),
-  ('Dün gece rüyada gördüğü sahne', 'rüya'),
-  ('Yemek pişirmek için kullanılan geniş kap', 'tencere'),
-  ('Bir işi sona erdirmek, bitirmek', 'bitirmek'),
-  ('Uzaktaki bir yere gitmek için kullanılan yol', 'yol'),
-  ('Yetersiz, güçsüz, dayanıksız', 'zayıf'),
-  ('Karşıdakine zarar vermek için yapılan davranış', 'suç'),
-  ('Beklerken hiç acele etmemek, soğukkanlı olmak', 'sabır'),
-  ('Yapılması gereken, görev olarak verilen iş', 'görev'),
-  ('Yazılmış, basılmış kitap sayfaları', 'sayfa'),
-
-  // Parti 003 — kavramlar
-  ('Zihni meşgul eden, sonucu belirsiz durumlara karşı endişe', 'kaygı'),
-  ('İyi bir sonuç geleceğine dair beslenen beklenti', 'umut'),
-  ('Sıkıntı içinde kendini dizginleme gücü', 'sabır'),
-  ('Hoşuna gitmeyen bir durumu yine de kabul etme', 'hoşgörü'),
-  ('Birinin dürüstlüğüne ya da bir şeyin doğruluğuna inanma', 'güven'),
-  ('Onu önemli sayma ve değer verme duygusu', 'saygı'),
-  ('Kurallara ve düzene uyma davranışı', 'disiplin'),
-  ('Bir amaca ulaşmak için izlenen düzenli yol', 'yöntem'),
-  ('Bir olaydan ortaya çıkan durum', 'sonuç'),
-  ('Soruya verilen karşılık, yanıt', 'cevap'),
-  ('Bir şeyin öğrenilmesi için sorulan cümle', 'soru'),
-  ('Öğrenilen, duyulan yeni bilgi', 'haber'),
-  ('Kimsenin anlamadığı, dışlanmış hissi', 'yalnızlık'),
-  ('Çok sayıda kişinin bir araya geldiği yer', 'kalabalık'),
-  ('Toplumu oluşturan, tek başına bir kişi', 'birey'),
-  ('Kendisinden sonra gelecek zaman', 'gelecek'),
-  ('Zaman içinde çok kısa süren, belirli aralık', 'an'),
-  ('Bir işi yerine getirmek için harcanan zihinsel emek', 'çaba'),
-  ('Zeytin ağacından toplanan, küçük ve acı meyve', 'zeytin'),
-  ('Sırtı ve bacaklarıyla yüzen, kuyruğuyla denge kuran hayvan', 'balık'),
-
-  // Parti 004 — eğitim
-  ('Sınıfta öğretmenin anlattığı konu', 'ders'),
-  ('Sınav sonucunda öğrencinin aldığı puan', 'not'),
-
-  // Parti 004 — ulaşım
-  ('Araç kullanan, direksiyondaki kişi', 'sürücü'),
-  ('Ray üzerinde hareket eden, vagonlardan oluşan uzun araç', 'tren'),
-  ('Uçakların kalkıp indiği alan', 'havalimanı'),
-  ('Dağın içinden açılan, iki ucu olan geçit', 'tünel'),
-  ('Yollarda araçların oluşturduğu yoğun hareket', 'trafik'),
-  ('Beklenmedik, istemeden gerçekleşen olay', 'kaza'),
-
-  // Parti 004 — iş dünyası
-  ('Ücret karşılığında çalışan, amirin emri altındaki kişi', 'işçi'),
-  ('Çalışanların amiri, işletmeyi yöneten kişi', 'patron'),
-  ('Dükkândan mal alan kişi', 'müşteri'),
-  ('Aracı çalıştıran, yakıt tüketen makine parçası', 'motor'),
-  ('Mevduat alıp kredi veren kurum', 'banka'),
-  ('Sayılar arasındaki ilişkileri yapma işi', 'hesap'),
-  ('Başkasından alınıp geri ödenmesi gereken para', 'borç'),
-  ('Devletin kamu hizmetleri için topladığı para', 'vergi'),
-  ('Çalışma hayatını tamamlayıp işten ayrılmış kişi', 'emekli'),
-  ('Üretilmiş mal ve hizmetlerin ihtiyaç için kullanılması', 'tüketim'),
-  ('Yapılan iş için düzenli olarak ödenen para', 'maaş'),
-
-  // Parti 004 — hukuk
-  ('Uyulması zorunlu, meclisçe konulan kural', 'yasa'),
-  ('Bir olayı kendi gözüyle görmüş, anlatabilen kişi', 'tanık'),
-  ('Toplumda uyulması zorunlu kuralların bütünü', 'hukuk'),
-  ('Uyuşmazlıkları görüp karara bağlayan kurum', 'mahkeme'),
-  ('Mahkemede bir kişiyi temsil eden meslek erbabı', 'avukat'),
-  ('Hakkın korunması için mahkemede açılan uyuşmazlık', 'dava'),
-  ('Bir karara karşı çıkma', 'itiraz'),
-
-  // Parti 004 — teknoloji
-  ('Uzaktan sesli iletişim kurmaya yarayan araç', 'telefon'),
-  ('Bilgi işleyen, hesap yapan elektronik araç', 'bilgisayar'),
-  ('Aydınlatma ve çalıştırmada kullanılan enerji', 'elektrik'),
-  ('Uzaktan görüntü ve ses ileten ekranlı cihaz', 'televizyon'),
-  ('Işığa duyarlı bir yüzeyle kaydedilmiş görüntü', 'fotoğraf'),
-  ('Sesli yayın yapan alıcı cihaz', 'radyo'),
-];
-
-/// Bütün vakalar.
-final _cases = <(String, String)>[..._casesZor, ..._casesTemel];
+import 'reverse_cases.dart';
 
 /// Sıralamada çözülmesi BİLİNEN ve bu sürümde çözülmeyen durumların
 /// KISA ETİKETLERİ. Her etiket bir kayıttır; biri silinirse sınır da
@@ -170,10 +46,17 @@ const _knownLimits = <String>[
   //   iki dala bölündükten sonra       ilk 12/24  ilk3 13/24
   //   parti 005 verisi (52 tanım)      ilk 12/24  ilk3 13/24
   //   parti 006 verisi (66 tanım)      ilk 12/24  ilk3 13/24
+  //   parti 007 verisi (61 tanım)      ilk 12/24  ilk3 13/24
   //
   // TEMEL DAL TABLOSU (63 vaka):
   //   parti 005 verisi                  ilk 55/63  ilk3 58/63
   //   parti 006 verisi                  ilk 52/63  ilk3 58/63
+  //   parti 007 verisi                  ilk 54/63  ilk3 57/63
+  //
+  // Parti 007 zor dala dokunmadi, temel dali 52 -> 54 YUKSELDI. Yani
+  // "veri eklemek olcumu kaydirir" tek yonlu degil: parti 006 dusurdu,
+  // parti 007 yukseldi. Ortalama kayma yok. Ama vaka bazinda degisim var ve
+  // denetim gerekiyor.
   //
   // SON DÜZELTME: parti 005 hiçbir dalı düşürmedi; "veri eklemek ölçümü
   // kaydırır" varsayımı zayıfladı. Parti 006 ise TEMEL DALI 3 vaka düşürdü
@@ -199,7 +82,36 @@ const _knownLimits = <String>[
   // ÖNEMLİ: bu, varsayımın doğru olduğunun kanıtı. Parti 005'te düşüş
   // olmaması bir tesadüftü; aslında iki partiden beri sürüyordu. Ama şimdi
   // MEKANİZMASI biliniyor, sadece sayı değil.
+  //
+  // DÖRDÜNCÜ VE BEŞİNCİ VERİ NOKTASI:
+  //
+  //   parti 007 (ekran örneği): şarkı'nın "Sıkıcı, sürekli tekrarlanan
+  //     şey." anlamı "Yüzyıllardır tekrarlanan..." sorgusuna girdi. Aynı
+  //     sınıf, üçüncü kez: tanım doğru, sadece yarışıyor.
+  //
+  //   deney (sincap): "Sırtı boyunca, kuyruğuyla denge kurarak ağaçta
+  //     yaşayan küçük hayvan." — DOĞRU bir tanım — balık vakasının ilk
+  //     üçüne girdi. Tutulan terimler: sırt, kuyruğuyla, denge, hayvan.
+  //     Bu bir tesadüf değil, mekanizmanın dördüncü ve beşinci örneği.
+  //
+  //   deney (acı): sincap balık'ı ilk üçten itince açıldı boşluğa "acı"
+  //     girdi: "Bedensel veya ruhsal elem anlamında." — zeytin vakası.
+  //     "küçük ve acı meyve" sorgusunda. Bu ilginçtir: çakışma ZİNCİR
+  //     hâlinde yayılıyor, bir kelime yerinden çıkınca yerine başkası
+  //     giriyor. Yani "şu an kim önde" sorusu kalıcı bir düzeltme değil;
+  //     havuzun tamamının denetlenmesi gerekiyor. collision_test.dart
+  //     bunu 87 vaka üzerinden sürekli yapar.
   'veri eklemesi kaydiriyor',
+
+  // ARAÇ SINIRI: yazım düzeltme katmanı (silme indeksi) bir sözcük sayısı
+  // sınırına bağlıydı. 58.813 kelime + 1.485 morfoloji yüzeyi = 60.298
+  // yüzey, sınır 60.000. Aşılınca indeks KURULMADI ve tüm yazım düzeltme
+  // sessizce öldü; "kirbit" yazınca "kibrit" önerilmiyordu. Dahası
+  // `deletionIndexReady` bayrağı da yanlış bildiriyordu. Düzeltildi:
+  // uzunluk 14 -> 10 (bellek +118 MB -> +5,5 MB), sınır 60.000 -> 200.000,
+  // ve atlanma nedeni artık okunabilir. Buradaki kayıt, SAYISAL bir sınır
+  // değil: alet sınırlarının sessizce ölmemesi gerektiğinin kaydı.
+  'arac siniri',
 
   // EŞANLAMLI AĞIRLIĞI: 0,20 ile 0,85 arası ölçüldü, sonucu en fazla bir
   // soruda değiştiriyor. 87 vakalık kümede tek soru gürültü sınırında;
@@ -224,6 +136,11 @@ const _knownLimits = <String>[
   // geçiyor. Bu KAPSAM bittikçe büyüyecek bir sınıftır: 58 bin kelimenin
   // tamamında "X" ve "X etmek" çiftleri nasıl ele alınacak, henüz yazılı
   // bir kuralı yok.
+  //
+  // AYNI SINIFIN DÜZELTİLMESİ YAPILDI: artık elle aranmıyor.
+  // test/collision_test.dart her parti sonrası 87 vakanın ilk üçünü
+  // taban satırıyla karşılaştırıyor ve hangi kelimenin hangi ANLAMLA
+  // girdiğini raporluyor. Bu satır artık bir gözlem değil, bir denetim.
   'veri cakismasi',
 ];
 
@@ -286,11 +203,11 @@ void main() {
   }
 
   test('siralama olcum u - zor dal', () async {
-    await olc('zor', _casesZor, esikTop1: 9);
+    await olc('zor', reverseCasesZor, esikTop1: 9);
   });
 
   test('siralama olcum u - temel dal', () async {
-    await olc('temel', _casesTemel, esikTop1: 50);
+    await olc('temel', reverseCasesTemel, esikTop1: 50);
   });
 
   test('bilinen sinirlar yazili', () {
@@ -315,7 +232,7 @@ void main() {
     final repo = await sharedRepository();
 
     final tanimsiz = <String>[];
-    for (final (_, hedef) in _cases) {
+    for (final (_, hedef) in reverseCases) {
       final w = repo.lookup(hedef);
       if (w == null || w.meanings.isEmpty) {
         tanimsiz.add(hedef);
