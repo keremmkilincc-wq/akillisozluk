@@ -73,6 +73,28 @@ for f in sorted(ROOT.glob('words*.json')):
                 print(f"  HATA {ad}: anlam guveni {c} aralik disinda")
                 HATA += 1
 
+        # Parti 003'te gozle bulunan iki bosluk: ayni morfoloji yuzeyi
+        # ve ayni iliski iki kez yazilmisti. Kelime tekrari denetleniyordu,
+        # bunlar denetlenmiyordu. Artik denetleniyor.
+        yuzeyler = set()
+        for m in w.get('morphology', []):
+            y = m.get('surface', '<isimsiz>')
+            if y in yuzeyler:
+                print(f"  HATA {ad}: tekrarli morfoloji yuzeyi: {y}")
+                HATA += 1
+            yuzeyler.add(y)
+            if not m.get('explanation', '').strip():
+                print(f"  HATA {ad}: morfoloji aciklamasi yok: {y}")
+                HATA += 1
+
+        iliskiler = set()
+        for r in w.get('relations', []):
+            a = (r.get('word'), r.get('type'))
+            if a in iliskiler:
+                print(f"  HATA {ad}: tekrarli iliski: {a[0]} ({a[1]})")
+                HATA += 1
+            iliskiler.add(a)
+
 print()
 print("=" * 58)
 if HATA:

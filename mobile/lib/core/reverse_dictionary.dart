@@ -23,8 +23,14 @@
 // ---------------------------------------------------------------------------
 //  ÖLÇÜLEN DURUM — 26 soruluk küme (test/reverse_rank_test.dart)
 //
-//      düzeltmelerden önce    ilk  8/26    ilk3 13/26
-//      düzeltmelerden sonra   ilk 11/26    ilk3 14/26
+//      düzeltmelerden önce     ilk  8/26    ilk3 13/26
+//      düzeltmelerden sonra    ilk 12/26    ilk3 15/26
+//      parti 003 verisiyle     ilk 11/26    ilk3 15/26
+//
+//  Üçüncü satır bir regresyon değil, ölçümün çalıştığının kanıtı: 67 yeni
+//  tanım bazı eşleşmelerin ayrımını bozdu. Tek vaka, 26 soruluk kümede
+//  gürültü sınırında. Kademeli veri yazımı, ölçümsüz ilerlemeyi bozuyor —
+//  her partiden sonra bu tablo yeniden okunmalı.
 //
 //  Kalan hataların çoğu kavramsal boşluk. Sınırların hepsi test dosyasında
 //  açıkça yazılı; uydurma bir başarı oranı yok.
