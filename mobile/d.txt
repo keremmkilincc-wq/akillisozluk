@@ -1,0 +1,95 @@
+Resolving dependencies...
+Downloading packages...
+  code_assets 1.2.1 (2.1.0 available)
+  flutter_lints 5.0.0 (6.0.0 available)
+  google_fonts 6.3.3 (9.0.0 available)
+  hooks 2.0.2 (2.2.0 available)
+  lints 5.1.1 (6.1.0 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  native_toolchain_c 0.19.2 (0.19.5 available)
+  objective_c 9.5.0 (9.6.2 available)
+  record_use 0.6.0 (1.1.1 available)
+  shared_preferences_foundation 2.5.7 (2.6.0 available)
+  sqlite3 3.5.2 (3.7.1 available)
+  test_api 0.7.12 (0.7.15 available)
+  vector_math 2.4.0 (2.4.3 available)
+Got dependencies!
+14 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading C:/Users/Kilinc/.config/openchamber/chats/2026-10-16/session-052ab50d-0cc0-42d9-bbca-76cdacb93fb6/app/mobile/test/reverse_rank_test.dart
+00:00 +0: (setUpAll)
+00:01 +0: siralama olcum u - zor dal
+=== tersi sozluk siralama: zor ===  ilk=12/24  ilk3=13/24
+--- yanlis olanlar (11/24) ---
+  "Uzaktan duyulan arac─▒n kornas─▒"
+      dogru : ses
+      ilk   : telefon
+      ilk3  : telefon, g├Âlge etmek, vermek
+  "Kimseye zarar vermeden ya┼şamak, ba┼şkas─▒n─▒ g├Âzetmek"
+      dogru : ho┼şg├Âr├╝
+      ilk   : d├╝┼şman
+      ilk3  : d├╝┼şman, ya┼şl─▒, kar
+  "B├╝t├╝n g├╝n dinlenmeden ├ğal─▒┼şmak, ├ğok uykusuz kalmak"
+      dogru : yorgun
+      ilk   : dinlemek
+      ilk3  : dinlemek, hoca, uyumak
+  "Kar┼ş─▒ taraf─▒n aleyhine olan ┼şey"
+      dogru : d├╝┼şman
+      ilk   : kar┼ş─▒
+      ilk3  : kar┼ş─▒, sava┼ş, ├ğat─▒┼şma
+  "Hayalindeki ┼şeyi ger├ğekle┼şmi┼ş saymak"
+      dogru : umut
+      ilk   : inanmak
+      ilk3  : inanmak, az─▒nl─▒k, kalabal─▒k
+  "Bir ├╝lkenin ba┼şka ├╝lkeye ordusuyla sald─▒rmas─▒"
+      dogru : sava┼ş
+      ilk   : d├╝┼şmanl─▒k
+      ilk3  : d├╝┼şmanl─▒k, kom┼şu, h├ókim
+  "Kapal─▒ kalan tart─▒┼şma, a├ğ─▒kl─▒─şa kavu┼şmam─▒┼ş konu"
+      dogru : sorun
+      ilk   : oturmak
+      ilk3  : oturmak, kapamak, a├ğmak
+  "G├╝n├╝n yar─▒dan sonra g├╝ne┼şin batmas─▒yla olu┼şan alacakaranl─▒k"
+      dogru : ak┼şam
+      ilk   : g├╝ne┼ş
+      ilk3  : g├╝ne┼ş, gece, g├╝ne┼ş batmadan
+  "Birbirinin s─▒rr─▒n─▒ saklayan yak─▒n dostluk"
+      dogru : dostluk
+      ilk   : dostluk etmek
+      ilk3  : dostluk etmek, eski, dost
+  "Yerine getirmesi gereken i┼ş, y├╝k├╝ml├╝l├╝k"
+      dogru : g├Ârev
+      ilk   : sorumluluk
+      ilk3  : sorumluluk, ├Âdev, ├Âdemek
+  "El i┼şi, ├╝retim i├ğin kullan─▒lan ta┼ş─▒t"
+      dogru : araba
+      ilk   : s├╝r├╝c├╝
+      ilk3  : s├╝r├╝c├╝, ┼şof├Âr, gemi
+00:01 +1: siralama olcum u - temel dal
+=== tersi sozluk siralama: temel ===  ilk=55/63  ilk3=58/63
+--- yanlis olanlar (5/63) ---
+  "Uzaktaki bir yere gitmek i├ğin kullan─▒lan yol"
+      dogru : yol
+      ilk   : yolcu
+      ilk3  : yolcu, gitmek, y├╝r├╝mek
+  "Kar┼ş─▒dakine zarar vermek i├ğin yap─▒lan davran─▒┼ş"
+      dogru : su├ğ
+      ilk   : yazmak
+      ilk3  : yazmak, d├╝┼şman, kar
+  "Beklerken hi├ğ acele etmemek, so─şukkanl─▒ olmak"
+      dogru : sab─▒r
+      ilk   : acele
+      ilk3  : acele, ko┼şmak, so─şuk
+  "G├╝zel kokulu, sar─▒ renkli meyve"
+      dogru : zeytin
+      ilk   : g├╝zel
+      ilk3  : g├╝zel, kaynak, mutluluk
+  "S─▒rt─▒ ve bacaklar─▒yla y├╝zen, kuyru─şuyla denge kuran hayvan"
+      dogru : bal─▒k
+      ilk   : s─▒rt
+      ilk3  : s─▒rt, dere, sa─şl─▒k
+00:01 +2: bilinen sinirlar yazili
+00:01 +3: her vakanin cevabi sozlukte tanimli
+00:01 +4: (tearDownAll)
+00:01 +4: All tests passed!

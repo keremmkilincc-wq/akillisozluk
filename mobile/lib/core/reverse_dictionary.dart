@@ -21,18 +21,28 @@
 //  yaratır. Yani bu katman çöpe gitmez, birleşir.
 //
 // ---------------------------------------------------------------------------
-//  ÖLÇÜLEN DURUM — 26 soruluk küme (test/reverse_rank_test.dart)
+//  ÖLÇÜLEN DURUM — test/reverse_rank_test.dart, İKİ AYRI DAL
 //
-//      düzeltmelerden önce     ilk  8/26    ilk3 13/26
-//      düzeltmelerden sonra    ilk 12/26    ilk3 15/26
-//      parti 003 verisiyle     ilk 11/26    ilk3 15/26
-//      parti 004 verisiyle     ilk 11/26    ilk3 14/26
+//  Ölçüm tek sayıydı ve yanıltıyordu. 86 vakanın toplamı ilk-1'de %74
+//  veriyordu, ama zor dal kendi başına %50'deydi: kolay vakalar zor olanları
+//  gizliyordu. Bir regresyon ancak 30 kolay vaka tutturulursa görünür olurdu.
+//  Şimdi iki dal ayrı ölçülüyor ve ORTALANMIYOR — zorlukları farklı iki
+//  ölçüm, toplamı anlamsız.
 //
-//  Üçüncü satır bir regresyon değil, ölçümün çalıştığının kanıtı: 67 yeni
-//  tanım bazı eşleşmelerin ayrımını bozdu. Tek vaka, 26 soruluk kümede
-//  gürültü sınırında. Kademeli veri yazımı, ölçümsüz ilerlemeyi bozuyor —
-//  her partiden sonra bu tablo yeniden okunmalı.
+//      zor dal    (24 vaka)   ilk 12/24  (%50)  ilk3 13/24
+//      temel dal  (63 vaka)   ilk 55/63  (%87)  ilk3 58/63
 //
+//  ZOR DAL TARİHÇESİ (26 vaka idi, bir kısmı temel dala taşındı):
+//      parti 002 verisi + düzeltmeler   ilk 12/26  ilk3 15/26
+//      parti 003 verisi                ilk 11/26  ilk3 15/26
+//      parti 004 verisi                ilk 11/26  ilk3 14/26
+//      iki dala bölündükten sonra       ilk 12/24  ilk3 13/24
+//
+// Parti 003 ve 004'te birer vaka düştü. Bu bir regresyon değil, ölçümün
+//  çalıştığının kanıtı: yeni tanımlar bazı eşleşmelerin ayrımını bozuyor.
+//  Tek vaka gürültü sınırında. Kademeli veri yazımı, ölçümsüz ilerlemeyi
+//  bozuyor — her partiden sonra bu tablo yeniden okunmalı.
+////
 //  Kalan hataların çoğu kavramsal boşluk. Sınırların hepsi test dosyasında
 //  açıkça yazılı; uydurma bir başarı oranı yok.
 //
