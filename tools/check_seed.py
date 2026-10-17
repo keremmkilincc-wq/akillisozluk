@@ -1,0 +1,82 @@
+import io
+import json
+import sys
+from pathlib import Path
+
+ROOT = Path('data/seed')
+
+"""Seed dosyalarini uretimden ONCE denetler.
+
+NEDEN BU VAR: Bu projede veri JSON olarak ELLE yaziliyor. Iki kez tirnak
+hatasi yapildi (tek tirnakla kapanis) ve ikisinde de build_dict.py hatayi
+reddetti — dogru davranis, ama hatayi URETIM aninda, yazim aninda
+degil yakaladik.
+
+Kirpma denetimi:
+  1. JSON ayristirilabiliyor mu
+  2. phonetics METIN mi (liste degil) — liste olursa SQLite reddeder
+  3. usage_frequency 0..1 araliginda mi
+  4. confidence 0..1 araliginda mi
+  5. meanings bos mu (yazilmamis madde icin bos olabilir ama seed'te olmamali)
+  6. tekrarli kelime var mi (ayni dosyada)
+"""
+HATA = 0
+
+for f in sorted(ROOT.glob('words*.json')):
+    print(f"\n=== {f.name} ===")
+    try:
+        d = json.loads(f.read_text(encoding='utf-8'))
+    except json.JSONDecodeError as e:
+        print(f"  HATA JSON ayristirilamadi: {e}")
+        HATA += 1
+        continue
+
+    kelimeler = d.get('words', [])
+    print(f"  kelime : {len(kelimeler)}")
+
+    gorsulen = set()
+
+    for w in kelimeler:
+        ad = w.get('word', '<isimsiz>')
+
+        if ad in gorsulen:
+            print(f"  HATA tekrarli kelime: {ad}")
+            HATA += 1
+        gorsulen.add(ad)
+
+        ph = w.get('phonetics')
+        if isinstance(ph, list):
+            print(f"  HATA {ad}: phonetics LISTE olmamali, metin olmali -> {ph}")
+            HATA += 1
+        elif ph is not None and not isinstance(ph, str):
+            print(f"  HATA {ad}: phonetics tipi {type(ph).__name__}")
+            HATA += 1
+
+        for alan, (lo, hi) in (
+            ('usage_frequency', (0.0, 1.0)),
+            ('confidence', (0.0, 1.0)),
+        ):
+            v = w.get(alan)
+            if v is not None and not (lo <= v <= hi):
+                print(f"  HATA {ad}: {alan} = {v}, {lo}..{hi} disinda")
+                HATA += 1
+
+        anlamlar = w.get('meanings', [])
+        if not anlamlar:
+            print(f"  UYARI {ad}: anlami yok (seed'te normaldegil)")
+        for m in anlamlar:
+            if not m.get('definition', '').strip():
+                print(f"  HATA {ad}: bos tanim (anlam {m.get('order')})")
+                HATA += 1
+            c = m.get('confidence')
+            if c is not None and not (0.0 <= c <= 1.0):
+                print(f"  HATA {ad}: anlam guveni {c} aralik disinda")
+                HATA += 1
+
+print()
+print("=" * 58)
+if HATA:
+    print(f"SONUC: {HATA} sorun. Uretime girilmemeli.")
+    sys.exit(1)
+print("SONUC: tum seed dosyalari temiz.")
+sys.exit(0)

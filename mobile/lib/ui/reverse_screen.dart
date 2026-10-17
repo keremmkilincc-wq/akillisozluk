@@ -20,29 +20,32 @@ import 'word_detail_screen.dart';
 
 class ReverseScreen extends StatefulWidget {
 
-  /// Örnek cümleler SADECE tanımı verilen kelimeleri örnekler, rastgele
-  /// seçilmiş cümleler değil.
+  /// Örnek cümleler SADECE tanımı verilen kelimeleri örnekler.
   ///
   /// Bu liste bir kez yanlış seçildi ve ekran sessizce bozuldu:
   /// "tereddüt", "hürmet", "hasret" sözlükte KESİNLİKLE yoktu. Kullanıcı
   /// örneğe dokununca sıfır sonuç alıyordu ama hiçbir hata görünmüyordu.
   /// Yani örnek, vaat ettiği şeyi yerine getirmeyen bir vaatti.
   ///
-  /// Düzeltme iki parçalı:
-  ///   (a) Cümleler ÖLÇÜLEREK seçildi. Tahminle değil: her aday gerçek
-  ///       tersi sözlüğe soruldu, hangi kelimenin birinci çıktığı görüldü.
-  ///   (b) Her birinin doğru cevabı ilk sırada olduğu tersi_sozluk_test.dart
-  ///       içinde kalıcı teste bağlandı.
+  /// Cümleler ÖLÇÜLEREK seçildi, tahminle değil: her aday gerçek tersi
+  /// sözlüğe soruldu, hangi kelimenin birinci çıktığı görüldü. Ve her birinin
+  /// doğru cevabı ilk sırada olduğu tersi_sozluk_test.dart içinde kalıcı teste
+  /// bağlandı.
   ///
-  /// İkinci madde daha önce işe yaradı: "başlangıç" için seçilen
-  /// 'Bir işe ilk başlama anı' cümlesi, sonradan yazılan "başlamak" tanımıyla
-  /// çakıştı (o tanım da "bir işe girişmek" diyordu) ve cevabı kaydı. Test
-  /// kızardı, cümle ölçülerek değiştirildi. Sözlük büyüdükçe örnekler eskir;
-  /// test bunu görünür kılar.
+  /// O test şimdiye kadar İKİ kez kızardı ve ikisi de öğreticiydi:
+  ///   1. 'başlangıç' örneği, sonradan yazılan 'başlamak' tanımıyla
+  ///      çakışınca cevabı kaybetti.
+  ///   2. 'atölye' örneği, yazılan 'köy' tanımındaki "şehir dışındaki"
+  ///      ifadesi yüzünden 'köy'ü önde getirdi.
+  ///
+  /// Yani çakışma tesadüf değil, SÖZLÜK BÜYÜDÜKÇE olacak. Bu, tersi
+  /// sözlüğün bilinen bir eğilimi: jenerik sözcükler ("şehir", "bir",
+  /// "çalışılan") sıralamada ağırlık kazanıyor. Testler şu an yalnızca
+  /// bu ekrandaki üç örneği koruyor; sıralamanın kendisi düzeltilmeli.
   static const examplePrompts = <(String, String)>[
     ('Yanan şeyden yükselen alev', 'ateş'),
-    ('Şehirde çalışılan sanat yeri', 'atölye'),
     ('Yüzyıllardır tekrarlanan, değişmeyen uygulama', 'gelenek'),
+    ('Suyun biriktiği geniş çukur', 'göl'),
   ];
   const ReverseScreen({super.key});
 
