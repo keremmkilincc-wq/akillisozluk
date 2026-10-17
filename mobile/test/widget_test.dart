@@ -8,6 +8,7 @@
 
 import 'package:akilli_sozluk/core/theme.dart';
 import 'package:akilli_sozluk/data/dictionary_repository.dart';
+import 'package:akilli_sozluk/data/favorites_store.dart';
 import 'package:akilli_sozluk/main.dart';
 import 'package:akilli_sozluk/ui/word_detail_screen.dart';
 import 'package:flutter/material.dart';
@@ -80,8 +81,11 @@ void main() {
     addTearDown(tester.view.reset);
 
     await tester.pumpWidget(
-      ChangeNotifierProvider.value(
-        value: repo,
+      MultiProvider(
+        providers: [
+          ChangeNotifierProvider.value(value: repo),
+          ChangeNotifierProvider(create: (_) => FavoritesStore()),
+        ],
         child: MaterialApp(
           theme: AppTheme.light(),
           home: WordDetailScreen(word: 'kitap'),

@@ -7,6 +7,9 @@ import 'package:provider/provider.dart';
 
 import 'core/theme.dart';
 import 'data/dictionary_repository.dart';
+import 'data/favorites_store.dart';
+import 'ui/favorites_screen.dart';
+import 'ui/games_screen.dart';
 import 'ui/home_screen.dart';
 import 'ui/reverse_screen.dart';
 import 'ui/search_screen.dart';
@@ -43,6 +46,10 @@ Widget _initialScreen(DictionaryRepository repo) {
       return const ReverseScreen();
     case 'rules':
       return const WritingRulesScreen();
+    case 'games':
+      return const GamesScreen();
+    case 'lists':
+      return const FavoritesScreen();
     default:
       return const HomeScreen();
   }
@@ -55,8 +62,11 @@ class AkilliSozlukApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider.value(
-      value: repository,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider.value(value: repository),
+        ChangeNotifierProvider(create: (_) => FavoritesStore()),
+      ],
       child: MaterialApp(
         title: 'Akıllı Türkçe Sözlük',
         debugShowCheckedModeBanner: false,

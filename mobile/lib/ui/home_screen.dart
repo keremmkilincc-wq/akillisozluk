@@ -16,6 +16,8 @@ import '../core/theme.dart';
 import '../core/turkish.dart';
 import '../data/dictionary_repository.dart';
 import '../data/models.dart';
+import 'games_screen.dart';
+import 'favorites_screen.dart';
 import 'reverse_screen.dart';
 import 'search_screen.dart';
 import 'widgets/common.dart';
@@ -275,9 +277,11 @@ class _HomeScreenState extends State<HomeScreen> {
       QuickTile(
         icon: Icons.extension_rounded,
         label: 'Kelime Oyunları',
-        subtitle: 'Günlük bulmaca',
+        subtitle: 'Öz Türkçe · Düello',
         accent: originColor('Arapça'),
-        locked: true,
+        onTap: () => Navigator.of(context).push(
+          MaterialPageRoute(builder: (_) => const GamesScreen()),
+        ),
       ),
       QuickTile(
         icon: Icons.school_outlined,
@@ -291,9 +295,11 @@ class _HomeScreenState extends State<HomeScreen> {
       QuickTile(
         icon: Icons.bookmark_border_rounded,
         label: 'Listelerim',
-        subtitle: 'Kişisel sözlük',
+        subtitle: 'Favoriler ve kişisel',
         accent: originColor('Farsça'),
-        locked: true,
+        onTap: () => Navigator.of(context).push(
+          MaterialPageRoute(builder: (_) => const FavoritesScreen()),
+        ),
       ),
       QuickTile(
         icon: Icons.forum_outlined,

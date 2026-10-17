@@ -15,6 +15,7 @@ import 'package:provider/provider.dart';
 import '../core/theme.dart';
 import '../core/turkish.dart';
 import '../data/dictionary_repository.dart';
+import '../data/favorites_store.dart';
 import '../data/models.dart';
 import 'widgets/common.dart';
 import 'widgets/relation_graph.dart';
@@ -30,6 +31,7 @@ class WordDetailScreen extends StatefulWidget {
 
 class _WordDetailScreenState extends State<WordDetailScreen> {
   final _tts = FlutterTts();
+  final _bookmarkTick = ValueNotifier<bool>(false);
   bool _speaking = false;
 
   @override
@@ -41,6 +43,7 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
 
   @override
   void dispose() {
+    _bookmarkTick.dispose();
     _tts.stop();
     super.dispose();
   }
@@ -97,10 +100,9 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
       expandedHeight: 132,
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       actions: [
-        IconButton(
-          icon: Icon(Icons.bookmark_border_rounded),
-          tooltip: 'Listeme ekle',
-          onPressed: () => _coming(context, 'Kişisel listeler — Faz 6'),
+        ValueListenableBuilder<bool>(
+          valueListenable: _bookmarkTick,
+          builder: (context, _, __) => _bookmarkButton(context, word),
         ),
         IconButton(
           icon: Icon(Icons.more_horiz_rounded),
@@ -117,6 +119,26 @@ class _WordDetailScreenState extends State<WordDetailScreen> {
           overflow: TextOverflow.ellipsis,
         ),
       ),
+    );
+  }
+
+  /// Favoriye ekle/çıkar. ValueListenable ile AppBar butonu yeniden çizilir.
+  Widget _bookmarkButton(BuildContext context, Word word) {
+    final store = context.watch<FavoritesStore>();
+    final isFav = store.isFavorite(word.word);
+    final c = context.scheme;
+
+    return IconButton(
+      icon: Icon(
+        isFav ? Icons.bookmark_rounded : Icons.bookmark_border_rounded,
+        color: isFav ? c.primary : null,
+      ),
+      tooltip: isFav ? 'Favorilerden çıkar' : 'Favorilere ekle',
+      onPressed: () {
+        HapticFeedback.selectionClick();
+        store.toggleFavorite(word.word);
+        _bookmarkTick.value = !isFav;
+      },
     );
   }
 

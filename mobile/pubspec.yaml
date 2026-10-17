@@ -19,6 +19,9 @@ dependencies:
   # Sesli telaffuz (Faz 1)
   flutter_tts: ^4.2.0
 
+  # Favoriler ve kişisel listeler (Modül 7)
+  shared_preferences: ^2.3.2
+
   # Kamera OCR (Faz 3)
   # google_mlkit_text_recognition: ^0.15.0
 
