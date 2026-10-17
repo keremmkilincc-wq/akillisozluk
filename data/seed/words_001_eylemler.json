@@ -1,0 +1,2482 @@
+{
+  "meta": {
+    "batch": "001 — cekirdek fiiller, niteleme sozleri, toplumsal kavramlar",
+    "created": "2026-10-17",
+    "depth": "Kademe 1 — tam: 2-3 anlam, her birinde modern ornek, 2-3 morfoloji, 3-4 iliski",
+    "note": "Tanimlar bu projede yazildi. TDK tanim metni kopyalanmadi; klasik alinti kullanilmadi. Telif riski sifir."
+  },
+
+  "words": [
+    {
+      "word": "vermek",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 1.0,
+      "confidence": 1.0,
+      "phonetics": "[vermek]",
+      "meanings": [
+        {"order": 1, "type": "fiil", "sense": "gercek",
+         "definition": "Bir şeyi eline almak, bağışlamak ya da teslim etmek.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Kasaya üç banko hesabı da vermişti.",
+         "confidence": 1.0},
+        {"order": 2, "type": "fiil", "sense": "mecaz",
+         "definition": "Bir bilgiyi, haberi veya duyumu aktarmak.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Sonunda ne olduğunu verdi, kimse şaşırmadı.",
+         "confidence": 0.95},
+        {"order": 3, "type": "fiil", "sense": "mecaz",
+         "definition": "Sonuç vermek, meydana gelmek. \"Kaza vermek\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Taşınma sonunda iyi geldi.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "vergi", "type": "derivative"},
+        {"word": "teslim", "type": "related"},
+        {"word": "almak", "type": "antonym"},
+        {"word": "paylaşmak", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "verdi", "root": "ver", "suffixes": ["di"],
+         "explanation": "ver- + -di; geçmiş zaman eki (-de/-da)"},
+        {"surface": "vermesi", "root": "ver", "suffixes": ["mesi"],
+         "explanation": "-me isim-fiil eki + 3. kişi iyelik eki (-si)"},
+        {"surface": "verir", "root": "ver", "suffixes": ["ir"],
+         "explanation": "-Ir geniş zaman eki"}
+      ]
+    },
+
+    {
+      "word": "almak",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 1.0,
+      "confidence": 1.0,
+      "phonetics": "[almak]",
+      "meanings": [
+        {"order": 1, "type": "fiil", "sense": "gercek",
+         "definition": "Eline geçirmek, sahiplenmek; bir şeyi uzaklaştırmak.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Dolabın üstündeki kitabı aldı, yerine bırakmadı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "fiil", "sense": "mecaz",
+         "definition": "Kabul etmek, benimsemek. Özellikle fikir ve sorumluluk için.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Görevi kabul etti, üç gün sonra istifa etti.",
+         "confidence": 0.95},
+        {"order": 3, "type": "fiil", "sense": "mecaz",
+         "definition": "Yakalanmak, hastalanmak. \"Yol almak\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Yol haftalarca aldı, ancak yarı yolda iyileşti.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "alış", "type": "derivative"},
+        {"word": "vermek", "type": "antonym"},
+        {"word": "satın almak", "type": "related"},
+        {"word": "bırakmak", "type": "antonym"}
+      ],
+      "morphology": [
+        {"surface": "aldı", "root": "al", "suffixes": ["dı"],
+         "explanation": "al- + -dı; ünsüz benzeşmesi (l/d)"},
+        {"surface": "alacağı", "root": "al", "suffixes": ["acağı"],
+         "explanation": "-AcAk gelecek zaman eki + 3. kişi iyelik eki (-ı); kaynaştırma ile g"},
+        {"surface": "alışmak", "root": "al", "suffixes": ["ışmak"],
+         "explanation": "-Iş yapım eki + -mAk; alış- + -mak"}
+      ]
+    },
+
+    {
+      "word": "bilmek",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 1.0,
+      "confidence": 1.0,
+      "phonetics": "[bilmek]",
+      "meanings": [
+        {"order": 1, "type": "fiil", "sense": "gercek",
+         "definition": "Bir şeyin varlığını, niteliğini veya sonucunu kavramak.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Nereye gittiğini kendisi de bilmiyordu.",
+         "confidence": 1.0},
+        {"order": 2, "type": "fiil", "sense": "mecaz",
+         "definition": "Tanımak, ayırt etmek. \"Adını bilmek\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "O kadar değişmişti ki eski arkadaşını bile tanımadı.",
+         "confidence": 0.95},
+        {"order": 3, "type": "fiil", "sense": "mecaz",
+         "definition": "Farkında olmak, ödül/ceza görmek. \"Karşılığını bilmek\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bunu yapmanın bedelini bilmiyordu.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "bilgi", "type": "derivative"},
+        {"word": "bilim", "type": "derivative"},
+        {"word": "öğrenmek", "type": "related"},
+        {"word": "unutmak", "type": "antonym"}
+      ],
+      "morphology": [
+        {"surface": "bildi", "root": "bil", "suffixes": ["di"],
+         "explanation": "bil- + -di; geçmiş zaman eki"},
+        {"surface": "biliyor", "root": "bil", "suffixes": ["iyor"],
+         "explanation": "-Iyor şimdiki zaman eki; bil- + -iyor"},
+        {"surface": "bilecek", "root": "bil", "suffixes": ["ecek"],
+         "explanation": "-AcAk gelecek zaman kipinin olumsuz biçimi"}
+      ]
+    },
+
+    {
+      "word": "düşünmek",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 1.0,
+      "confidence": 1.0,
+      "phonetics": "[düşünmek]",
+      "meanings": [
+        {"order": 1, "type": "fiil", "sense": "gercek",
+         "definition": "Zihinle bir konuyu ele almak, akıl yürütmek, değerlendirmek.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Cevabı bildi ama düşünmeyi seçti.",
+         "confidence": 1.0},
+        {"order": 2, "type": "fiil", "sense": "mecaz",
+         "definition": "Varsaymak, öyle olacağını kabul etmek. \"Düşünüyorum ki\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Düşünüyorum ki kimse sözünü tutmaz.",
+         "confidence": 0.95},
+        {"order": 3, "type": "fiil", "sense": "mecaz",
+         "definition": "Hatırlamak, anımsamak.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Hiç düşünmemişti, bir daha gelmeyeceğini de bilmiyordu.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "düşünce", "type": "derivative"},
+        {"word": "düşünmek", "type": "derivative"},
+        {"word": "fikir", "type": "related"},
+        {"word": "inanmak", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "düşündü", "root": "düşün", "suffixes": ["dü"],
+         "explanation": "düşün- + -dü; ünsüz benzeşmesi (n/d) ve geçmiş zaman eki"},
+        {"surface": "düşüncesi", "root": "düşün", "suffixes": ["cesi"],
+         "explanation": "-ce yapım eki + 3. kişi iyelik eki (-si)"},
+        {"surface": "düşünmeden", "root": "düşün", "suffixes": ["meden"],
+         "explanation": "-me isim-fiil eki + ayrılma hâl eki (-den)"}
+      ]
+    },
+
+    {
+      "word": "istemek",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 1.0,
+      "confidence": 1.0,
+      "phonetics": "[istemek]",
+      "meanings": [
+        {"order": 1, "type": "fiil", "sense": "gercek",
+         "definition": "Bir şeye sahip olmak ya da yapılmasını istemek; arzu etmek.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Daha çok zaman istiyordu, daha çok para değil.",
+         "confidence": 1.0},
+        {"order": 2, "type": "fiil", "sense": "mecaz",
+         "definition": "Talep etmek, şikâyet etmek.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Sütçüye bir şey söyleyemedi, içinden istedi.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "istek", "type": "derivative"},
+        {"word": "istenmek", "type": "derivative"},
+        {"word": "umut", "type": "related"},
+        {"word": "istememek", "type": "antonym"}
+      ],
+      "morphology": [
+        {"surface": "istedi", "root": "iste", "suffixes": ["di"],
+         "explanation": "iste- + -di; geçmiş zaman eki"},
+        {"surface": "istediği", "root": "iste", "suffixes": ["diği"],
+         "explanation": "-DI sıfat-fiil eki + 3. kişi iyelik eki (-i); istediğ(i)"},
+        {"surface": "istemekten", "root": "iste", "suffixes": ["mekten"],
+         "explanation": "-mAk isim-fiil eki + ayrılma hâl eki (-ten)"}
+      ]
+    },
+
+    {
+      "word": "bulmak",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.95,
+      "confidence": 1.0,
+      "phonetics": "[bulmak]",
+      "meanings": [
+        {"order": 1, "type": "fiil", "sense": "gercek",
+         "definition": "Bir şeyin yerini ya da varlığını saptamak; bir şeye ulaşmak.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Kaybettiği anahtarı arabasının çamurlukluğunda buldu.",
+         "confidence": 1.0},
+        {"order": 2, "type": "fiil", "sense": "mecaz",
+         "definition": "Hissetmek, deneyimlemek. \"Huzur bulmak\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Uzun yoldan sonra kendini buldu.",
+         "confidence": 0.95},
+        {"order": 3, "type": "fiil", "sense": "mecaz",
+         "definition": "Başarmak, elde etmek. \"Çare bulmak\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Tek çare, bütün masrafı karşılamak gibi görünüyordu.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "bulgu", "type": "derivative"},
+        {"word": "buluş", "type": "derivative"},
+        {"word": "bulunmak", "type": "derivative"},
+        {"word": "kaybetmek", "type": "antonym"}
+      ],
+      "morphology": [
+        {"surface": "buldu", "root": "bul", "suffixes": ["du"],
+         "explanation": "bul- + -du; geçmiş zaman eki"},
+        {"surface": "bulacağı", "root": "bul", "suffixes": ["acağı"],
+         "explanation": "-AcAk gelecek zaman eki + 3. kişi iyelik eki (-ı)"},
+        {"surface": "bulunamayan", "root": "bul", "suffixes": ["unamayan"],
+         "explanation": "bulun- edilgen çatışma eki + -AmAOr (-amayan) sıfat-fiil eki"}
+      ]
+    },
+
+    {
+      "word": "kalmak",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.95,
+      "confidence": 1.0,
+      "phonetics": "[kalmak]",
+      "meanings": [
+        {"order": 1, "type": "fiil", "sense": "gercek",
+         "definition": "Bir yerde bulunmaya devam etmek; oradan ayrılmamak.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Kuruyanlar masada iki saat daha kaldı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "fiil", "sense": "mecaz",
+         "definition": "Sürmek, devam etmek. \"Yolu kalmak\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Yola iki saat kalmıştı, sonra yine de yetişemediler.",
+         "confidence": 0.95},
+        {"order": 3, "type": "fiil", "sense": "mecaz",
+         "definition": "Yakınmak, ulaşmak. \"Gözden kaçmamak\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu ihtimal aklından hiç kalmadı.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "kalıntı", "type": "derivative"},
+        {"word": "kalabalık", "type": "derivative"},
+        {"word": "gitmek", "type": "antonym"},
+        {"word": "süre", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "kaldı", "root": "kal", "suffixes": ["dı"],
+         "explanation": "kal- + -dı; ünsüz benzeşmesi (l/d)"},
+        {"surface": "kalacak", "root": "kal", "suffixes": ["acak"],
+         "explanation": "-AcAk gelecek zaman kipinin olumsuz biçimi"},
+        {"surface": "kalması", "root": "kal", "suffixes": ["ması"],
+         "explanation": "-mAsI gereklilik kipi + 3. kişi iyelik eki (-sı)"}
+      ]
+    },
+
+    {
+      "word": "öğrenmek",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.95,
+      "confidence": 1.0,
+      "phonetics": "[öğrenmek]",
+      "meanings": [
+        {"order": 1, "type": "fiil", "sense": "gercek",
+         "definition": "Bilgi ve beceri edinmek; öğretim yoluyla öğrenmek.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Mesleğini babasından öğrendi, okulda hiç okumadı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "fiil", "sense": "gercek",
+         "definition": "Bir şeyin nasıl çalıştığını anlamak; alışkanlık edinmek.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Şehri ancak üç ayda öğrenmişti.",
+         "confidence": 0.95},
+        {"order": 3, "type": "fiil", "sense": "mecaz",
+         "definition": "Bir şeyi yerine getirmeyi öğrenmek, ustalaşmak.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Herkes bu işi öğrenir, yeter ki isteye.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "öğrenci", "type": "derivative"},
+        {"word": "öğretmen", "type": "derivative"},
+        {"word": "öğretmek", "type": "related"},
+        {"word": "bilmek", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "öğrendi", "root": "öğren", "suffixes": ["di"],
+         "explanation": "öğren- + -di; geçmiş zaman eki"},
+        {"surface": "öğrenecek", "root": "öğren", "suffixes": ["ecek"],
+         "explanation": "-AcAk gelecek zaman kipinin olumsuz biçimi"},
+        {"surface": "öğrenciler", "root": "öğrenci", "suffixes": ["ler"],
+         "explanation": "öğrenci + çoğul eki (-ler)"}
+      ]
+    },
+
+    {
+      "word": "çalışmak",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.95,
+      "confidence": 1.0,
+      "phonetics": "[çalışmak]",
+      "meanings": [
+        {"order": 1, "type": "fiil", "sense": "gercek",
+         "definition": "Karşılığında emek harcanarak bir iş yapmak.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "İki işi birlikte çalışıyordu, yılda bir izin almıyordu.",
+         "confidence": 1.0},
+        {"order": 2, "type": "fiil", "sense": "gercek",
+         "definition": "Bir makine, sistem ya da kurum işlemek, faaliyette bulunmak.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Kurumun ilk dönemde zararla çalıştığını kimse bilmiyordu.",
+         "confidence": 0.95},
+        {"order": 3, "type": "fiil", "sense": "mecaz",
+         "definition": "Zorlamak, baskı yapmak.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Çalışmamak elinde değildi, kimse de sormadı.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "çalışkan", "type": "derivative"},
+        {"word": "çalışma", "type": "derivative"},
+        {"word": "iş", "type": "related"},
+        {"word": "dinlenmek", "type": "antonym"}
+      ],
+      "morphology": [
+        {"surface": "çalıştı", "root": "çalış", "suffixes": ["tı"],
+         "explanation": "çalış- + -tı; ünsüz benzeşmesi (ş/t) ve geçmiş zaman eki"},
+        {"surface": "çalışıyor", "root": "çalış", "suffixes": ["ıyor"],
+         "explanation": "çalış- + -Iyor şimdiki zaman eki"},
+        {"surface": "çalışkan", "root": "çalış", "suffixes": ["kan"],
+         "explanation": "-kAn yapım eki; çalışkan = çok çalışan"}
+      ]
+    },
+
+    {
+      "word": "yazmak",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.95,
+      "confidence": 1.0,
+      "phonetics": "[yazmak]",
+      "meanings": [
+        {"order": 1, "type": "fiil", "sense": "gercek",
+         "definition": "Harfleri, sayıları ya da işaretleri kâğıt üzerine geçirmek.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Adını defterin kapağına yazdı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "fiil", "sense": "gercek",
+         "definition": "Bir eser ortaya koymak; yazar olmak.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Yirmi yılda altı kitap yazdı.",
+         "confidence": 0.95},
+        {"order": 3, "type": "fiil", "sense": "mecaz",
+         "definition": "Bir davranıştan ötürü zarar görmek. \"Kaza yazmak\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Görevde yazıldı, karşılığında iki günlük ceza aldı.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "yazar", "type": "derivative"},
+        {"word": "yazı", "type": "derivative"},
+        {"word": "kitap", "type": "related"},
+        {"word": "okumak", "type": "antonym"}
+      ],
+      "morphology": [
+        {"surface": "yazdı", "root": "yaz", "suffixes": ["dı"],
+         "explanation": "yaz- + -dı; ünsüz benzeşmesi (z/d) ve geçmiş zaman eki"},
+        {"surface": "yazacağı", "root": "yaz", "suffixes": ["acağı"],
+         "explanation": "-AcAk gelecek zaman eki + 3. kişi iyelik eki (-ı); kaynaştırma ile g"},
+        {"surface": "yazılı", "root": "yaz", "suffixes": ["ılı"],
+         "explanation": " edilgen çatışma eki (-Il) + -lI yapım eki; yazılı = yazılmış"}
+      ]
+    },
+
+    {
+      "word": "okumak",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.95,
+      "confidence": 1.0,
+      "phonetics": "[okumak]",
+      "meanings": [
+        {"order": 1, "type": "fiil", "sense": "gercek",
+         "definition": "Yazıyı harf harf sesli olarak çözümlemek; metinle uğraşmak.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Vagonu okuması zor olduğu için saat değiştirmişti.",
+         "confidence": 1.0},
+        {"order": 2, "type": "fiil", "sense": "mecaz",
+         "definition": "Öğrenmek, anlamak. \"Okumak\" deyimiyle; kitap okumak.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "İyi okuyan, çok okuyan değildir; çok okuyan iyi okur.",
+         "confidence": 0.95},
+        {"order": 3, "type": "fiil", "sense": "mecaz",
+         "definition": "Bir şeyin nereye varacağını kestirebilmek.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu hâlde sonucu peşinen okuyabiliyordu.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "okul", "type": "derivative"},
+        {"word": "okur", "type": "derivative"},
+        {"word": "kitap", "type": "related"},
+        {"word": "yazmak", "type": "antonym"}
+      ],
+      "morphology": [
+        {"surface": "okudu", "root": "oku", "suffixes": ["du"],
+         "explanation": "oku- + -du; ünsüz yumuşaması ve geçmiş zaman eki"},
+        {"surface": "okuyor", "root": "oku", "suffixes": ["yor"],
+         "explanation": "oku- + -yor şimdiki zaman eki"},
+        {"surface": "okumuş", "root": "oku", "suffixes": ["muş"],
+         "explanation": "oku- + -mUş geçmiş zaman eki (duyduğu için muş kullanılır)"}
+      ]
+    },
+
+    {
+      "word": "konuşmak",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.95,
+      "confidence": 1.0,
+      "phonetics": "[konuşmak]",
+      "meanings": [
+        {"order": 1, "type": "fiil", "sense": "gercek",
+         "definition": "Düşüncesini sözle bildirmek; bir dille iletişim kurmak.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bütün gece tek konuşan o oldu.",
+         "confidence": 1.0},
+        {"order": 2, "type": "fiil", "sense": "mecaz",
+         "definition": "Bir konuyu ele almak, bir iş üzerine söz almak. \"Oyun konuşmak\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu işi sen konuşacaksan ben girmiyorum.",
+         "confidence": 0.95},
+        {"order": 3, "type": "fiil", "sense": "mecaz",
+         "definition": "Dilbilgisel olarak bir biçime sahip olmak.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Çocuklar yavaş yavaş konuşmayı öğreniyor.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "konuşma", "type": "derivative"},
+        {"word": "sohbet", "type": "related"},
+        {"word": "dil", "type": "related"},
+        {"word": "söylemek", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "konuştu", "root": "konuş", "suffixes": ["tu"],
+         "explanation": "konuş- + -tu; ünsüz benzeşmesi (ş/t) ve geçmiş zaman eki"},
+        {"surface": "konuşuyor", "root": "konuş", "suffixes": ["uyor"],
+         "explanation": "konuş- + -Uyor şimdiki zaman eki (geniş zaman ünsüzü düşer)"},
+        {"surface": "konuşma", "root": "konuş", "suffixes": ["ma"],
+         "explanation": "-mA isim-fiil eki; konuş- + -ma"}
+      ]
+    },
+
+    {
+      "word": "dinlemek",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.9,
+      "confidence": 1.0,
+      "phonetics": "[dinlemek]",
+      "meanings": [
+        {"order": 1, "type": "fiil", "sense": "gercek",
+         "definition": "Kulağıyla ses almak, bir söze kulak vermek.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Dinledi, anladı, cevap vermedi.",
+         "confidence": 1.0},
+        {"order": 2, "type": "fiil", "sense": "mecaz",
+         "definition": "Sözlüğe uymak, itaat etmek.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Kimse dinlemedi, bildiği gibi yaptı.",
+         "confidence": 0.95},
+        {"order": 3, "type": "fiil", "sense": "mecaz",
+         "definition": "Bir şeye âdeta bakmak, kaygıtmak. \"Yol dinlemek\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Kulağı bile dinlemiyordu.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "dinleyici", "type": "derivative"},
+        {"word": "ses", "type": "related"},
+        {"word": "konuşmak", "type": "antonym"},
+        {"word": "duymak", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "dinledi", "root": "dinle", "suffixes": ["di"],
+         "explanation": "dinle- + -di; geçmiş zaman eki"},
+        {"surface": "dinleyecek", "root": "dinle", "suffixes": ["yecek"],
+         "explanation": "dinle- + -yecek; -AcAk kipinin olumsuz biçimi (türemiş tabanda)"},
+        {"surface": "dinlemeden", "root": "dinle", "suffixes": ["meden"],
+         "explanation": "-me isim-fiil eki + ayrılma hâl eki (-den)"}
+      ]
+    },
+
+    {
+      "word": "bakmak",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.95,
+      "confidence": 1.0,
+      "phonetics": "[bakmak]",
+      "meanings": [
+        {"order": 1, "type": "fiil", "sense": "gercek",
+         "definition": "Gözle görmeye çalışmak, seyretmek.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Sana bakmadan konuştu, kimseye değil.",
+         "confidence": 1.0},
+        {"order": 2, "type": "fiil", "sense": "mecaz",
+         "definition": "Gözetmek, korumak. \"Üstüne bakmak\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Kimse ona bakmadı, o da kimseye bakmadı.",
+         "confidence": 0.95},
+        {"order": 3, "type": "fiil", "sense": "mecaz",
+         "definition": "Değerlendirmek, kestirmek. \"Bakılırsa\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bakılırsa işin yarısı daha önceden bitmişti.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "bakış", "type": "derivative"},
+        {"word": "bakıcı", "type": "derivative"},
+        {"word": "göz", "type": "related"},
+        {"word": "görmek", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "baktı", "root": "bak", "suffixes": ["tı"],
+         "explanation": "bak- + -tı; ünsüz benzeşmesi (k/t) ve geçmiş zaman eki"},
+        {"surface": "bakacak", "root": "bak", "suffixes": ["acak"],
+         "explanation": "-AcAk gelecek zaman kipinin olumsuz biçimi"},
+        {"surface": "baktıktan", "root": "bak", "suffixes": ["tıktan"],
+         "explanation": "-DI sıfat-fiil eki + ayrılma hâl eki (-tan)"}
+      ]
+    },
+
+    {
+      "word": "beklemek",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.9,
+      "confidence": 1.0,
+      "phonetics": "[beklemek]",
+      "meanings": [
+        {"order": 1, "type": "fiil", "sense": "gercek",
+         "definition": "Bir şeyin olmasını bekleyerek süre geçirmek.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Üç saat bekledi, sırası gelmedi.",
+         "confidence": 1.0},
+        {"order": 2, "type": "fiil", "sense": "mecaz",
+         "definition": "Gerekli olmak, gerektirmek. \"Beklemek\" deyimiyle.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu karar, büyük bir cesaret bekliyordu.",
+         "confidence": 0.95},
+        {"order": 3, "type": "fiil", "sense": "mecaz",
+         "definition": "Uğraşmak, sıkıntı çekmek.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Her ay bu hesabı bekliyormuşuz.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "bekleme", "type": "derivative"},
+        {"word": "sabır", "type": "related"},
+        {"word": "acele", "type": "antonym"},
+        {"word": "üstelemek", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "bekledi", "root": "bekle", "suffixes": ["di"],
+         "explanation": "bekle- + -di; geçmiş zaman eki"},
+        {"surface": "bekliyor", "root": "bekle", "suffixes": ["iyor"],
+         "explanation": "bekle- + -Iyor; türemiş tabanda ünsüz düşer"},
+        {"surface": "beklemeden", "root": "bekle", "suffixes": ["meden"],
+         "explanation": "-me isim-fiil eki + ayrılma hâl eki (-den)"}
+      ]
+    },
+
+    {
+      "word": "başlamak",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.9,
+      "confidence": 1.0,
+      "phonetics": "[başlamak]",
+      "meanings": [
+        {"order": 1, "type": "fiil", "sense": "gercek",
+         "definition": "Bir işe girişmek, bir süreci yürütmek.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Anlatmaya başladı, kimse sözünü kesmedi.",
+         "confidence": 1.0},
+        {"order": 2, "type": "fiil", "sense": "mecaz",
+         "definition": "Başkasına ait olmak. \"Başlamak\" deyimiyle; adı geçmek.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu iş kimin başına başlıyor, kimse bilmiyor.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "başlangıç", "type": "derivative"},
+        {"word": "başkan", "type": "derivative"},
+        {"word": "bitirmek", "type": "antonym"},
+        {"word": "giriş", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "başladı", "root": "başla", "suffixes": ["dı"],
+         "explanation": "başla- + -dı; geçmiş zaman eki"},
+        {"surface": "başlayacak", "root": "başla", "suffixes": ["yacak"],
+         "explanation": "başla- + -yacak; -AEAK gelecek zaman eki"},
+        {"surface": "başlangıcı", "root": "başla", "suffixes": ["ngıcı"],
+         "explanation": "başla- + -ngIç yapım eki + 3. kişi iyelik eki (-ı)"}
+      ]
+    },
+
+    {
+      "word": "bitirmek",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.9,
+      "confidence": 1.0,
+      "phonetics": "[bitirmek]",
+      "meanings": [
+        {"order": 1, "type": "fiil", "sense": "gercek",
+         "definition": "Bir işi, bir süreci sona erdirmek.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Okulu bırakmadan bitirmişti.",
+         "confidence": 1.0},
+        {"order": 2, "type": "fiil", "sense": "mecaz",
+         "definition": "Tüketmek, sona erdirmek. \"Zamanı bitirmek\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Yarım kilo peyniri tek başına bitirdi.",
+         "confidence": 0.95},
+        {"order": 3, "type": "fiil", "sense": "mecaz",
+         "definition": "Anlatmak, kısaca özetlemek. \"Hikâyeyi bitirmek\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Hepsini anlatmak yerine bitirelim.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "bitiş", "type": "derivative"},
+        {"word": "bitkisel", "type": "related"},
+        {"word": "başlamak", "type": "antonym"},
+        {"word": "tamamlamak", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "bitirdi", "root": "bitir", "suffixes": ["di"],
+         "explanation": "bitir- + -di; geçmiş zaman eki"},
+        {"surface": "bitecek", "root": "bitir", "suffixes": ["ecek"],
+         "explanation": "bitir- + -ecek; türemiş tabanda geçmiş zaman gövdesi düşer"},
+        {"surface": "bitmesi", "root": "bitir", "suffixes": ["mesi"],
+         "explanation": "-me isim-fiil eki + 3. kişi iyelik eki (-si)"}
+      ]
+    },
+
+    {
+      "word": "seçmek",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.9,
+      "confidence": 1.0,
+      "phonetics": "[seçmek]",
+      "meanings": [
+        {"order": 1, "type": "fiil", "sense": "gercek",
+         "definition": "Birçok şey arasından birini seçerek almak, tercih etmek.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Üç teklif arasından en ucuzunu seçti.",
+         "confidence": 1.0},
+        {"order": 2, "type": "fiil", "sense": "mecaz",
+         "definition": "Görevlendirmek, göreve çağırmak. Askerlik terimi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Sınırda altı ay seçildi.",
+         "confidence": 0.95},
+        {"order": 3, "type": "fiil", "sense": "mecaz",
+         "definition": "Ayırt etmek, farkını görmek.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Neyi seçeceğini zannediyordu.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "seçim", "type": "derivative"},
+        {"word": "seçkin", "type": "derivative"},
+        {"word": "tercih", "type": "related"},
+        {"word": "elemek", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "seçti", "root": "seç", "suffixes": ["ti"],
+         "explanation": "seç- + -ti; ünsüz benzeşmesi (ç/t) ve geçmiş zaman eki"},
+        {"surface": "seçecek", "root": "seç", "suffixes": ["ecek"],
+         "explanation": "-AcAk gelecek zaman kipinin olumsuz biçimi"},
+        {"surface": "seçimi", "root": "seç", "suffixes": ["imi"],
+         "explanation": "-im yapım eki + 3. kişi iyelik eki (-i); seç-im + -i"}
+      ]
+    },
+
+    {
+      "word": "taşımak",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.85,
+      "confidence": 1.0,
+      "phonetics": "[taşımak]",
+      "meanings": [
+        {"order": 1, "type": "fiil", "sense": "gercek",
+         "definition": "Bir şeyi bir yerden başka yere götürmek.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Sütü mahalleden taşımak zorundaydı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "fiil", "sense": "mecaz",
+         "definition": "Üstlenmek, devralmak. Sorumluluğu üstlenmek.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu işi kimse taşımak istemedi.",
+         "confidence": 0.95},
+        {"order": 3, "type": "fiil", "sense": "mecaz",
+         "definition": "Geçirmek, aktarmak. \"Mesajı taşımak\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Kimse haberi ona taşımadı.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "taşıma", "type": "derivative"},
+        {"word": "taşıyıcı", "type": "derivative"},
+        {"word": "getirmek", "type": "related"},
+        {"word": "bırakmak", "type": "antonym"}
+      ],
+      "morphology": [
+        {"surface": "taşıdı", "root": "taşı", "suffixes": ["dı"],
+         "explanation": "taşı- + -dı; geçmiş zaman eki"},
+        {"surface": "taşır", "root": "taşı", "suffixes": ["r"],
+         "explanation": "taşı- + -r; geniş zaman eki, ünsüz korunur"},
+        {"surface": "taşınması", "root": "taşın", "suffixes": ["ması"],
+         "explanation": "taşın- edilgen çatışma eki + -mAsI gereklilik kipi"}
+      ]
+    },
+
+    {
+      "word": "açmak",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.9,
+      "confidence": 1.0,
+      "phonetics": "[açmak]",
+      "meanings": [
+        {"order": 1, "type": "fiil", "sense": "gercek",
+         "definition": "Kapalı bir şeyi açmak; kapı, pencere, kutu gibi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Pencereden soğuk hava girdi, kapıyı açtı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "fiil", "sense": "mecaz",
+         "definition": "Kurmak, başlatmak. \"Yol açmak\", \"seri açmak\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu karar imza atmasına yol açtı.",
+         "confidence": 0.95},
+        {"order": 3, "type": "fiil", "sense": "mecaz",
+         "definition": "Açıklamak, anlatmak. \"Konuyu açmak\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Toplantıda meseleyi açmak kimseye yaramadı.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "açılış", "type": "derivative"},
+        {"word": "açık", "type": "derivative"},
+        {"word": "kapamak", "type": "antonym"},
+        {"word": "giriş", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "açtı", "root": "aç", "suffixes": ["tı"],
+         "explanation": "aç- + -tı; ünsüz benzeşmesi (ç/t) ve geçmiş zaman eki"},
+        {"surface": "açacak", "root": "aç", "suffixes": ["acak"],
+         "explanation": "-AcAk gelecek zaman kipinin olumsuz biçimi"},
+        {"surface": "açılmış", "root": "açıl", "suffixes": ["mış"],
+         "explanation": "açıl- edilgen çatışma eki + -mIş geçmiş zaman eki"}
+      ]
+    },
+
+    {
+      "word": "kapamak",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.85,
+      "confidence": 1.0,
+      "phonetics": "[kapamak]",
+      "meanings": [
+        {"order": 1, "type": "fiil", "sense": "gercek",
+         "definition": "Açık bir şeyi kapatmak; örtmek.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Kitabı kapattı, ışıkları söndürdü.",
+         "confidence": 1.0},
+        {"order": 2, "type": "fiil", "sense": "mecaz",
+         "definition": "Sona erdirmek, bitirmek. \"Konuyu kapamak\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Tartışmayı bir cümleyle kapattı.",
+         "confidence": 0.95},
+        {"order": 3, "type": "fiil", "sense": "mecaz",
+         "definition": "Engellemek, kapatmak. \"Yolu kapamak\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Engelli arkadaşının önünü kapattılar.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "kapak", "type": "derivative"},
+        {"word": "kapalı", "type": "derivative"},
+        {"word": "açmak", "type": "antonym"},
+        {"word": "örtmek", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "kapattı", "root": "kapat", "suffixes": ["tı"],
+         "explanation": "kapat- + -tı; ünsüz benzeşmesi (t/t) ve geçmiş zaman eki"},
+        {"surface": "kapak", "root": "kap", "suffixes": ["ak"],
+         "explanation": "-Ak yapım eki; kap- + -ak"},
+        {"surface": "kapandı", "root": "kapan", "suffixes": ["dı"],
+         "explanation": "kapan- + -dı; edilgen çatışma eki ile özneye döner"}
+      ]
+    },
+
+    {
+      "word": "anlamak",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.9,
+      "confidence": 1.0,
+      "phonetics": "[anlamak]",
+      "meanings": [
+        {"order": 1, "type": "fiil", "sense": "gercek",
+         "definition": "Bir sözcüğün ya da bir olayın ne anlama geldiğini kavramak.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Soru gerçekten sorulmuş muydu, hiç anlamadı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "fiil", "sense": "mecaz",
+         "definition": "Bir duygu veya kavramı paylaşmak, kucaklamak.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Birbirlerini anlıyorlardı, tek kelimeye ihtiyaçları yoktu.",
+         "confidence": 0.95}
+      ],
+      "relations": [
+        {"word": "anlam", "type": "derivative"},
+        {"word": "anlaşılmak", "type": "derivative"},
+        {"word": "fikir", "type": "related"},
+        {"word": "anlatmak", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "anladı", "root": "anla", "suffixes": ["dı"],
+         "explanation": "anla- + -dı; geçmiş zaman eki"},
+        {"surface": "anlaşmak", "root": "anlaş", "suffixes": ["mak"],
+         "explanation": "anlaş- + -mAk; karşılıklı kabul anlamı taşır"},
+        {"surface": "anlaşılmaz", "root": "anlaşıl", "suffixes": ["maz"],
+         "explanation": "-mAz yapım eki; kavranamayan anlamında"}
+      ]
+    },
+
+    {
+      "word": "unutmak",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.9,
+      "confidence": 1.0,
+      "phonetics": "[unutmak]",
+      "meanings": [
+        {"order": 1, "type": "fiil", "sense": "gercek",
+         "definition": "Hatırlamayı bırakmak, hafızasından düşürmek.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Adını unutmuş, boş bir formal doldurdu.",
+         "confidence": 1.0},
+        {"order": 2, "type": "fiil", "sense": "mecaz",
+         "definition": "Gözden kaçırmak, ihmal etmek.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Söylediğini unutmuş, kimse de hatırlatmamış.",
+         "confidence": 0.95},
+        {"order": 3, "type": "fiil", "sense": "mecaz",
+         "definition": "Affetmek, bağışlamak. \"Unutmak\" deyimiyle.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Onu hiç unutmadı, hiç affetmedi.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "unutulmaz", "type": "derivative"},
+        {"word": "hatırlamak", "type": "antonym"},
+        {"word": "sabır", "type": "related"},
+        {"word": "hatıra", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "unuttu", "root": "unut", "suffixes": ["tu"],
+         "explanation": "unut- + -tu; ünsüz benzeşmesi (t/t) ve geçmiş zaman eki"},
+        {"surface": "unutulmaz", "root": "unutul", "suffixes": ["maz"],
+         "explanation": "unutul- edilgen çatışma eki + -mAz yapım eki"},
+        {"surface": "unutmak", "root": "unut", "suffixes": ["mak"],
+         "explanation": "-mAk mastar eki"}
+      ]
+    },
+
+    {
+      "word": "hatırlamak",
+      "origin": "Arapça",
+      "origin_period": "Osmanlı dönemi",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.85,
+      "confidence": 0.95,
+      "phonetics": "[hatırlamak]",
+      "meanings": [
+        {"order": 1, "type": "fiil", "sense": "gercek",
+         "definition": "Geçmişte olmuş bir şeyi yeniden hatırlamak.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "O günü, o cümleyi hatırlamıyordu.",
+         "confidence": 1.0},
+        {"order": 2, "type": "fiil", "sense": "mecaz",
+         "definition": "Anmak, ölüm yıldönümünde anmak.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Her yıl sessizce hatırlıyordu.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "hatıra", "type": "derivative"},
+        {"word": "unutmak", "type": "antonym"},
+        {"word": "anı", "type": "related"},
+        {"word": "nostalji", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "hatırladı", "root": "hatırla", "suffixes": ["dı"],
+         "explanation": "hatırla- + -dı; geçmiş zaman eki"},
+        {"surface": "hatırlatmak", "root": "hatırla", "suffixes": ["tmak"],
+         "explanation": "hatırla- + -t yapım eki + -mAk; birine hatırlamasını söylemek"},
+        {"surface": "hatırlatıcı", "root": "hatırla", "suffixes": ["tıcı"],
+         "explanation": "hatırla- + -tI yapım eki + -cI alet eki"}
+      ]
+    },
+
+    {
+      "word": "tanımak",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.85,
+      "confidence": 1.0,
+      "phonetics": "[tanımak]",
+      "meanings": [
+        {"order": 1, "type": "fiil", "sense": "gercek",
+         "definition": "Bir kişinin ya da bir şenin kim olduğunu bilmek.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Yüzü tanımadı, ama sesi tanıdı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "fiil", "sense": "mecaz",
+         "definition": "Kabul etmek, onaylamak. \"Tanımak\" deyimiyle.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu şekilde bir sistemi kimse tanımaz.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "tanım", "type": "derivative"},
+        {"word": "tanıtık", "type": "derivative"},
+        {"word": "bilmek", "type": "related"},
+        {"word": "tanıtmak", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "tanıdı", "root": "tanı", "suffixes": ["dı"],
+         "explanation": "tanı- + -dı; geçmiş zaman eki (türemiş gövde)"},
+        {"surface": "tanıtması", "root": "tanıt", "suffixes": ["ması"],
+         "explanation": "tanıt- + -mAsI gereklilik kipi + 3. kişi iyelik eki (-sı)"},
+        {"surface": "tanımadığı", "root": "tanı", "suffixes": ["madığı"],
+         "explanation": "-mA olumsuzluk eki + -DI sıfat-fiil eki + 3. kişi iyelik eki"}
+      ]
+    },
+
+    {
+      "word": "umut",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.8,
+      "confidence": 1.0,
+      "phonetics": "[umut]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "İyi sonuç gelir diye beslenen beklenti.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Umudu, üç gün sonra taşınmak oldu.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "Dayanma sebebi, tutunacak yer.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Sana söyleyemedim, sen benim tek umudum.",
+         "confidence": 0.95}
+      ],
+      "relations": [
+        {"word": "umutlu", "type": "derivative"},
+        {"word": "umutsuz", "type": "derivative"},
+        {"word": "hayal", "type": "related"},
+        {"word": "kaygı", "type": "antonym"}
+      ],
+      "morphology": [
+        {"surface": "umut", "root": "umut", "suffixes": [],
+         "explanation": "temel biçim"},
+        {"surface": "umudu", "root": "umut", "suffixes": ["u"],
+         "explanation": "3. kişi iyelik eki (-u)"},
+        {"surface": "umutsuzluk", "root": "umutsuz", "suffixes": ["luk"],
+         "explanation": "umutsuz + -lUk yapım eki"}
+      ]
+    },
+
+    {
+      "word": "aramak",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.85,
+      "confidence": 1.0,
+      "phonetics": "[aramak]",
+      "meanings": [
+        {"order": 1, "type": "fiil", "sense": "gercek",
+         "definition": "Bir şeyin yerini öğrenmek için soruşturmak.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Güler aradı, telefonu açmıyormuş.",
+         "confidence": 1.0},
+        {"order": 2, "type": "fiil", "sense": "mecaz",
+         "definition": "Bakmak, denetim yapmak. \"Göz aramak\" deyiminde.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Çantasını aradı, yarısı içeride kalmış.",
+         "confidence": 0.9},
+        {"order": 3, "type": "fiil", "sense": "mecaz",
+         "definition": "Üstünü kapalı biçimde okumak, öğrenmeye çalışmak.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Sınavdan bir gece önce aradı.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "araştırma", "type": "derivative"},
+        {"word": "sorgulamak", "type": "related"},
+        {"word": "bulmak", "type": "related"},
+        {"word": "sormak", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "aradı", "root": "ara", "suffixes": ["dı"],
+         "explanation": "ara- + -dı; geçmiş zaman eki"},
+        {"surface": "arayacağı", "root": "ara", "suffixes": ["yacağı"],
+         "explanation": "ara- + -yAcAk gelecek zaman eki + 3. kişi iyelik eki (-ı); kaynaştırma ile g"},
+        {"surface": "araması", "root": "ara", "suffixes": ["ması"],
+         "explanation": "-mAsI gereklilik kipi + 3. kişi iyelik eki (-sı)"}
+      ]
+    },
+
+    {
+      "word": "uzun",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.95,
+      "confidence": 1.0,
+      "phonetics": "[uzun]",
+      "meanings": [
+        {"order": 1, "type": "sıfat", "sense": "gercek",
+         "definition": "Uzunluğu fazla olan; kısa olmayan.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "O kadar uzun bir kuyruk var ki içeri giremediler.",
+         "confidence": 1.0},
+        {"order": 2, "type": "sıfat", "sense": "mecaz",
+         "definition": "Süren, uzun süreli. \"Uzun yol\", \"uzun vadeli\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu iş uzun sürdü, kimse hesaplayamadı.",
+         "confidence": 0.95},
+        {"order": 3, "type": "sıfat", "sense": "mecaz",
+         "definition": "Hareket, yavaşlık anlamında eskir.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Yürüyüşü uzun sürüyordu.",
+         "confidence": 0.8}
+      ],
+      "relations": [
+        {"word": "uzunluk", "type": "derivative"},
+        {"word": "kısa", "type": "antonym"},
+        {"word": "mesafe", "type": "related"},
+        {"word": "süre", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "uzun", "root": "uzun", "suffixes": [],
+         "explanation": "temel biçim"},
+        {"surface": "uzunluğu", "root": "uzun", "suffixes": ["luğu"],
+         "explanation": "-lUk yapım eki + kaynaştırma (lüğü) + 3. kişi iyelik eki"},
+        {"surface": "uzunca", "root": "uzun", "suffixes": ["ca"],
+         "explanation": "-cA yapım eki; uzunca = biraz uzun"}
+      ]
+    },
+
+    {
+      "word": "kısa",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.95,
+      "confidence": 1.0,
+      "phonetics": "[kısa]",
+      "meanings": [
+        {"order": 1, "type": "sıfat", "sense": "gercek",
+         "definition": "Uzunluğu az olan.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Cebinde kısa bir not vardı, üstüne bir şey yazmamış.",
+         "confidence": 1.0},
+        {"order": 2, "type": "sıfat", "sense": "mecaz",
+         "definition": "Süresi az, öz. \"Kısa yoldan\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Kısa bir cümleyle her şeyi anlattı.",
+         "confidence": 0.95},
+        {"order": 3, "type": "sıfat", "sense": "mecaz",
+         "definition": "İçerik bakımından yetersiz, özet anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Kısa kalan anlatı, kimseyi ikna etmedi.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "kısalık", "type": "derivative"},
+        {"word": "uzun", "type": "antonym"},
+        {"word": "özet", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "kısa", "root": "kısa", "suffixes": [],
+         "explanation": "temel biçim"},
+        {"surface": "kısalttı", "root": "kısalt", "suffixes": ["tı"],
+         "explanation": "kısalt- + -tı; geçmiş zaman eki"},
+        {"surface": "kısaca", "root": "kısa", "suffixes": ["ca"],
+         "explanation": "-cA yapım eki; az ayrıntıyla"}
+      ]
+    },
+
+    {
+      "word": "yeni",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.95,
+      "confidence": 1.0,
+      "phonetics": "[yeni]",
+      "meanings": [
+        {"order": 1, "type": "sıfat", "sense": "gercek",
+         "definition": "Az önce ortaya çıkmış, eski olmayan.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Yeni gelen kimse kimseye selam vermedi.",
+         "confidence": 1.0},
+        {"order": 2, "type": "sıfat", "sense": "mecaz",
+         "definition": "Taze, dinç. \"Yeni fikir\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Yeni bir fikir ilk gün reddedildi.",
+         "confidence": 0.95},
+        {"order": 3, "type": "sıfat", "sense": "mecaz",
+         "definition": "Yakın zamanda, az önce. \"Yeni gitmiş\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Yeni dönmüştü, yorgunluğu belliydi.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "yenilik", "type": "derivative"},
+        {"word": "yenilemek", "type": "derivative"},
+        {"word": "eski", "type": "antonym"},
+        {"word": "taze", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "yeni", "root": "yeni", "suffixes": [],
+         "explanation": "temel biçim"},
+        {"surface": "yeniden", "root": "yeni", "suffixes": ["den"],
+         "explanation": "-den ayrılma hâl eki; gövde bütünüyle: yeniden = tekrar"},
+        {"surface": "yeniliği", "root": "yeni", "suffixes": ["liği"],
+         "explanation": "-lik yapım eki + yumuşama (l→liği) + 3. kişi iyelik eki"}
+      ]
+    },
+
+    {
+      "word": "eski",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.95,
+      "confidence": 1.0,
+      "phonetics": "[eski]",
+      "meanings": [
+        {"order": 1, "type": "sıfat", "sense": "gercek",
+         "definition": "Uzun süredir var olan, yeni olmayan.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Eski bir ev, avlunun ortasında duruyordu.",
+         "confidence": 1.0},
+        {"order": 2, "type": "sıfat", "sense": "mecaz",
+         "definition": "Geçmişte kalmış, ortadan kalkmış.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu eski usul artık kimseye işe yaramaz.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "mecaz",
+         "definition": "Samimi, yakın dost. \"Eski dost\" deyimiyle.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Eskilerden olsun, kızmadı.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "eskilik", "type": "derivative"},
+        {"word": "eskitmek", "type": "derivative"},
+        {"word": "yeni", "type": "antonym"},
+        {"word": "tarih", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "eski", "root": "eski", "suffixes": [],
+         "explanation": "temel biçim"},
+        {"surface": "eskiyen", "root": "esk", "suffixes": ["iyen"],
+         "explanation": "esk- + -Iye gövde + -n geniş zaman eki"},
+        {"surface": "eskisi", "root": "eski", "suffixes": ["si"],
+         "explanation": "3. kişi iyelik eki (-si)"}
+      ]
+    },
+
+    {
+      "word": "kolay",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.9,
+      "confidence": 1.0,
+      "phonetics": "[kolay]",
+      "meanings": [
+        {"order": 1, "type": "sıfat", "sense": "gercek",
+         "definition": "Zahmetsiz, güçlük çekmeden yapılabilen.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu işi ilk defada kolayca çözdü.",
+         "confidence": 1.0},
+        {"order": 2, "type": "sıfat", "sense": "mecaz",
+         "definition": "Rahatsız etmeyen, sorun çıkarmayan.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Kolay biriydi, kimseyi üzmeydi.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "kolaylık", "type": "derivative"},
+        {"word": "zor", "type": "antonym"},
+        {"word": "basit", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "kolay", "root": "kolay", "suffixes": [],
+         "explanation": "temel biçim"},
+        {"surface": "kolaylık", "root": "kolay", "suffixes": ["lık"],
+         "explanation": "-lık yapım eki"},
+        {"surface": "kolaylaşmak", "root": "kolaylaş", "suffixes": ["mak"],
+         "explanation": "kolaylaş- + -mAk; -Aş gövde dönüşümüyle"}
+      ]
+    },
+
+    {
+      "word": "zor",
+      "origin": "Arapça",
+      "origin_period": "Osmanlı dönemi",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.95,
+      "confidence": 0.95,
+      "phonetics": "[zor]",
+      "meanings": [
+        {"order": 1, "type": "sıfat", "sense": "gercek",
+         "definition": "Güçlük çektiren, zahmetsiz yapılmayan.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Karar vermek, yapmaktan zordu.",
+         "confidence": 1.0},
+        {"order": 2, "type": "sıfat", "sense": "mecaz",
+         "definition": "Dayanıklı, güçlü. \"Zorlu\", \"zor\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Soğukta zor bir kış.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "mecaz",
+         "definition": "Baskı, sıkıntı. \"Zorluk çıkarmak\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Kimse zor çıkarmak istemedi.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "zorluk", "type": "derivative"},
+        {"word": "zorlanmak", "type": "derivative"},
+        {"word": "kolay", "type": "antonym"},
+        {"word": "güç", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "zor", "root": "zor", "suffixes": [],
+         "explanation": "temel biçim"},
+        {"surface": "zorlu", "root": "zor", "suffixes": ["lu"],
+         "explanation": "-lU yapım eki"},
+        {"surface": "zorluğu", "root": "zor", "suffixes": ["luğu"],
+         "explanation": "zorluk + 3. kişi iyelik eki (-ü); kaynaştırma ile g"}
+      ]
+    },
+
+    {
+      "word": "sıcak",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.9,
+      "confidence": 1.0,
+      "phonetics": "[sıcak]",
+      "meanings": [
+        {"order": 1, "type": "sıfat", "sense": "gercek",
+         "definition": "Yüksek ısıya sahip; soğuk olmayan.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Çorba, soğumuş tam tersine sıcaklaştı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "sıfat", "sense": "mecaz",
+         "definition": "Samimi, içten. \"Sıcak kanlı\" deyiminde olduğu gibi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Sıcak bir aile görüyorum, belli ki.",
+         "confidence": 0.95},
+        {"order": 3, "type": "sıfat", "sense": "mecaz",
+         "definition": "Güncel, taze. \"Sıcak haber\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Sıcak bir gelişme var, sabah haberlerde gördüm.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "sıcaklık", "type": "derivative"},
+        {"word": "ısıtmak", "type": "related"},
+        {"word": "soğuk", "type": "antonym"},
+        {"word": "hava durumu", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "sıcak", "root": "sıcak", "suffixes": [],
+         "explanation": "temel biçim"},
+        {"surface": "sıcaklığı", "root": "sıcak", "suffixes": ["lığı"],
+         "explanation": "-lık yapım eki + kaynaştırma (lığı) + 3. kişi iyelik eki"},
+        {"surface": "ısıttı", "root": "ısıt", "suffixes": ["tı"],
+         "explanation": "ısıt- + -tı; geçmiş zaman eki, ünsüz benzeşmesi"}
+      ]
+    },
+
+    {
+      "word": "soğuk",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.9,
+      "confidence": 1.0,
+      "phonetics": "[soğuk]",
+      "meanings": [
+        {"order": 1, "type": "sıfat", "sense": "gercek",
+         "definition": "Düşük ısıya sahip; sıcak olmayan.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Su, kuyu soğuğuydu, içerken dişleri ağrıdı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "sıfat", "sense": "mecaz",
+         "definition": "İlgisiz, soğukkanlı. \"Soğuk davranmak\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Hiç ısınmadı, soğuk karşıladı.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "mecaz",
+         "definition": "Hareketsizlik, kayıtsızlık.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Kurulduğu andan beri bir soğukluk vardu aralarında.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "soğukluk", "type": "derivative"},
+        {"word": "soğutmak", "type": "related"},
+        {"word": "sıcak", "type": "antonym"},
+        {"word": "kış", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "soğuk", "root": "soğuk", "suffixes": [],
+         "explanation": "temel biçim"},
+        {"surface": "soğuğu", "root": "soğuk", "suffixes": ["u"],
+         "explanation": "3. kişi iyelik eki (-u)"},
+        {"surface": "soğutmuş", "root": "soğut", "suffixes": ["muş"],
+         "explanation": "soğut- + -mUş geçmiş zaman eki"}
+      ]
+    },
+
+    {
+      "word": "doğru",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.95,
+      "confidence": 1.0,
+      "phonetics": "[doğru]",
+      "meanings": [
+        {"order": 1, "type": "sıfat", "sense": "gercek",
+         "definition": "Yanlış olmayan, gerçeğe uygun.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Doğru cevabı bulmak, şans işi değildi.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "Gerçek, hakikat.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Doğrunun nerede olduğunu kimse bilmiyordu.",
+         "confidence": 0.95},
+        {"order": 3, "type": "zarf", "sense": "gercek",
+         "definition": "Tam olarak, düzgün biçimde.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Her şeyi doğru yaptı, kimse bir şey söyleyemedi.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "doğruluk", "type": "derivative"},
+        {"word": "doğrultmak", "type": "derivative"},
+        {"word": "yanlış", "type": "antonym"},
+        {"word": "hak", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "doğru", "root": "doğru", "suffixes": [],
+         "explanation": "temel biçim"},
+        {"surface": "doğruyu", "root": "doğru", "suffixes": ["yu"],
+         "explanation": "belirtme hâl eki (-u) + 3. kişi iyelik eki (-u); kaynaştırma ile y'ye dönüşür"},
+        {"surface": "doğruluk", "root": "doğru", "suffixes": ["luk"],
+         "explanation": "-lUk yapım eki; doğruluk = doğru olma"}
+      ]
+    },
+
+    {
+      "word": "kapalı",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.85,
+      "confidence": 1.0,
+      "phonetics": "[kapalı]",
+      "meanings": [
+        {"order": 1, "type": "sıfat", "sense": "gercek",
+         "definition": "Kapatılmış, açık olmayan.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Dükkânın kepengi kapalıydı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "sıfat", "sense": "mecaz",
+         "definition": "Sığ, dar; alanı az. \"Kapalı mekân\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Kapalı bir toplumda dedikodu korkusundan kimse konuşmaz.",
+         "confidence": 0.9},
+        {"order": 3, "type": "sıfat", "sense": "mecaz",
+         "definition": "Geçmiş, sona ermiş. \"Kapalı hesap\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Konu kapanmıştı, geri açılmadı.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "kapatmak", "type": "derivative"},
+        {"word": "açık", "type": "antonym"},
+        {"word": "kapı", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "kapalı", "root": "kap", "suffixes": ["alı"],
+         "explanation": "kap- + -Al yapım eki; kapal- + -lı"},
+        {"surface": "kapalı", "root": "kapal", "suffixes": ["ı"],
+         "explanation": "kapal + -I yapım eki (sıfatlaştırma)"},
+        {"surface": "kapandı", "root": "kapan", "suffixes": ["dı"],
+         "explanation": "kapan- + -dı; geçmiş zaman eki"}
+      ]
+    },
+
+    {
+      "word": "özgür",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.85,
+      "confidence": 1.0,
+      "phonetics": "[özgür]",
+      "meanings": [
+        {"order": 1, "type": "sıfat", "sense": "gercek",
+         "definition": "Başkasının denetiminde olmayan, kendi iradesiyle hareket eden.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu ülkeye özgür düşünmek yasak.",
+         "confidence": 1.0},
+        {"order": 2, "type": "sıfat", "sense": "gercek",
+         "definition": "Engelsiz, bağımsız. \"Özgür pazar\", \"serbest\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu alan serbest, herkes özgürce kullanabilir.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "özgürlük", "type": "derivative"},
+        {"word": "serbest", "type": "related"},
+        {"word": "bağımsız", "type": "related"},
+        {"word": "tutulmak", "type": "antonym"}
+      ],
+      "morphology": [
+        {"surface": "özgür", "root": "özgür", "suffixes": [],
+         "explanation": "temel biçim"},
+        {"surface": "özgürlük", "root": "özgür", "suffixes": ["lük"],
+         "explanation": "-lük yapım eki; özgür + -lük -> özgürlük"},
+        {"surface": "özgürlüğü", "root": "özgürlük", "suffixes": ["ü"],
+         "explanation": "3. kişi iyelik eki (-ü)"}
+      ]
+    },
+
+    {
+      "word": "kültür",
+      "origin": "Fransızca",
+      "origin_period": "19. yy",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.9,
+      "confidence": 0.95,
+      "phonetics": "[kültür]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Bir toplumun kuşaktan kuşağa aktardığı inanç, töre, sanat ve düşünce birikimi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Kültür, yazılı olmayan bellekte de yaşar.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Bir alanda yetişkinlik düzeyi, bilgi birikimi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Sahne kültürünün inceliklerini bilmiyordu.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "mecaz",
+         "definition": "Özellikle tarım, bitki yetiştirme.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu köyde hâlâ su kültürü yapılıyor.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "kültürel", "type": "derivative"},
+        {"word": "gelenek", "type": "related"},
+        {"word": "toplum", "type": "related"},
+        {"word": "uygarlık", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "kültürü", "root": "kültür", "suffixes": ["ü"],
+         "explanation": "3. kişi iyelik eki (-ü)"},
+        {"surface": "kültürel", "root": "kültür", "suffixes": ["el"],
+         "explanation": "-Al yapım eki; kültürel"},
+        {"surface": "kültürlenmek", "root": "kültür", "suffixes": ["lenmek"],
+         "explanation": "kültür- + -lAn gövde dönüşümü + -mAk"}
+      ]
+    },
+
+    {
+      "word": "toplum",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.9,
+      "confidence": 1.0,
+      "phonetics": "[toplum]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Ortak örgütlenme ve çıkar bağıyla bir araya gelen insan topluluğu.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Toplum, bireylerin toplamından fazlasıdır.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "Bir bütünü oluşturan parçaların tümü.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu gemi bütün toplumun emeğidir.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "toplumsal", "type": "derivative"},
+        {"word": "birey", "type": "antonym"},
+        {"word": "kültür", "type": "related"},
+        {"word": "kalabalık", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "toplum", "root": "toplum", "suffixes": [],
+         "explanation": "top- + -lum gövde dönüşümü; tek başına temel biçim"},
+        {"surface": "toplumu", "root": "toplum", "suffixes": ["u"],
+         "explanation": "3. kişi iyelik eki (-u)"},
+        {"surface": "toplumsal", "root": "toplum", "suffixes": ["sal"],
+         "explanation": "-sAl yapım eki; toplumsal"}
+      ]
+    },
+
+    {
+      "word": "birey",
+      "origin": "Fransızca",
+      "origin_period": "19. yy",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.8,
+      "confidence": 0.9,
+      "phonetics": "[birey]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Topluluk içinde tek başına var olan, ayrı kişi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Toplum bireylerden, bireyler toplumdan var olur.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Tek bir şey, birimsiz. \"Birey bir yaprak\" benzetmesinde olduğu gibi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Birey zararına zarar görmeyi de göze alır.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "bireysel", "type": "derivative"},
+        {"word": "toplum", "type": "antonym"},
+        {"word": "kişi", "type": "related"},
+        {"word": "benlik", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "birey", "root": "birey", "suffixes": [],
+         "explanation": "temel biçim"},
+        {"surface": "bireyin", "root": "birey", "suffixes": ["in"],
+         "explanation": "2. kişi iyelik eki (-in)"},
+        {"surface": "bireysel", "root": "birey", "suffixes": ["sel"],
+         "explanation": "-sAl yapım eki; bireysel"}
+      ]
+    },
+
+    {
+      "word": "ahlak",
+      "origin": "Arapça",
+      "origin_period": "Osmanlı dönemi",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.85,
+      "confidence": 0.95,
+      "phonetics": "[ahlak]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Doğru ile yanlışı ayırt etmeye yarayan ölçü; iyi niyet ve dürüstlük gibi değerler bütünü.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Ahlak, kanunla değil insanın içinden gelir.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Bir meslek mensuplarının uyması beklenen davranış biçimi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Meslek ahlakı, mesleğin en görünür yüzüdür.",
+         "confidence": 0.95}
+      ],
+      "relations": [
+        {"word": "ahlaki", "type": "derivative"},
+        {"word": "ahlaksız", "type": "derivative"},
+        {"word": "iyi", "type": "related"},
+        {"word": "gelenek", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "ahlakı", "root": "ahlak", "suffixes": ["ı"],
+         "explanation": "3. kişi iyelik eki (-ı)"},
+        {"surface": "ahlaklı", "root": "ahlak", "suffixes": ["lı"],
+         "explanation": "-lı yapım eki; ahlaklı = ahlakına uyan"},
+        {"surface": "ahlaksız", "root": "ahlak", "suffixes": ["sız"],
+         "explanation": "-sız yapım eki; ahlaksız = ahlaka aykırı"}
+      ]
+    },
+
+    {
+      "word": "gelenek",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.85,
+      "confidence": 1.0,
+      "phonetics": "[gelenek]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Kuşaktan kuşağa aktarılarak süren, toplumda yerleşmiş uygulama ve inanış.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu gelenek yüzlerce yıldır sürüyor, kimse değiştirmedi.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "Alışkanlık, rutin. \"O geleneği bozmamak\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Her pazar aynı saatte aynı yerde olmak bir gelenekti.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "geleneksel", "type": "derivative"},
+        {"word": "kültür", "type": "related"},
+        {"word": "töre", "type": "related"},
+        {"word": "modern", "type": "antonym"}
+      ],
+      "morphology": [
+        {"surface": "geleneği", "root": "gelenek", "suffixes": ["i"],
+         "explanation": "3. kişi iyelik eki (-i)"},
+        {"surface": "geleneksel", "root": "gelenek", "suffixes": ["sel"],
+         "explanation": "-sAl yapım eki; geleneksel"},
+        {"surface": "gelenekten", "root": "gelenek", "suffixes": ["ten"],
+         "explanation": "ayrılma hâl eki (-ten); ünsüz benzeşmesi (k/t)"}
+      ]
+    },
+
+    {
+      "word": "modern",
+      "origin": "Fransızca",
+      "origin_period": "19. yy",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.8,
+      "confidence": 0.9,
+      "phonetics": "[modern]",
+      "meanings": [
+        {"order": 1, "type": "sıfat", "sense": "gercek",
+         "definition": "Bugünkü çağa uygun, çağdaş.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Modern binalar eskilerin yanında fazla uzun duruyor.",
+         "confidence": 1.0},
+        {"order": 2, "type": "sıfat", "sense": "gercek",
+         "definition": "Yeni fikirleri benimsemiş, geleneğe bağlı olmayan.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Modern bir bakış açısı arıyordu.",
+         "confidence": 0.95}
+      ],
+      "relations": [
+        {"word": "modernleşmek", "type": "derivative"},
+        {"word": "çağdaş", "type": "related"},
+        {"word": "gelenek", "type": "antonym"},
+        {"word": "değişim", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "modern", "root": "modern", "suffixes": [],
+         "explanation": "temel biçim"},
+        {"surface": "modernleşti", "root": "modernleş", "suffixes": ["ti"],
+         "explanation": "modernleş- + -ti; -lAş gövde dönüşümü ve geçmiş zaman eki"},
+        {"surface": "modernliği", "root": "modern", "suffixes": ["liği"],
+         "explanation": "-lik yapım eki + yumuşama + 3. kişi iyelik eki"}
+      ]
+    },
+
+    {
+      "word": "değişim",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.85,
+      "confidence": 1.0,
+      "phonetics": "[değişim]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Bir durumdan başka bir duruma geçiş; başkalaşma.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Değişim, kimseye haber verilmeden geldi.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Küçük tutar. Para birimi olarak kullanılır.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Her değişim bozukluğu öğrenciye yazılıyordu.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "değişmek", "type": "derivative"},
+        {"word": "değiştirmek", "type": "derivative"},
+        {"word": "modern", "type": "related"},
+        {"word": "dönüşüm", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "değişim", "root": "değiş", "suffixes": ["im"],
+         "explanation": "değiş- + -Im yapım eki"},
+        {"surface": "değişimi", "root": "değişim", "suffixes": ["i"],
+         "explanation": "3. kişi iyelik eki (-i)"},
+        {"surface": "değişti", "root": "değiş", "suffixes": ["ti"],
+         "explanation": "değiş- + -ti; geçmiş zaman eki"}
+      ]
+    },
+
+    {
+      "word": "çatışma",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.8,
+      "confidence": 1.0,
+      "phonetics": "[çatışma]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Karşılıklı görüş ve çıkarların birbiriyle uyuşmaması.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Komşular arasındaki çatışma mahkemeyle bitti.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Savaş, dövüş.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Sınırda iki kez çatışma oldu.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "mecaz",
+         "definition": "İki duygunun birbirine zıt düşmesi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "İçinde hep bir çatışma vardı.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "çatışmak", "type": "derivative"},
+        {"word": "çatışmasız", "type": "derivative"},
+        {"word": "savaş", "type": "related"},
+        {"word": "uzlaşma", "type": "antonym"}
+      ],
+      "morphology": [
+        {"surface": "çatışma", "root": "çatış", "suffixes": ["ma"],
+         "explanation": "çatış- + -mA isim-fiil eki"},
+        {"surface": "çatışması", "root": "çatışma", "suffixes": ["sı"],
+         "explanation": "3. kişi iyelik eki (-sı)"},
+        {"surface": "çatıştı", "root": "çatış", "suffixes": ["tı"],
+         "explanation": "çatış- + -tı; ünsüz benzeşmesi ve geçmiş zaman eki"}
+      ]
+    },
+
+    {
+      "word": "hoşgörü",
+      "origin": "Farsça",
+      "origin_period": "Osmanlı dönemi",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.85,
+      "confidence": 0.95,
+      "phonetics": "[hoşgörü]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Hoşuna gitmeyen bir durumu yine de kabul etme, katlanma erdemi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Hoşgörünün sınırı yok, ama sabrın sınırı vardır.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Hoşnutlukla karşılama. \"Hoşgörüyle\" deyiminde olduğu gibi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Hoşgörünü aradı, kuşkun çoğaldı.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "görü", "type": "derivative"},
+        {"word": "katlanmak", "type": "related"},
+        {"word": "sabır", "type": "related"},
+        {"word": "saygı", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "hoşgörüsü", "root": "hoşgörü", "suffixes": ["sü"],
+         "explanation": "3. kişi iyelik eki (-ü)"},
+        {"surface": "hoşgörülü", "root": "hoşgörü", "suffixes": ["lü"],
+         "explanation": "-lU yapım eki; hoşgörülü"},
+        {"surface": "hoşgörüyle", "root": "hoşgörü", "suffixes": ["yle"],
+         "explanation": "3. kişi iyelik eki (-ü) + aletle/beraberlik eki (-le)"}
+      ]
+    },
+
+    {
+      "word": "saygı",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.85,
+      "confidence": 1.0,
+      "phonetics": "[saygı]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Değerli sayılan birine karşı duyulan derin sayınlık.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Saygı, karşındakini yüceltmeden başlar.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Dikkat, özen.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Tasarıma hiç saygı gösterilmemişti.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "saygın", "type": "derivative"},
+        {"word": "saygısız", "type": "derivative"},
+        {"word": "değer", "type": "related"},
+        {"word": "hoşgörü", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "saygı", "root": "saygı", "suffixes": [],
+         "explanation": "temel biçim"},
+        {"surface": "saygısı", "root": "saygı", "suffixes": ["sı"],
+         "explanation": "3. kişi iyelik eki (-sı)"},
+        {"surface": "saygısız", "root": "saygı", "suffixes": ["sız"],
+         "explanation": "-sız yapım eki; saygısız = saymayan"}
+      ]
+    },
+
+    {
+      "word": "merak",
+      "origin": "Arapça",
+      "origin_period": "Osmanlı dönemi",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.85,
+      "confidence": 0.95,
+      "phonetics": "[merak]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Bir şeyi öğrenme, anlama isteği.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Merak etti, sordu, öğrenip geçti.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "Şüphe, kuşku. \"Merak etmek\" deyiminde olduğu gibi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Sözünü tutmadı, kimse merak etmedi.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "meraklı", "type": "derivative"},
+        {"word": "meraksız", "type": "derivative"},
+        {"word": "hayal", "type": "related"},
+        {"word": "araştırmak", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "merak", "root": "merak", "suffixes": [],
+         "explanation": "temel biçim"},
+        {"surface": "meraklı", "root": "merak", "suffixes": ["lı"],
+         "explanation": "-lı yapım eki; meraklı = merak eden"},
+        {"surface": "merakını", "root": "merak", "suffixes": ["ını"],
+         "explanation": "-In yapım eki (ihtiyaç hâli) + belirtme hâl eki (-ı)"}
+      ]
+    },
+
+    {
+      "word": "hayal",
+      "origin": "Arapça",
+      "origin_period": "Osmanlı dönemi",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.85,
+      "confidence": 0.95,
+      "phonetics": "[hayal]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Zihinde canlandırılan, gerçek olmayan tasarım.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu hayal, gerçek olmaktan vazgeçmeyecekti.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "Gerçekmiş gibi görünen ama olmayan şey. \"Hayalden uzak\" deyiminde.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bütün bu zenginlik bir hayaldi.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "mecaz",
+         "definition": "Hızlı, yalan; \"hayal sürüklemek\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Hava dolu düşünceleri hayalden geçiyordu.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "hayali", "type": "derivative"},
+        {"word": "hayalcilik", "type": "derivative"},
+        {"word": "umut", "type": "related"},
+        {"word": "gerçek", "type": "antonym"}
+      ],
+      "morphology": [
+        {"surface": "hayali", "root": "hayal", "suffixes": ["i"],
+         "explanation": "3. kişi iyelik eki (-i)"},
+        {"surface": "hayalleri", "root": "hayal", "suffixes": ["leri"],
+         "explanation": "çoğul eki (-ler) + belirtme hâl eki (-i)"},
+        {"surface": "hayalcilik", "root": "hayalci", "suffixes": ["lik"],
+         "explanation": "hayalci + -lik yapım eki"}
+      ]
+    },
+
+    {
+      "word": "gurur",
+      "origin": "Arapça",
+      "origin_period": "Osmanlı dönemi",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.8,
+      "confidence": 0.95,
+      "phonetics": "[gurur]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Kendine, işine veya çevresine duyulan yüce düşünme.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Gururu, kabul etmemeye izin vermedi.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Onur, şeref. \"Gururu bozulmamak\" deyiminde olduğu gibi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Gururuna dokunan adamı affetmedi.",
+         "confidence": 0.95}
+      ],
+      "relations": [
+        {"word": "gururlu", "type": "derivative"},
+        {"word": "gurursuz", "type": "derivative"},
+        {"word": "onur", "type": "related"},
+        {"word": "alçakgönüllülük", "type": "antonym"}
+      ],
+      "morphology": [
+        {"surface": "gururu", "root": "gurur", "suffixes": ["u"],
+         "explanation": "3. kişi iyelik eki (-u)"},
+        {"surface": "gururlu", "root": "gurur", "suffixes": ["lu"],
+         "explanation": "-lu yapım eki"},
+        {"surface": "gururdan", "root": "gurur", "suffixes": ["dan"],
+         "explanation": "ayrılma hâl eki (-dan)"}
+      ]
+    },
+
+    {
+      "word": "düşmanlık",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.8,
+      "confidence": 1.0,
+      "phonetics": "[düşmanlık]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Birine karşı beslenen düşmanlık duygusu.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Kimse düşmanlık beslemedi, sonuç yine de kötüydü.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Düşmanlar arasındaki çatışma, savaş hâli.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Yıllardır düşmanlık sürüyordu, taraflar da değişti.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "mecaz",
+         "definition": "Bir şeye karşı duyulan güçlü karşıtlık. \"Dostluk düşmanlığı\" deyiminde.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu davranış, iyi niyete düşmanlıktır.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "düşman", "type": "related"},
+        {"word": "dostluk", "type": "antonym"},
+        {"word": "çatışma", "type": "related"},
+        {"word": "barış", "type": "antonym"}
+      ],
+      "morphology": [
+        {"surface": "düşmanlığı", "root": "düşman", "suffixes": ["lığı"],
+         "explanation": "-lık yapım eki + kaynaştırma (lığı) + 3. kişi iyelik eki"},
+        {"surface": "düşmanca", "root": "düşman", "suffixes": ["ca"],
+         "explanation": "-cA yapım eki; düşmanca = düşman gibi"},
+        {"surface": "düşmanım", "root": "düşman", "suffixes": ["ım"],
+         "explanation": "1. kişi iyelik eki (-ım)"}
+      ]
+    },
+
+    {
+      "word": "gençlik",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.8,
+      "confidence": 1.0,
+      "phonetics": "[gençlik]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Genç olma hâli; gençlik çağı.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Gençliğini harcadı, hiç pişman olmadı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "Gençlerin tümü, genç topluluğu.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Gençlik bu ülkede hiç söz sahibi olmadı.",
+         "confidence": 0.95}
+      ],
+      "relations": [
+        {"word": "genç", "type": "derivative"},
+        {"word": "çocukluk", "type": "related"},
+        {"word": "yaşlılık", "type": "antonym"},
+        {"word": "olgunluk", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "gençliği", "root": "genç", "suffixes": ["liği"],
+         "explanation": "-lik yapım eki + yumuşama (l→liği) + 3. kişi iyelik eki"},
+        {"surface": "gençler", "root": "genç", "suffixes": ["ler"],
+         "explanation": "çoğul eki (-ler)"},
+        {"surface": "gençleşti", "root": "gençleş", "suffixes": ["ti"],
+         "explanation": "gençleş- + -ti; -lAş gövde dönüşümü"}
+      ]
+    },
+
+    {
+      "word": "çocukluk",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.8,
+      "confidence": 1.0,
+      "phonetics": "[çocukluk]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Çocuk olma hâli; çocukluk çağı.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Çocukluğunu köyde geçirdi, şehre hiç özlemdi.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "Olgunlaşmamış, çocuksal davranış anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Sakın çocukluk etme, hesabı sen yapacaksın.",
+         "confidence": 0.9},
+        {"order": 3, "type": "isim", "sense": "mecaz",
+         "definition": "Kolay, rahat dönem.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Hâlâ çocukluk günleri sayılır.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "çocuk", "type": "related"},
+        {"word": "gençlik", "type": "related"},
+        {"word": "yaşlılık", "type": "antonym"},
+        {"word": "çocuk", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "çocukluğu", "root": "çocuk", "suffixes": ["luğu"],
+         "explanation": "-lUk yapım eki + kaynaştırma (luğu) + 3. kişi iyelik eki"},
+        {"surface": "çocuklar", "root": "çocuk", "suffixes": ["lar"],
+         "explanation": "çoğul eki (-lar/-ler)"},
+        {"surface": "çocukça", "root": "çocuk", "suffixes": ["ça"],
+         "explanation": "-cA yapım eki; çocukça = çocuksu biçimde"}
+      ]
+    },
+
+    {
+      "word": "özgürlük",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.8,
+      "confidence": 1.0,
+      "phonetics": "[özgürlük]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Başkasının denetimi olmadan kendi iradesiyle yaşama ve hareket etme hâli.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Özgürlük, sorumlulukla birlikte anlamlıdır.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "Bağımsızlık, özerklik.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Kendi kararını verecek kadar özgürlüğü kalmamıştı.",
+         "confidence": 0.95}
+      ],
+      "relations": [
+        {"word": "özgür", "type": "related"},
+        {"word": "bağımsızlık", "type": "related"},
+        {"word": "tutulmak", "type": "antonym"},
+        {"word": "hak", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "özgürlük", "root": "özgür", "suffixes": ["lük"],
+         "explanation": "-lük yapım eki; özgür + -lük"},
+        {"surface": "özgürlüğü", "root": "özgürlük", "suffixes": ["ü"],
+         "explanation": "3. kişi iyelik eki (-ü)"},
+        {"surface": "özgürlüğüne", "root": "özgürlük", "suffixes": ["üne"],
+         "explanation": "3. kişi iyelik eki (-ü) + datif hâl eki (-e)"}
+      ]
+    },
+
+    {
+      "word": "adalet",
+      "origin": "Arapça",
+      "origin_period": "Osmanlı dönemi",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.8,
+      "confidence": 0.95,
+      "phonetics": "[adalet]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Hakkın, hukukun gözetilmesi; hak ve eşitlik ilkesi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Adalet, güçlüden yana değil haklıdan yana işlemelidir.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Hukukun uygulanması, yargı işi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Adaletin geciktiği yerde başka yol kalmıyor.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "mecaz",
+         "definition": "Haksız olmama, doğru davranma. \"Adaletli olmak\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Paylaşımın adaleti, ortada kalmadı.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "adil", "type": "derivative"},
+        {"word": "hak", "type": "related"},
+        {"word": "eşitlik", "type": "related"},
+        {"word": "hukuk", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "adaleti", "root": "adalet", "suffixes": ["i"],
+         "explanation": "3. kişi iyelik eki (-i)"},
+        {"surface": "adil", "root": "adalet", "suffixes": ["il"],
+         "explanation": "adalet + -il; ünlü uyumu ve ünsüz düşmesiyle"},
+        {"surface": "adaletten", "root": "adalet", "suffixes": ["ten"],
+         "explanation": "ayrılma hâl eki (-ten); ünsüz benzeşmesi"}
+      ]
+    },
+
+    {
+      "word": "emek",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.85,
+      "confidence": 1.0,
+      "phonetics": "[emek]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Bir amaç için harcanan fiziksel veya zihinsel çaba.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu evi kendi emeğiyle yaptırdı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "Zorluk, sıkıntı. \"Emek çekmek\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Çocuklarını büyütmek emek istiyor.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "mecaz",
+         "definition": "Sana kalan fayda, kazanç. \"Emek yerine\" deyiminde.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu işe emek girdi, çıktı sıfır.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "emekli", "type": "derivative"},
+        {"word": "çalışmak", "type": "related"},
+        {"word": "ücret", "type": "related"},
+        {"word": "dinlenmek", "type": "antonym"}
+      ],
+      "morphology": [
+        {"surface": "emek", "root": "emek", "suffixes": [],
+         "explanation": "temel biçim"},
+        {"surface": "emekli", "root": "emek", "suffixes": ["li"],
+         "explanation": "-lI yapım eki; emekli = emekle geçinme"},
+        {"surface": "emeğini", "root": "emek", "suffixes": ["ini"],
+         "explanation": "-In yapım eki (ihtiyaç hâli) + belirtme hâl eki (-i); kaynaştırma ile y"}
+      ]
+    },
+
+    {
+      "word": "düşünce",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.85,
+      "confidence": 1.0,
+      "phonetics": "[düşünce]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Zihinde oluşan fikir, akıl yürütme.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bir düşünce, bütün planı değiştirdi.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "Görüş, fikir. \"Düşüncesini söylemek\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Kimse düşüncesini açıklamadı.",
+         "confidence": 0.95}
+      ],
+      "relations": [
+        {"word": "düşünmek", "type": "derivative"},
+        {"word": "fikir", "type": "related"},
+        {"word": "akıl", "type": "related"},
+        {"word": "inanmak", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "düşüncesi", "root": "düşünce", "suffixes": ["si"],
+         "explanation": "3. kişi iyelik eki (-si)"},
+        {"surface": "düşünceleri", "root": "düşünce", "suffixes": ["leri"],
+         "explanation": "çoğul eki (-ler) + belirtme hâl eki (-i)"},
+        {"surface": "düşüncesiz", "root": "düşünce", "suffixes": ["siz"],
+         "explanation": "-sIz yapım eki; düşüncesiz = düşünmeyen"}
+      ]
+    },
+
+    {
+      "word": "fikir",
+      "origin": "Farsça",
+      "origin_period": "Osmanlı dönemi",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.85,
+      "confidence": 0.95,
+      "phonetics": "[fikir]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Zihinde oluşan düşünce, akıl yürütmenin sonucu.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "İlk fikir, otuz saniyede çöktü.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Görüş, düşünce biçimi. \"Benim fikrime göre\" deyiminde.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bence fikir üretmek, uygulamaktan zor.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "gercek",
+         "definition": "Kasıt, niyet. \"İyi fikir\" deyiminde olduğu gibi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Arkasında kötü fikir yoktu, sadece acelesiydi.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "fikirli", "type": "derivative"},
+        {"word": "düşünce", "type": "related"},
+        {"word": "akıl", "type": "related"},
+        {"word": "hayal", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "fikri", "root": "fikir", "suffixes": ["i"],
+         "explanation": "3. kişi iyelik eki (-i); gövde sonundaki r düşer"},
+        {"surface": "fikirler", "root": "fikir", "suffixes": ["ler"],
+         "explanation": "çoğul eki (-ler); fikirden fikirler"},
+        {"surface": "fikrimi", "root": "fikir", "suffixes": ["imi"],
+         "explanation": "1. kişi iyelik eki (-im); fikrim"}
+      ]
+    },
+
+    {
+      "word": "acı",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.9,
+      "confidence": 1.0,
+      "phonetics": "[aci]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Bedende hissedilen, çoğu zaman rahatsızlık veren duyu.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Kırık kolunu sarmaladı, acı çekmemeye çalıştı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "sıfat", "sense": "mecaz",
+         "definition": "Ağır, üzücü. \"Acı bir anı\" deyiminde olduğu gibi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "O günü hatırlamak hâlâ acı.",
+         "confidence": 0.95},
+        {"order": 3, "type": "sıfat", "sense": "gercek",
+         "definition": "Sarp, dik. \"Acı yamaç\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Yamacın acı bir yeriydi, kimse inmiyordu.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "ağrı", "type": "related"},
+        {"word": "acıtmak", "type": "derivative"},
+        {"word": "tatlı", "type": "antonym"},
+        {"word": "hastalık", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "acı", "root": "acı", "suffixes": [],
+         "explanation": "temel biçim"},
+        {"surface": "acısı", "root": "acı", "suffixes": ["sı"],
+         "explanation": "3. kişi iyelik eki (-sı)"},
+        {"surface": "acıttı", "root": "acıt", "suffixes": ["tı"],
+         "explanation": "acıt- + -tı; ünsüz benzeşmesi (t/t)"}
+      ]
+    },
+
+    {
+      "word": "tatlı",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.85,
+      "confidence": 1.0,
+      "phonetics": "[tatli]",
+      "meanings": [
+        {"order": 1, "type": "sıfat", "sense": "gercek",
+         "definition": "Şekeri olan, lezzetli. Acı olmayan.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Çay, şekersiz de tatlıydı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "sıfat", "sense": "mecaz",
+         "definition": "Hoş, keyifli. \"Tatlı dil\" deyiminde olduğu gibi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Sakindi, çok tatlı söyledi.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "gercek",
+         "definition": "Şekerli, tatlı madde.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Misafirlere ne ikram etti? Tatlı mı, tuzlu mu?",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "acı", "type": "antonym"},
+        {"word": "ekmek", "type": "related"},
+        {"word": "güzel", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "tatlı", "root": "tatlı", "suffixes": [],
+         "explanation": "temel biçim"},
+        {"surface": "tatlısı", "root": "tatlı", "suffixes": ["sı"],
+         "explanation": "3. kişi iyelik eki (-sı)"},
+        {"surface": "tatlanmak", "root": "tatlı", "suffixes": ["anmak"],
+         "explanation": "tatlı + -An gövde dönüşümü + -mAk"}
+      ]
+    },
+
+    {
+      "word": "nasıl",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.9,
+      "confidence": 1.0,
+      "phonetics": "[nasıl]",
+      "meanings": [
+        {"order": 1, "type": "zarf", "sense": "gercek",
+         "definition": "Bir biçimi, yöntemi ya da durumu soru yoluyla sormak için kullanılır.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Yarın hava nasıl olacak?",
+         "confidence": 1.0},
+        {"order": 2, "type": "zarf", "sense": "mecaz",
+         "definition": "Ne ölçüde, ne kadar. \"Nasıl bir adamdır\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Nasıl bir gecelerdi, kimse anlatmadı.",
+         "confidence": 0.95},
+        {"order": 3, "type": "zarf", "sense": "mecaz",
+         "definition": "Şaşılacak kadar, pek. \"Nasıl mutluydu\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Nasıl da özlemişim.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "soru", "type": "related"},
+        {"word": "kadar", "type": "related"},
+        {"word": "anlamak", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "nasıl", "root": "nasıl", "suffixes": [],
+         "explanation": "temel biçim"},
+        {"surface": "nasılsa", "root": "nasıl", "suffixes": ["sa"],
+         "explanation": "nasıl + -sA bağlaç eki; her hâlükârda"},
+        {"surface": "nasılsın", "root": "nasıl", "suffixes": ["sın"],
+         "explanation": "2. kişi iyelik eki (-sın)"}
+      ]
+    },
+
+    {
+      "word": "kadar",
+      "origin": "Arapça",
+      "origin_period": "Osmanlı dönemi",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.9,
+      "confidence": 0.95,
+      "phonetics": "[kadar]",
+      "meanings": [
+        {"order": 1, "type": "zarf", "sense": "gercek",
+         "definition": "Ölçü sınırını belirtmek için kullanılır; bu denli kadar.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Ders çalışacağı kadar çalıştı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "zarf", "sense": "gercek",
+         "definition": "Bir şeyin sona ermesi anlamında. \"Kadar\" deyimiyle.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Güneş batana kadar oradaydı.",
+         "confidence": 0.95},
+        {"order": 3, "type": "zarf", "sense": "mecaz",
+         "definition": "Öncesi kadar, hatta. \"Daha fazla\" anlamında.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Sen kadar konuşan birini görmedim.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "az", "type": "related"},
+        {"word": "çok", "type": "related"},
+        {"word": "gibi", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "kadar", "root": "kadar", "suffixes": [],
+         "explanation": "temel biçim"},
+        {"surface": "kadarki", "root": "kadar", "suffixes": ["ki"],
+         "explanation": "kadar + -ki; ölçüyü belirten bağlaç"},
+        {"surface": "kadarcık", "root": "kadar", "suffixes": ["cık"],
+         "explanation": "kadar + -cIk; az miktarda"}
+      ]
+    }
+  ]
+}

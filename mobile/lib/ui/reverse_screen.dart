@@ -29,15 +29,20 @@ class ReverseScreen extends StatefulWidget {
   /// Yani örnek, vaat ettiği şeyi yerine getirmeyen bir vaatti.
   ///
   /// Düzeltme iki parçalı:
-  ///   (a) Cümleler ölçülerek seçildi — her biri tersi sözlüğe soruldu ve
-  ///       doğru kelime İLK sırada geldi.
-  ///   (b) Her birinin gerçekten sonuç döndürdüğü tersi_sozluk_test.dart
-  ///       içinde kalıcı bir teste bağlandı. Sözlük değişirse örnek eskirse
-  ///       o test kızar.
+  ///   (a) Cümleler ÖLÇÜLEREK seçildi. Tahminle değil: her aday gerçek
+  ///       tersi sözlüğe soruldu, hangi kelimenin birinci çıktığı görüldü.
+  ///   (b) Her birinin doğru cevabı ilk sırada olduğu tersi_sozluk_test.dart
+  ///       içinde kalıcı teste bağlandı.
+  ///
+  /// İkinci madde daha önce işe yaradı: "başlangıç" için seçilen
+  /// 'Bir işe ilk başlama anı' cümlesi, sonradan yazılan "başlamak" tanımıyla
+  /// çakıştı (o tanım da "bir işe girişmek" diyordu) ve cevabı kaydı. Test
+  /// kızardı, cümle ölçülerek değiştirildi. Sözlük büyüdükçe örnekler eskir;
+  /// test bunu görünür kılar.
   static const examplePrompts = <(String, String)>[
-  ('Yanan şeyden yükselen alev', 'ateş'),
-  ('Şehirde çalışılan sanat yeri', 'atölye'),
-  ('Bir işe ilk başlama anı', 'başlangıç'),
+    ('Yanan şeyden yükselen alev', 'ateş'),
+    ('Şehirde çalışılan sanat yeri', 'atölye'),
+    ('Yüzyıllardır tekrarlanan, değişmeyen uygulama', 'gelenek'),
   ];
   const ReverseScreen({super.key});
 
