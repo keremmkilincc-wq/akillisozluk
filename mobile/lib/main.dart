@@ -37,9 +37,19 @@ Future<void> main() async {
   final factory = await resolveDatabaseFactory();
 
   final repo = DictionaryRepository();
-  await repo.load(factory: factory);
+  String? loadError;
+  try {
+    await repo.load(factory: factory);
+  } catch (e) {
+    // Sessizce boş ekran yerine sebebi göster.
+    //
+    // Bu bir hata değil, bilinen bir sınır: web derlemesi sözlük
+    // veritabanını açamıyor (bkz. sqlite_dictionary_source.dart). Ürün
+    // etkilenmez. QA sırasında ekranın neden boş olduğu görünsün.
+    loadError = '$e';
+  }
 
-  runApp(AkilliSozlukApp(repository: repo));
+  runApp(AkilliSozlukApp(repository: repo, loadError: loadError));
 }
 
 /// Platforma uygun veritabanı fabrikası.
@@ -90,10 +100,57 @@ Widget _initialScreen(DictionaryRepository repo) {
   }
 }
 
+/// Veri tabanı açılamadığında gösterilen ekran.
+///
+/// Neden ayrı ekran: daha önce web'de uygulama sessizce BOŞ EKRANLA
+/// çöküyordu. Konsoldaki tek satırlık hata sebebi söylemiyordu, ekran
+/// da söylemiyordu. Şimdi ekran neden boş olduğunu açıkça söylüyor.
+class _LoadErrorScreen extends StatelessWidget {
+  final String message;
+  const _LoadErrorScreen({required this.message});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(Icons.menu_book_outlined, size: 40),
+              const SizedBox(height: 16),
+              Text(
+                'Sözlük yüklenemedi',
+                style: Theme.of(context).textTheme.titleMedium,
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 12),
+              Text(
+                message,
+                style: Theme.of(context).textTheme.bodySmall,
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class AkilliSozlukApp extends StatelessWidget {
   final DictionaryRepository repository;
 
-  const AkilliSozlukApp({super.key, required this.repository});
+  /// Veri tabanı açılamadıysa sebebi. Sessiz boş ekran yerine
+  /// kullanıcıya (ve QA sırasında bize) ne olduğu görünür.
+  final String? loadError;
+
+  const AkilliSozlukApp({
+    super.key,
+    required this.repository,
+    this.loadError,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -108,7 +165,9 @@ class AkilliSozlukApp extends StatelessWidget {
         theme: AppTheme.light(),
         darkTheme: AppTheme.dark(),
         themeMode: ThemeMode.system,
-        home: _initialScreen(repository),
+        home: loadError != null
+            ? _LoadErrorScreen(message: loadError!)
+            : _initialScreen(repository),
         builder: (context, child) {
           // Sistem yazı tipi ölçeğini makul tut — 2x büyütmede arayüz dağılmasın.
           final mq = MediaQuery.of(context);

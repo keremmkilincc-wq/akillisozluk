@@ -20,6 +20,7 @@ library;
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/services.dart' as svc;
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
@@ -79,6 +80,31 @@ class SqliteDictionarySource {
   /// kopyalamak gerekir. 76.000 kelimeye gelindiğinde bu boyutta bir kopyalama
   /// tek seferlik bir maliyettir.
   static Future<String> _stageAsset() async {
+    // WEB'DE ÇALIŞMAZ — ve bu bilinçli bir sınırdır.
+    //
+    // path_provider'ın WEB UYGULAMASI YOKTUR (paket 2.1.6'da web/ klasörü
+    // bulunmuyor). Dolayısıyla getApplicationSupportDirectory() tarayıcıda
+    // MissingPluginException atar. sqflite_common_ffi_web veritabanını açmayı
+    // çözdü ama varlıktan diske kopyalama adımı çözülmedi.
+    //
+    // Bu yüzden web'de uygulama sessizce BOŞ EKRANLA çöker. Daha önce de
+    // öyleydi ve nedeni görünmüyordu; şimdi sebep burada yazılı.
+    //
+    // Etkilenen tek yer web derlemesi — yani QA için ekran görüntüsü almak.
+    // ÜRÜN (Android/iOS) etkilenmez: orada path_provider çalışıyor.
+    //
+    // Web QA yeniden istenirse yapılacak: dict.db'yi web için JSON olarak
+    // dökmek (tools/export_json.py) ve yalnızca web'de kullanılan ikinci bir
+    // kaynak eklemek. Bilinçli olarak yapılmadı — tek kaynak ilkesini bozmak
+    // görsel doğrulamaya değmez.
+    if (kIsWeb) {
+      throw UnsupportedError(
+        'Web derlemesi sözlük veritabanını açamıyor: path_provider web '
+        'desteklemiyor. Bu yalnızca QA ekran görüntüsü etkilidir; '
+        'Android/iOS etkilenmez.',
+      );
+    }
+
     final dir = await getApplicationSupportDirectory();
     final target = p.join(dir.path, p.basename(_dbAssetName));
 
