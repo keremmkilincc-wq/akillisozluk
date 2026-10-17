@@ -16,9 +16,11 @@ import '../core/theme.dart';
 import '../core/turkish.dart';
 import '../data/dictionary_repository.dart';
 import '../data/models.dart';
+import 'reverse_screen.dart';
 import 'search_screen.dart';
 import 'widgets/common.dart';
 import 'word_detail_screen.dart';
+import 'writing_rules_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -280,9 +282,11 @@ class _HomeScreenState extends State<HomeScreen> {
       QuickTile(
         icon: Icons.school_outlined,
         label: 'Sınav Modu',
-        subtitle: 'YKS · KPSS · ALES',
+        subtitle: 'Yazım kuralları',
         accent: originColor('Fransızca'),
-        locked: true,
+        onTap: () => Navigator.of(context).push(
+          MaterialPageRoute(builder: (_) => const WritingRulesScreen()),
+        ),
       ),
       QuickTile(
         icon: Icons.bookmark_border_rounded,
@@ -296,7 +300,9 @@ class _HomeScreenState extends State<HomeScreen> {
         label: 'Tersi Sözlük',
         subtitle: '"Bunu nasıl derlerim?"',
         accent: context.scheme.primary,
-        locked: true,
+        onTap: () => Navigator.of(context).push(
+          MaterialPageRoute(builder: (_) => const ReverseScreen()),
+        ),
       ),
     ];
 

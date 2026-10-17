@@ -8,8 +8,10 @@ import 'package:provider/provider.dart';
 import 'core/theme.dart';
 import 'data/dictionary_repository.dart';
 import 'ui/home_screen.dart';
+import 'ui/reverse_screen.dart';
 import 'ui/search_screen.dart';
 import 'ui/word_detail_screen.dart';
+import 'ui/writing_rules_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -37,6 +39,10 @@ Widget _initialScreen(DictionaryRepository repo) {
       return SearchScreen(initialQuery: params['q']);
     case 'detail':
       return WordDetailScreen(word: params['word'] ?? 'kitap');
+    case 'reverse':
+      return const ReverseScreen();
+    case 'rules':
+      return const WritingRulesScreen();
     default:
       return const HomeScreen();
   }

@@ -13,6 +13,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart' show ChangeNotifier;
 import 'package:flutter/services.dart' show rootBundle;
 
+import '../core/reverse_dictionary.dart';
 import '../core/search.dart';
 import '../core/turkish.dart';
 import 'models.dart';
@@ -26,6 +27,7 @@ class DictionaryRepository extends ChangeNotifier {
   final List<WritingRule> _rules = [];
   late final DatasetInfo _info;
   late final FuzzySearch _search;
+  late final ReverseDictionary _reverse;
   late final List<String> _roots;
 
   List<Word> get all => List.unmodifiable(_words);
@@ -61,6 +63,16 @@ class DictionaryRepository extends ChangeNotifier {
     }
 
     _search = FuzzySearch(surfaces.toList());
+
+    // Tersi sözlük dizini: kelime + anlamları. Bir kelimenin birden çok
+    // anlamı olduğu için her anlam ayrı kayıt olur.
+    final reverseEntries = <(String, String)>[];
+    for (final w in _words) {
+      for (final m in w.meanings) {
+        reverseEntries.add((w.word, m.definition));
+      }
+    }
+    _reverse = ReverseDictionary(reverseEntries);
 
     _roots = _words.map((w) => w.root).whereType<String>().toList()..sort();
 
@@ -117,6 +129,10 @@ class DictionaryRepository extends ChangeNotifier {
     }
     return null;
   }
+
+    /// Tersi sözlük: tanımdan kelime bulma (Modül 3, Katman A — çevrimdışı).
+  List<ReverseHit> reverseSearch(String phrase) =>
+      _reverse.search(phrase);
 
   List<String> get allRoots => List.unmodifiable(_roots);
 
