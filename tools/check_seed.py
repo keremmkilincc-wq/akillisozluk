@@ -53,8 +53,29 @@ YABANCI_HARF = re.compile(r'[\u0400-\u04FF\u0370-\u03FF]')
 BIRLESTIRILEN_ISARET = re.compile(r'[\u0300-\u036F]')
 DUZ_TURKCE_ALANLAR = ('word', 'root', 'surface')
 
-HATA = 0
+# Zaten tanimli kelimeleri topla: diger seed dosyalari + sozluk.
+#
+# Bir kelimenin tanimi TEK yerde durmali. Ayni kelime iki dosyada tanimli
+# ise build_dict.py sessizce sonrakini kazanir; oncekisi olu kod olur ve
+# hangisinin dogru oldugu belli olmaz.
+def _diger_dosyalardaki_tanimlilar(bos) -> dict[str, str]:
+    """kelime -> dosya adi. Denetlenen dosya kendisi disarida birakilir."""
+    sonuc = {}
+    for _f in sorted(ROOT.glob('words*.json')):
+        if _f.name == bos:
+            continue
+        try:
+            _j = json.loads(_f.read_text(encoding='utf-8'))
+        except json.JSONDecodeError:
+            continue
+        for _w in _j.get('words', []):
+            _ad = _w.get('word')
+            if _ad and _ad not in sonuc:
+                sonuc[_ad] = _f.name
+    return sonuc
 
+
+HATA = 0
 # Denetlenmeyen dosya denetimi.
 #
 # Bu denetim `words*.json` uzerinde gezinir — build_dict.py ile AYNI kalip.
@@ -104,6 +125,13 @@ for f in sorted(ROOT.glob('words*.json')):
 
     gorsulen = set()
 
+    # ZATEN TANIMLI: baska seed dosyasinda ayni kelime var mi?
+    #
+    # sozluk (dict.db) KULLANILMAZ: o bu dosyalardan uretilir, dolayisiyla
+    # her kelime orada zaten 'yazildi' gorunur. Denetim dongusel olur ve
+    # her kelime icin hata basar (olculdu: 687 hata).
+    _diger = _diger_dosyalardaki_tanimlilar(f.name)
+
     # Dosya genelinde Kiril/Yunanca taramasi (meta alani dahil).
     # Birlestirilmis isaret taramasi ASAGIDA alan bazinda yapilir; IPA
     # geregi burada yanlis pozitif uretirdi.
@@ -114,6 +142,12 @@ for f in sorted(ROOT.glob('words*.json')):
 
     for w in kelimeler:
         ad = w.get('word', '<isimsiz>')
+
+        if ad in _diger:
+            print(f"  HATA {ad}: zaten {_diger[ad]} icinde tanimli. "
+                  f"Bir kelimenin tanimi tek dosyada durur; buradaki yazim "
+                  f"build_dict birlestirmesinde onu EZER.")
+            HATA += 1
 
         if ad in gorsulen:
             print(f"  HATA tekrarli kelime: {ad}")

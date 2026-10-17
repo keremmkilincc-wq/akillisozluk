@@ -1353,12 +1353,12 @@
           "explanation": "-lık yapım eki + kaynaştırma (lığı) + 3. kişi iyelik eki"
         },
         {
-          "surface": "hastanede",
-          "root": "hastane",
+          "surface": "hastada",
+          "root": "hasta",
           "suffixes": [
-            "de"
+            "da"
           ],
-          "explanation": "bulunma hâl eki (-de)"
+          "explanation": "bulunma hâl eki (-da); ünsüz yumuşamasıyla"
         }
       ]
     },

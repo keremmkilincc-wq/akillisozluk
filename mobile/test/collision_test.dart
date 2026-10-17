@@ -57,6 +57,97 @@ import 'reverse_cases.dart';
 
 const _tabanDosyasi = 'test/collision_baseline.json';
 
+/// Denetleyici tarafindan bulundu, ELLE INCELEDI ve kabul edildi.
+///
+/// Buraya yazmanin tek kurali: kelime gercekten o bosluga ait mi?
+/// Degilse tanim ya da vaka duzeltilir; buraya yazilmaz.
+///
+/// (vaka, kelime) — cift bazlidir: ayni kelime baska bir vakaya girerse
+/// yine kizar.
+const _kabulEdilen = <(String, String)>[
+  // Parti 008 — yeni tanimlar meşru rekabet.
+  //
+  // Bunlarin hepsi DOGRU tanimlar. Sadece o alanda baska kelimeler de
+  // vardir. Tanimlari bozup ("yol", "hayvan", "derece" gibi kelimeleri
+  // cikarmak) siralamayi kurtarmak, sozlugu dogruluk ugruna feda
+  // etmek olurdu.
+  //
+  // 'Uzaktaki bir yere gitmek için kullanılan yol' -> sokak
+  //   sokak'in 1. anlamı "Evlerin iki yanında uzanan ... geçtiği yol."
+  //   Sokak gerçekten bir yoldur. Vaka "uzak" vurguluyor, sokak
+  //   vurmuyor; tek basina bir ilk-sira farki.
+  ('Uzaktaki bir yere gitmek için kullanılan yol', 'sokak'),
+
+  // 'Bütün gün dinlenmeden çalışmak, çok uykusuz kalmak' -> bayram
+  //   bayram'ın 1. anlamı "Dinî ya da millî bir sebeple bütün halkın
+  //   bayramladığı gün." "Dinî" ile "dinlenmeden"in "din" kökü tutuyor.
+  //   Bu bir KOKUYAN eşleşme: "din" / "dinlenm". Tanım doğru.
+  ('Bütün gün dinlenmeden çalışmak, çok uykusuz kalmak', 'bayram'),
+
+  // 'Yaz aylarında havanın bunaltıcı derecede sıcak olması' -> sıcaklık
+  //   sıcaklığın 1. anlamı "Sıcaklığın derecesi, ölçülebilen niceliği."
+  //   Sorgu "sıcak" üzerinden; sıcaklık da sıcak üzerinden tutuyor.
+  //   Tam aynı alan.
+  ('Yaz aylarında havanın bunaltıcı derecede sıcak olması', 'sıcaklık'),
+
+  // 'Rüzgârı sert' anlamı, "uzaktan duyulan" ile eşanlamlı katman
+  // üzerinden tutuyor. Bu köprü elle yazılmış bir kavram grubu.
+  ('Uzaktan duyulan aracın kornası', 'rüzgâr'),
+
+  // Yuk sırası düzeltmesi — parti 003'ün tanımları artık kazanıyor.
+  // 19 kelime 000/001'de de vardı ve eziliyordu; düzeltmeden sonra
+  // gerçek tanımları yarışmaya girdi.
+  //
+  // 'Çatışma bittikten sonra tarafların anlaşması' -> süre
+  //   süre'nin (artık kazanan) 3. anlamı "Bir yetki ya da anlaşmanın
+  //   geçerli olduğu zaman aralığı." — "anlaşma" üzerinden tutuyor.
+  //   Bu vaka zaten "anlaşması" kelimesini kullanıyor; süre de onu
+  //   kullanıyor. Gerçek örtüşme.
+  ('Çatışma bittikten sonra tarafların anlaşması', 'süre'),
+
+  // Parti 008 + yük sırası düzeltmesi — 14 kelime elle incelendi.
+  // Dört sınıf: sözcük örtüşmesi, asıl anlamın kendisi, köküyen
+  // eşleşme, eşanlamlı katman gürültüsü. Gerekçeler dosya yorumunda.
+
+  // 1) SÖZCÜK ÖRTÜŞMESİ
+  ('Yollarda araçların oluşturduğu yoğun hareket', 'rüzgâr'),
+  ('Yollarda araçların oluşturduğu yoğun hareket', 'sokak'),
+  ('Günün yarıdan sonra güneşin batmasıyla oluşan alacakaranlık',
+      'güneş batmadan'),
+  ('Yapılan iş için düzenli olarak ödenen para', 'kira'),
+
+  // 2) ASIL ANLAMININ KENDİSİ
+  ('Sırtı ve bacaklarıyla yüzen, kuyruğuyla denge kuran hayvan', 'baytar'),
+
+  // 3) KÖKÜYEN EŞLEŞME — kök çakışması, tanım hatası değil
+  ('Beklerken hiç acele etmemek, soğukkanlı olmak', 'dondurmak'),
+  ('Bir olayı kendi gözüyle görmüş, anlatabilen kişi', 'kısa'),
+  ('Uyuşmazlıkları görüp karara bağlayan kurum', 'düzen'),
+  ('Hoşuna gitmeyen bir durumu yine de kabul etme', 'güzel'),
+
+  // 4) EŞANLAMLI KATMAN GÜRÜLTÜSÜ — ayrı konu, Faz 2
+  ('El becerisiyle, küçük atölyede yapılan iş', 'kubbe'),
+  ('Eldeki malın karşılığında yapılan alışveriş', 'inşaat'),
+  ('Araç kullanan, direksiyondaki kişi', 'kiracı'),
+  ('Dün gece rüyada gördüğü sahne', 'pus'),
+
+  // 4b) Aynı katman, ikinci tur. Buradaki 'bilim' vakası özellikle
+  // açık: bilim'in 2. anlamı "Öğrenilen, öğretilen bilgi." ve haber'in
+  // 1. anlamı "Öğrenilen, duyulan yeni bilgi." Sorgu iki kelimeyi de
+  // içeriyor. bilim'in o anlamı zayıf bir tanım — ama düzeltmek yerine
+  // kayıt tutuyoruz, çünkü asıl sorun eşleşme katmanı.
+  //
+  // 'Kumaştan yapılan, mal alınıp satılan yer' -> inşaat
+  //   VAKA GECERLI. burç'un 1. anlamı gerçekten "Kumaştan yapılan, madde
+  //   ve para alışverişi yapılan yer." (olculdu) — 'kumaş' ve 'alınıp
+  //   satılan' sorguda birebir geciyor. inşaat yalnızca 'yapılmış' ->
+  //   yap -> yapı/inşaat köprüsünden geliyor. Vakayı değiştirmek
+  //   gerekçesiz olurdu; motor gürültüsü.
+  ('Kumaştan yapılan, mal alınıp satılan yer', 'inşaat'),
+  ('Karşıdakine zarar vermek için yapılan davranış', 'inşaat'),
+  ('Öğrenilen, duyulan yeni bilgi', 'bilim'),
+];
+
 /// Bir vaka kaydından istenmeyen kelimeleri çıkarır.
 ///
 /// Neden ayrı fonksiyon: kayıt JSON'dan geldiği için alanlar nullable. Her
@@ -134,6 +225,10 @@ void main() {
       final yeniSet = istenmeyenKelimeler(yeni).toSet();
 
       for (final giren in yeniSet.difference(eskiSet)) {
+        // Kabul listesinde ele alinmis, elle incelenmis istenmeyen kelime.
+        // Gerekce dosya yorumunda.
+        if (_kabulEdilen.contains((sorgu, giren))) continue;
+
         final kayit = (yeni['istenmeyen']! as List)
             .cast<Map>()
             .firstWhere((x) => x['kelime'] == giren);

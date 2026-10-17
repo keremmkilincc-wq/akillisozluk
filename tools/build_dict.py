@@ -104,10 +104,32 @@ def load_seeds(seed_dir: Path) -> tuple[list[dict], dict, list[dict]]:
 
     Ayni kelime iki dosyada varsa SONRAKI dosya kazanir — yani yeni parti
     eskisini duzeltebilir.
+
+    YUK SIRASI ALFABETIK DEGIL, ANLAMSALDIR. Bu ayrim kritik:
+
+        sorted(glob('words*.json'))
+
+    'words_sample.json' adini alfabetik olarak EN SONA koyar, cunku 's'
+    rakamdan buyuktur. Ama sample EN ESKI dosyadır — calismaya baslangic
+    tohumu. Boylece parti 000-003'te elden yazilmis 21 tanim EZILIYORDU;
+    14 tanimde parti dosyasi daha zengin (ornegin `aci`: 4 anlam'a karsi
+    3, `sabir`: 3'e karsi 2). Bu tanimlar hic yayina cikmadi.
+
+    Dogru sira: once words_sample.json (taban), sonra parti dosyalari
+    numaraya gore. Boylece niyet gerceklesir.
     """
-    files = sorted(seed_dir.glob("words*.json"))
-    if not files:
+    tum = list(seed_dir.glob("words*.json"))
+    if not tum:
         raise SystemExit(f"HATA: {seed_dir} icinde words*.json yok")
+
+    # Taban dosya en once: en eski veri, en zayif tanim.
+    taban = [f for f in tum if f.name == "words_sample.json"]
+    partiler = sorted(
+        (f for f in tum if f.name != "words_sample.json"),
+        # words_007_x.json -> 7 ; sayisal siralama, alfabetik degil.
+        key=lambda f: (f.name.split("_")[1] if "_" in f.name else "999", f.name),
+    )
+    files = taban + partiler
 
     merged: dict[str, dict] = {}
     meta: dict = {}
@@ -122,7 +144,8 @@ def load_seeds(seed_dir: Path) -> tuple[list[dict], dict, list[dict]]:
         for r in data.get("writing_rules", []):
             rules[(r["base_word"], r["wrong_form"])] = r
 
-    print(f"  seed dosyalari   : {len(files)} ({', '.join(f.name for f in files)})")
+    print(f"  seed dosyalari   : {len(files)}")
+    print(f"    yuk sirasi     : {' -> '.join(f.name for f in files)}")
     return list(merged.values()), meta, list(rules.values())
 
 

@@ -6,8 +6,8 @@
       "dogru": "ses",
       "ilk3": [
         "telefon",
-        "vermek",
-        "düşmanlık"
+        "rüzgâr",
+        "vermek"
       ],
       "istenmeyen": [
         {
@@ -19,16 +19,16 @@
           ]
         },
         {
-          "kelime": "vermek",
-          "anlam": "Bir bilgiyi, haberi veya duyumu aktarmak.",
+          "kelime": "rüzgâr",
+          "anlam": "Bir kişiye karşı duyulan hoşnutsuzluk.",
           "terimler": [
             "duy",
             "isit"
           ]
         },
         {
-          "kelime": "düşmanlık",
-          "anlam": "Bir şeye karşı duyulan güçlü tiksinme.",
+          "kelime": "vermek",
+          "anlam": "Bir bilgiyi, haberi veya duyumu aktarmak.",
           "terimler": [
             "duy",
             "isit"
@@ -41,7 +41,7 @@
       "ilk3": [
         "barış",
         "söz",
-        "avlu"
+        "süre"
       ],
       "istenmeyen": [
         {
@@ -52,10 +52,10 @@
           ]
         },
         {
-          "kelime": "avlu",
-          "anlam": "İç çekişme, kısa çatışma.",
+          "kelime": "süre",
+          "anlam": "Bir yetki ya da anlaşmanın geçerli olduğu zaman aralığı.",
           "terimler": [
-            "catism"
+            "anlasm"
           ]
         }
       ]
@@ -151,11 +151,24 @@
     "Bütün gün dinlenmeden çalışmak, çok uykusuz kalmak": {
       "dogru": "yorgun",
       "ilk3": [
+        "bayram",
         "dinlemek",
-        "hoca",
-        "uyumak"
+        "hoca"
       ],
       "istenmeyen": [
+        {
+          "kelime": "bayram",
+          "anlam": "Dinî ya da millî bir sebeple bütün halkın bayramladığı gün.",
+          "terimler": [
+            "but",
+            "gun",
+            "din",
+            "mol",
+            "rahatlam",
+            "soluk",
+            "dinlenm"
+          ]
+        },
         {
           "kelime": "dinlemek",
           "anlam": "Bir şeye âdeta bakmak, kaygıtmak. \"Yol dinlemek\" anlamında.",
@@ -176,18 +189,6 @@
             "rahatlam",
             "soluk",
             "dinlenm"
-          ]
-        },
-        {
-          "kelime": "uyumak",
-          "anlam": "Bilinçsiz hâlde, dinlenmek amacıyla gözleri kapalı yatmak.",
-          "terimler": [
-            "din",
-            "mol",
-            "rahatlam",
-            "soluk",
-            "dinlenm",
-            "uyk"
           ]
         }
       ]
@@ -274,8 +275,8 @@
       "dogru": "savaş",
       "ilk3": [
         "düşmanlık",
-        "komşu",
-        "konuşma"
+        "konuşma",
+        "komşu"
       ],
       "istenmeyen": [
         {
@@ -286,15 +287,15 @@
           ]
         },
         {
-          "kelime": "komşu",
-          "anlam": "Yakın, sınırda. \"Komşu ülke\" anlamında.",
+          "kelime": "konuşma",
+          "anlam": "Ülke veya kurumlar arasındaki resmî görüşme.",
           "terimler": [
             "ulk"
           ]
         },
         {
-          "kelime": "konuşma",
-          "anlam": "Ülke veya kurumlar arasındaki resmî görüşme.",
+          "kelime": "komşu",
+          "anlam": "Yakın, sınırda. \"Komşu ülke\" anlamında.",
           "terimler": [
             "ulk"
           ]
@@ -338,8 +339,8 @@
       "dogru": "sıcak",
       "ilk3": [
         "hava durumu",
-        "sıcak",
-        "soğuk"
+        "sıcaklık",
+        "sıcak"
       ],
       "istenmeyen": [
         {
@@ -352,9 +353,10 @@
           ]
         },
         {
-          "kelime": "soğuk",
-          "anlam": "Düşük ısıya sahip; sıcak olmayan.",
+          "kelime": "sıcaklık",
+          "anlam": "Sıcaklığın derecesi, ölçülebilen niceliği.",
           "terimler": [
+            "derec",
             "sicak",
             "ilik"
           ]
@@ -383,8 +385,8 @@
       "dogru": "akşam",
       "ilk3": [
         "sabah",
-        "güneş",
-        "gece"
+        "gece",
+        "güneş batmadan"
       ],
       "istenmeyen": [
         {
@@ -397,16 +399,17 @@
           ]
         },
         {
-          "kelime": "güneş",
-          "anlam": "Yardım, destek. \"Güneşini göstermek\", \"güneş görmek\" deyimleri.",
+          "kelime": "gece",
+          "anlam": "Güneş battıktan sonra doğan, gün doğmadan önce biten zaman dilimi.",
           "terimler": [
+            "gun",
             "gunes",
             "sen"
           ]
         },
         {
-          "kelime": "gece",
-          "anlam": "Güneş battıktan sonra doğan, gün doğmadan önce biten zaman dilimi.",
+          "kelime": "güneş batmadan",
+          "anlam": "Gün batmadan, akşam olmadan önce.",
           "terimler": [
             "gun",
             "gunes",
@@ -462,15 +465,14 @@
       "dogru": "pazar",
       "ilk3": [
         "pazar",
-        "çalışmak",
-        "emek"
+        "inşaat",
+        "çalışmak"
       ],
       "istenmeyen": [
         {
-          "kelime": "çalışmak",
-          "anlam": "Karşılığında emek harcanarak bir iş yapmak.",
+          "kelime": "inşaat",
+          "anlam": "Yapılan yapının kendisi.",
           "terimler": [
-            "karsilig",
             "yap",
             "yapim",
             "uret",
@@ -478,8 +480,8 @@
           ]
         },
         {
-          "kelime": "emek",
-          "anlam": "Ücret karşılığı yapılan bedensel çalışma.",
+          "kelime": "çalışmak",
+          "anlam": "Karşılığında emek harcanarak bir iş yapmak.",
           "terimler": [
             "karsilig",
             "yap",
@@ -545,8 +547,8 @@
       "dogru": "görev",
       "ilk3": [
         "sorumluluk",
-        "ödev",
-        "söylemek"
+        "görev",
+        "ödev"
       ],
       "istenmeyen": [
         {
@@ -567,14 +569,6 @@
             "getir",
             "yukum"
           ]
-        },
-        {
-          "kelime": "söylemek",
-          "anlam": "Bir işi yapmak, yerine getirmek.",
-          "terimler": [
-            "yer",
-            "getir"
-          ]
         }
       ]
     },
@@ -583,7 +577,7 @@
       "ilk3": [
         "zanaat",
         "taş",
-        "iş"
+        "kubbe"
       ],
       "istenmeyen": [
         {
@@ -600,10 +594,12 @@
           ]
         },
         {
-          "kelime": "iş",
-          "anlam": "Bir tezgâhta, dükkânda veya atölyede yapılan zanaat; imalat.",
+          "kelime": "kubbe",
+          "anlam": "Üzerine küçük bir yapı konularak yükseltilen bölüm.",
           "terimler": [
-            "atol",
+            "kucuk",
+            "minik",
+            "ufacik",
             "yap",
             "yapim",
             "uret",
@@ -707,21 +703,21 @@
       "dogru": "ticaret",
       "ilk3": [
         "ticaret",
-        "dükkân",
-        "ilan"
+        "ilan",
+        "dükkân"
       ],
       "istenmeyen": [
         {
-          "kelime": "dükkân",
-          "anlam": "Mal satılan küçük ticaret yeri.",
+          "kelime": "ilan",
+          "anlam": "Satmak ya da kiralamak için asılan yazı.",
           "terimler": [
             "sat",
             "satis"
           ]
         },
         {
-          "kelime": "ilan",
-          "anlam": "Satmak ya da kiralamak için asılan yazı.",
+          "kelime": "dükkân",
+          "anlam": "Mal satılan küçük ticaret yeri.",
           "terimler": [
             "sat",
             "satis"
@@ -782,9 +778,9 @@
     "Kumaştan yapılan, mal alınıp satılan yer": {
       "dogru": "burç",
       "ilk3": [
-        "burç",
         "dükkân",
-        "söylemek"
+        "burç",
+        "inşaat"
       ],
       "istenmeyen": [
         {
@@ -798,14 +794,13 @@
           ]
         },
         {
-          "kelime": "söylemek",
-          "anlam": "Bir işi yapmak, yerine getirmek.",
+          "kelime": "inşaat",
+          "anlam": "Yapılan yapının kendisi.",
           "terimler": [
             "yap",
             "yapim",
             "uret",
-            "kur",
-            "yer"
+            "kur"
           ]
         }
       ]
@@ -815,7 +810,7 @@
       "ilk3": [
         "rüya",
         "çakıl",
-        "süre"
+        "pus"
       ],
       "istenmeyen": [
         {
@@ -828,8 +823,8 @@
           ]
         },
         {
-          "kelime": "süre",
-          "anlam": "Bir işin bitmesi için geçmesi gereken zaman.",
+          "kelime": "pus",
+          "anlam": "Hafif, geçici koku.",
           "terimler": [
             "gec",
             "geceley",
@@ -973,8 +968,8 @@
       "dogru": "suç",
       "ilk3": [
         "yazmak",
-        "düşman",
-        "sarımsak"
+        "inşaat",
+        "düşman"
       ],
       "istenmeyen": [
         {
@@ -988,17 +983,18 @@
           ]
         },
         {
-          "kelime": "düşman",
-          "anlam": "Zarar veren, engel olan şey.",
+          "kelime": "inşaat",
+          "anlam": "Yapılan yapının kendisi.",
           "terimler": [
-            "zarar",
-            "kot",
-            "hasar"
+            "yap",
+            "yapim",
+            "uret",
+            "kur"
           ]
         },
         {
-          "kelime": "sarımsak",
-          "anlam": "Zararlı, uğursuz kimse.",
+          "kelime": "düşman",
+          "anlam": "Zarar veren, engel olan şey.",
           "terimler": [
             "zarar",
             "kot",
@@ -1012,12 +1008,12 @@
       "ilk3": [
         "acele",
         "koşmak",
-        "soğuk"
+        "dondurmak"
       ],
       "istenmeyen": [
         {
           "kelime": "acele",
-          "anlam": "Son hâl, zorunluluk anlamında. \"Acele bir iştir.\"",
+          "anlam": "Üstün acele, darlık.",
           "terimler": [
             "ace",
             "aciliyet",
@@ -1036,10 +1032,10 @@
           ]
         },
         {
-          "kelime": "soğuk",
-          "anlam": "İlgisiz, soğukkanlı. \"Soğuk davranmak\" anlamında.",
+          "kelime": "dondurmak",
+          "anlam": "Parayı tamamen harcamak, hiç artırmamak.",
           "terimler": [
-            "sogukk"
+            "hic"
           ]
         }
       ]
@@ -1219,7 +1215,7 @@
       "ilk3": [
         "hoşgörü",
         "kabul",
-        "almak"
+        "güzel"
       ],
       "istenmeyen": [
         {
@@ -1231,10 +1227,10 @@
           ]
         },
         {
-          "kelime": "almak",
-          "anlam": "Kabul etmek, benimsemek. Özellikle fikir ve sorumluluk için.",
+          "kelime": "güzel",
+          "anlam": "Gözün, kulağın hoşuna giden; yakışıklı, hoş.",
           "terimler": [
-            "kabul"
+            "hos"
           ]
         }
       ]
@@ -1390,7 +1386,7 @@
         },
         {
           "kelime": "nasıl",
-          "anlam": "Bir şeyin niteliğini, yöntemini soran soru kelimesi.",
+          "anlam": "Bir biçimi, yöntemi ya da durumu soru yoluyla sormak için kullanılır.",
           "terimler": [
             "sor",
             "mes",
@@ -1405,15 +1401,14 @@
       "dogru": "soru",
       "ilk3": [
         "soru",
-        "nasıl",
-        "sorun"
+        "sorun",
+        "nasıl"
       ],
       "istenmeyen": [
         {
-          "kelime": "nasıl",
-          "anlam": "Bir şeyin niteliğini, yöntemini soran soru kelimesi.",
+          "kelime": "sorun",
+          "anlam": "Rahatsızlık, sıkıntı. \"Sorun çıkarmak\", \"sorunlu\" sıfat yapısında.",
           "terimler": [
-            "sey",
             "sor",
             "mes",
             "guc",
@@ -1422,8 +1417,8 @@
           ]
         },
         {
-          "kelime": "sorun",
-          "anlam": "Rahatsızlık, sıkıntı. \"Sorun çıkarmak\", \"sorunlu\" sıfat yapısında.",
+          "kelime": "nasıl",
+          "anlam": "Bir biçimi, yöntemi ya da durumu soru yoluyla sormak için kullanılır.",
           "terimler": [
             "sor",
             "mes",
@@ -1438,13 +1433,13 @@
       "dogru": "haber",
       "ilk3": [
         "haber",
-        "ders",
-        "deneyim"
+        "bilim",
+        "ders"
       ],
       "istenmeyen": [
         {
-          "kelime": "ders",
-          "anlam": "Alınan öğretim, öğrenilen bilgi.",
+          "kelime": "bilim",
+          "anlam": "Öğrenilen, öğretilen bilgi.",
           "terimler": [
             "ogren",
             "bilg",
@@ -1454,8 +1449,8 @@
           ]
         },
         {
-          "kelime": "deneyim",
-          "anlam": "Yapılarak, görülerek öğrenilen bilgi ve beceri.",
+          "kelime": "ders",
+          "anlam": "Alınan öğretim, öğrenilen bilgi.",
           "terimler": [
             "ogren",
             "bilg",
@@ -1477,19 +1472,10 @@
       "dogru": "kalabalık",
       "ilk3": [
         "kalabalık",
-        "müşteri",
-        "an"
+        "an",
+        "müşteri"
       ],
       "istenmeyen": [
-        {
-          "kelime": "müşteri",
-          "anlam": "Bir işletmenin sayısını, büyüklüğünü belirleyen kişi sayısı.",
-          "terimler": [
-            "say",
-            "kis",
-            "kisac"
-          ]
-        },
         {
           "kelime": "an",
           "anlam": "Zaman içinde çok kısa süren, bir noktada olan belirli aralık.",
@@ -1497,6 +1483,15 @@
             "kis",
             "kisac",
             "ara"
+          ]
+        },
+        {
+          "kelime": "müşteri",
+          "anlam": "Bir işletmenin sayısını, büyüklüğünü belirleyen kişi sayısı.",
+          "terimler": [
+            "say",
+            "kis",
+            "kisac"
           ]
         }
       ]
@@ -1555,13 +1550,13 @@
       "dogru": "an",
       "ilk3": [
         "an",
-        "dakika",
-        "kısa"
+        "kısa",
+        "dakika"
       ],
       "istenmeyen": [
         {
-          "kelime": "dakika",
-          "anlam": "Kısa bir süre, an.",
+          "kelime": "kısa",
+          "anlam": "Süresi az, öz. \"Kısa yoldan\" anlamında.",
           "terimler": [
             "kis",
             "kisac",
@@ -1569,8 +1564,8 @@
           ]
         },
         {
-          "kelime": "kısa",
-          "anlam": "Süresi az, öz. \"Kısa yoldan\" anlamında.",
+          "kelime": "dakika",
+          "anlam": "Kısa bir süre, an.",
           "terimler": [
             "kis",
             "kisac",
@@ -1643,7 +1638,7 @@
       "ilk3": [
         "sırt",
         "sağlık",
-        "koltuk"
+        "baytar"
       ],
       "istenmeyen": [
         {
@@ -1661,10 +1656,10 @@
           ]
         },
         {
-          "kelime": "koltuk",
-          "anlam": "Oturmak için sırtlı, kolları olan mobilya.",
+          "kelime": "baytar",
+          "anlam": "Hayvanlara bakan, hayvan hastalıklarını tedavi eden kişi.",
           "terimler": [
-            "sirt"
+            "hayv"
           ]
         }
       ]
@@ -1740,23 +1735,24 @@
       "dogru": "sürücü",
       "ilk3": [
         "sürücü",
-        "ehliyet",
-        "saniye"
+        "kiracı",
+        "ehliyet"
       ],
       "istenmeyen": [
         {
-          "kelime": "ehliyet",
-          "anlam": "Motorlu araç kullanmak için yetkili kişiye verilen belge.",
+          "kelime": "kiracı",
+          "anlam": "Başkasının malını, izniyle kullanan kişi ya da kurum.",
           "terimler": [
-            "arac",
+            "kulla",
             "kis",
             "kisac"
           ]
         },
         {
-          "kelime": "saniye",
-          "anlam": "Çok kısa bir an.",
+          "kelime": "ehliyet",
+          "anlam": "Motorlu araç kullanmak için yetkili kişiye verilen belge.",
           "terimler": [
+            "arac",
             "kis",
             "kisac"
           ]
@@ -1842,22 +1838,24 @@
       "dogru": "trafik",
       "ilk3": [
         "trafik",
-        "kalabalık",
-        "güçlü"
+        "rüzgâr",
+        "sokak"
       ],
       "istenmeyen": [
         {
-          "kelime": "kalabalık",
-          "anlam": "Yoğun, sık.",
+          "kelime": "rüzgâr",
+          "anlam": "Hareket eden havanın oluşturduğu akım.",
           "terimler": [
-            "yog"
+            "olusturdug",
+            "hareket"
           ]
         },
         {
-          "kelime": "güçlü",
-          "anlam": "Keskin, yoğun. \"Güçlü ışık\" anlamında.",
+          "kelime": "sokak",
+          "anlam": "Evlerin iki yanında uzanan, insanların ve araçların geçtiği yol.",
           "terimler": [
-            "yog"
+            "yol",
+            "araclar"
           ]
         }
       ]
@@ -2038,7 +2036,7 @@
       "istenmeyen": [
         {
           "kelime": "dostluk",
-          "anlam": "Dostlar arasındaki yakın bağ, arkadaşlık ilişkisi.",
+          "anlam": "Dostlar arasındaki yakın bağ, karşılıklı güvene dayalı ilişki.",
           "terimler": [
             "arasindak",
             "ilisk"
@@ -2174,7 +2172,7 @@
       "ilk3": [
         "maaş",
         "ödemek",
-        "ücret"
+        "kira"
       ],
       "istenmeyen": [
         {
@@ -2190,8 +2188,8 @@
           ]
         },
         {
-          "kelime": "ücret",
-          "anlam": "Bir hizmet ya da emek karşılığı ödenen para.",
+          "kelime": "kira",
+          "anlam": "Kiralanan yere ödenen para.",
           "terimler": [
             "ode",
             "odem",
@@ -2234,7 +2232,7 @@
       "ilk3": [
         "tanık",
         "öykü",
-        "saniye"
+        "kısa"
       ],
       "istenmeyen": [
         {
@@ -2247,8 +2245,8 @@
           ]
         },
         {
-          "kelime": "saniye",
-          "anlam": "Çok kısa bir an.",
+          "kelime": "kısa",
+          "anlam": "Süresi az, öz. \"Kısa yoldan\" anlamında.",
           "terimler": [
             "kis",
             "kisac"
@@ -2287,7 +2285,7 @@
       "ilk3": [
         "mahkeme",
         "yargıç",
-        "makine"
+        "düzen"
       ],
       "istenmeyen": [
         {
@@ -2300,10 +2298,10 @@
           ]
         },
         {
-          "kelime": "makine",
-          "anlam": "Bir kurumun bütünü, düzeni.",
+          "kelime": "düzen",
+          "anlam": "Birbirine uygun biçimde yerleştirilmiş, kararlı hâl.",
           "terimler": [
-            "kurum"
+            "karar"
           ]
         }
       ]
@@ -2352,7 +2350,7 @@
         },
         {
           "kelime": "acı",
-          "anlam": "Bedensel veya ruhsal elem anlamında. \"Bir acı\".",
+          "anlam": "Bahar tadı; tatlıya karşı acı olan.",
           "terimler": [
             "aci",
             "agr",
@@ -2504,8 +2502,7 @@
       "dogru": "fotoğraf",
       "ilk3": [
         "fotoğraf",
-        "resim",
-        "ay"
+        "resim"
       ],
       "istenmeyen": [
         {
@@ -2514,13 +2511,6 @@
           "terimler": [
             "yuzey",
             "gorunt"
-          ]
-        },
-        {
-          "kelime": "ay",
-          "anlam": "Ay ışığında gezinmek, gezerek eğlenmek.",
-          "terimler": [
-            "isig"
           ]
         }
       ]

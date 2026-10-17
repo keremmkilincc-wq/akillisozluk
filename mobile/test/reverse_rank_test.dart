@@ -47,16 +47,34 @@ const _knownLimits = <String>[
   //   parti 005 verisi (52 tanım)      ilk 12/24  ilk3 13/24
   //   parti 006 verisi (66 tanım)      ilk 12/24  ilk3 13/24
   //   parti 007 verisi (61 tanım)      ilk 12/24  ilk3 13/24
+  //   parti 008 verisi (68 tanım)      ilk 12/24  ilk3 14/24
+  //   + yük sırası düzeltmesi          ilk 12/24  ilk3 14/24
   //
   // TEMEL DAL TABLOSU (63 vaka):
   //   parti 005 verisi                  ilk 55/63  ilk3 58/63
   //   parti 006 verisi                  ilk 52/63  ilk3 58/63
   //   parti 007 verisi                  ilk 54/63  ilk3 57/63
+  //   parti 008 verisi                  ilk 53/63  ilk3 57/63
+  //   + yük sırası düzeltmesi          ilk 53/63  ilk3 57/63
   //
   // Parti 007 zor dala dokunmadi, temel dali 52 -> 54 YUKSELDI. Yani
   // "veri eklemek olcumu kaydirir" tek yonlu degil: parti 006 dusurdu,
-  // parti 007 yukseldi. Ortalama kayma yok. Ama vaka bazinda degisim var ve
-  // denetim gerekiyor.
+  // parti 007 yukseldi.
+  //
+  // Parti 008 ile birlikte olculen ASIL OLAY YUK SIRASI DUZELTMESI.
+  // build_dict.py dosyalari sorted(glob('words*.json')) ile yukluyordu;
+  // 's' rakamdan buyuk oldugu icin words_sample.json — calismanin EN ESKI
+  // dosyasi — alfabetik olarak EN SONDA geliyor ve kazaniyordu. Parti
+  // 000-003'te elden yazilmis 19 tanim sessizce eziliyordu; 14 tanimde
+  // parti surumu daha zengindi. Duzeltildi: sira artik anlamsal, once
+  // sample, sonra partiler.
+  //
+  // Etkisi iki yonlu oldu: zor dalin ilk-3'u 13 -> 14 (iyilesme), temel
+  // dalin ilk-1'i 54 -> 53 (kayip). Net -1. Tek vaka gurultu sinirinda,
+  // yonu tek basina anlamli degil — ama dagilim degisti.
+  //
+  // DUZELTMEDEN ONCE O 19 TANIM YAYINA CIKMIYORDU. Yani kayip bir vaka
+  // degil, 19 tanimdi.
   //
   // SON DÜZELTME: parti 005 hiçbir dalı düşürmedi; "veri eklemek ölçümü
   // kaydırır" varsayımı zayıfladı. Parti 006 ise TEMEL DALI 3 vaka düşürdü
