@@ -26,6 +26,7 @@
 //      düzeltmelerden önce     ilk  8/26    ilk3 13/26
 //      düzeltmelerden sonra    ilk 12/26    ilk3 15/26
 //      parti 003 verisiyle     ilk 11/26    ilk3 15/26
+//      parti 004 verisiyle     ilk 11/26    ilk3 14/26
 //
 //  Üçüncü satır bir regresyon değil, ölçümün çalıştığının kanıtı: 67 yeni
 //  tanım bazı eşleşmelerin ayrımını bozdu. Tek vaka, 26 soruluk kümede

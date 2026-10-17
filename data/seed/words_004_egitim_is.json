@@ -1,0 +1,2571 @@
+{
+  "meta": {
+    "batch": "004 — egitim, ulasim, is dunyasi, hukuk, teknoloji",
+    "created": "2026-10-17",
+    "depth": "Kademe 1 — tam: 2-4 anlam, her birinde modern ornek, 3 morfoloji, 3-4 iliski",
+    "note": "Tanimlar bu projede yazildi. TDK tanim metni kopyalanmadi; klasik alinti kullanilmadi. Telif riski sifir.",
+    "on_not": "Aday kelimelerin corpusta var oldugu URETIMDEN ONCE olculerek dogrulandi. 'kanun' sozlukte yok (TDK listesinde kanuni bicimiyle geciyor), yerine 'hukuk' secildi."
+  },
+
+  "words": [
+    {
+      "word": "öğrenci",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.95,
+      "confidence": 1.0,
+      "phonetics": "[öğrenci]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Bir okulda öğrenim gören, öğretim sürecindeki kişi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Sınıfta en çok soru soran öğrenciydi, kimse sıkılmazdı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "Bir bilim dalında kendini yetiştirmeye çalışan kişi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Hep öğrenciyim, otuz yıldır bitiremedim.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "mecaz",
+         "definition": "Bir şeyi öğrenme durumundaki kimse.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu işin öğrencisi olmak isteyen kimse yok, hepsi usta.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "öğretmen", "type": "related"},
+        {"word": "öğrenmek", "type": "related"},
+        {"word": "öğrencilik", "type": "derivative"},
+        {"word": "ders", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "öğrencisi", "root": "öğrenci", "suffixes": ["si"],
+         "explanation": "3. kişi iyelik eki (-si); gövde düşmesiyle"},
+        {"surface": "öğrenciler", "root": "öğrenci", "suffixes": ["ler"],
+         "explanation": "çoğul eki (-ler); gövde düşmesiyle"},
+        {"surface": "öğrenciliği", "root": "öğrenci", "suffixes": ["liği"],
+         "explanation": "-lik yapım eki + kaynaştırma (lığı) + 3. kişi iyelik eki"}
+      ]
+    },
+
+    {
+      "word": "ders",
+      "origin": "Farsça",
+      "origin_period": "Osmanlı dönemi",
+      "is_pure_turkish": false,
+      "usage_frequency": 1.0,
+      "confidence": 0.95,
+      "phonetics": "[ders]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Öğretmenin anlattığı, öğrencilerin çalıştığı konu.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bugün iki ders var, üçüncüsü iptal edildi.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "Alınan öğretim, öğrenilen bilgi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu işin dersini aldı ama bedeli çok ağırdı.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "mecaz",
+         "definition": "Doğal afet, musibet.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Deprem büyük bir dersti, ama kimse bunu unutmadı.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "ders vermek", "type": "related"},
+        {"word": "dershane", "type": "derivative"},
+        {"word": "öğrenci", "type": "related"},
+        {"word": "muafiyet", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "dersi", "root": "ders", "suffixes": ["i"],
+         "explanation": "3. kişi iyelik eki (-i); ünsüz yumuşamasıyla"},
+        {"surface": "dersinde", "root": "ders", "suffixes": ["inde"],
+         "explanation": "bulunma hâl eki (-de) + 3. kişi iyelik eki (-i); kaynaştırma ile n"},
+        {"surface": "dersler", "root": "ders", "suffixes": ["ler"],
+         "explanation": "çoğul eki (-ler); ünsüz yumuşamasıyla"}
+      ]
+    },
+
+    {
+      "word": "sınıf",
+      "origin": "Fransızca",
+      "origin_period": "19. yy",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.95,
+      "confidence": 0.9,
+      "phonetics": "[sınıf]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Bir okulda aynı programı izleyen öğrencilerin oluşturduğu grup.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Sınıfta otuz iki kişi var, ikisi de sınıf dışı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Bir eğitim kurumunun bölümlerinden her biri.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Okulda on iki sınıf vardı, hepsi doluydu.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "mecaz",
+         "definition": "Benzer özellikleriyle tanınan grubun her biri.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Toplumun en kalabalık sınıfı, kendi çoğunluğunu hiç görmüyor.",
+         "confidence": 0.85},
+        {"order": 4, "type": "isim", "sense": "mecaz",
+         "definition": "Kalite bakımından birbirine yakın derece.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu iki araba aynı sınıfta, aralarında dağ kadar fark var.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "sınıflı", "type": "derivative"},
+        {"word": "sınıfsız", "type": "derivative"},
+        {"word": "ders", "type": "related"},
+        {"word": "öğrenci", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "sınıfı", "root": "sınıf", "suffixes": ["ı"],
+         "explanation": "3. kişi iyelik eki (-ı); gövde düşmesiyle"},
+        {"surface": "sınıfta", "root": "sınıf", "suffixes": ["ta"],
+         "explanation": "bulunma hâl eki (-ta); ünsüz benzeşmesi (f/t) ile"},
+        {"surface": "sınıflar", "root": "sınıf", "suffixes": ["lar"],
+         "explanation": "çoğul eki (-lar); ünsüz benzeşmesiyle"}
+      ]
+    },
+
+    {
+      "word": "defter",
+      "origin": "Arapça",
+      "origin_period": "Osmanlı dönemi",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.9,
+      "confidence": 0.95,
+      "phonetics": "[defter]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Yazı yazmaya, defter tutmaya yarayan, ciltlenmiş kâğıt mecmua.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Notları defterde tutuyordu, telefonu doldurmuştu.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "Liste, kayıt. \"Defteri tutmak\" deyiminde.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Borç defterini açtı, kimseye de göstermedi.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "gercek",
+         "definition": "Ciltli kitap.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Rafın en üstünde tek bir defter duruyordu, kimin olduğu belli değildi.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "defter tutmak", "type": "related"},
+        {"word": "not", "type": "related"},
+        {"word": "kitap", "type": "related"},
+        {"word": "kayıt", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "defteri", "root": "defter", "suffixes": ["i"],
+         "explanation": "3. kişi iyelik eki (-i); gövde düşmesiyle"},
+        {"surface": "defterden", "root": "defter", "suffixes": ["den"],
+         "explanation": "ayrılma hâl eki (-den); ünsüz benzeşmesi (r/d) ile"},
+        {"surface": "defterli", "root": "defter", "suffixes": ["li"],
+         "explanation": "-li yapım eki; ünsüz benzeşmesiyle"}
+      ]
+    },
+
+    {
+      "word": "üniversite",
+      "origin": "Fransızca",
+      "origin_period": "19. yy",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.9,
+      "confidence": 0.9,
+      "phonetics": "[üniversite]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Yükseköğretim kurumu; lisans ve lisansüstü öğretim veren yer.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Üniversite bahçesi sınıfta kalmak için tercih edilen bir yer olmuştu.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Bu kurumun verdiği eğitim, öğretim kurumu bütünü.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Babası üniversitede okumuştu, o okuyamadı.",
+         "confidence": 0.95}
+      ],
+      "relations": [
+        {"word": "üniversiteli", "type": "derivative"},
+        {"word": "fakülte", "type": "related"},
+        {"word": "öğrenci", "type": "related"},
+        {"word": "okul", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "üniversitesi", "root": "üniversite", "suffixes": ["si"],
+         "explanation": "3. kişi iyelik eki (-si); gövde düşmesiyle"},
+        {"surface": "üniversitede", "root": "üniversite", "suffixes": ["de"],
+         "explanation": "bulunma hâl eki (-de); gövde düşmesiyle"},
+        {"surface": "üniversiteli", "root": "üniversite", "suffixes": ["li"],
+         "explanation": "-li yapım eki; gövde düşmesiyle"}
+      ]
+    },
+
+    {
+      "word": "ödev",
+      "origin": "Fransızca",
+      "origin_period": "19. yy",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.9,
+      "confidence": 0.9,
+      "phonetics": "[ödev]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Öğretmenin öğrenciye verdiği, yapılması istenen yazılı iş.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Ödevi geç yaptı, ama notu tam yine de yüksek geldi.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "Görevi yerine getirmek için yapılan iş, sorumluluk.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu işin ödevi kimin? Hep aynı iki kişi.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "mecaz",
+         "definition": "Süre, görev süresi. \"Ödevi dolduğunda\" deyiminde.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Yirmi yılın ödevi dolunca memleketine döndü.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "ödevini yapmak", "type": "related"},
+        {"word": "görev", "type": "related"},
+        {"word": "ders", "type": "related"},
+        {"word": "sorumluluk", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "ödevi", "root": "ödev", "suffixes": ["i"],
+         "explanation": "3. kişi iyelik eki (-i); gövde düşmesiyle"},
+        {"surface": "ödevini", "root": "ödev", "suffixes": ["ini"],
+         "explanation": "3. kişi iyelik eki (-i) + belirtme hâl eki (-i); kaynaştırma ile n"},
+        {"surface": "ödevden", "root": "ödev", "suffixes": ["den"],
+         "explanation": "ayrılma hâl eki (-den); ünsüz benzeşmesi (v/d) ile"}
+      ]
+    },
+
+    {
+      "word": "not",
+      "origin": "Fransızca",
+      "origin_period": "19. yy",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.95,
+      "confidence": 0.9,
+      "phonetics": "[not]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Öğrencilere öğretmenin verdiği derecelendirme, puan.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Notlar açıklandı, kimse kendi notunu görmeden çıktı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Hatırlatmak için kısaca yazılan şey.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Dolabının kapısına bir not bırakmıştı, kimse okumamıştı.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "mecaz",
+         "definition": "Önem, itibar. \"Not almak\" deyiminde.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu karar o çevrede hiç not almadı.",
+         "confidence": 0.9},
+        {"order": 4, "type": "isim", "sense": "mecaz",
+         "definition": "Şöhret, ün.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Yurt dışında büyük not tutuyordu, kimse adını duymamıştı.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "not almak", "type": "related"},
+        {"word": "not defteri", "type": "related"},
+        {"word": "notu düşmek", "type": "related"},
+        {"word": "itibar", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "notu", "root": "not", "suffixes": ["u"],
+         "explanation": "3. kişi iyelik eki (-u); ünsüz yumuşamasıyla"},
+        {"surface": "notta", "root": "not", "suffixes": ["ta"],
+         "explanation": "bulunma hâl eki (-ta); ünsüz benzeşmesi (t/t) ile"},
+        {"surface": "notlu", "root": "not", "suffixes": ["lu"],
+         "explanation": "-lu yapım eki; ünsüz benzeşmesiyle"}
+      ]
+    },
+
+    {
+      "word": "hoca",
+      "origin": "Arapça",
+      "origin_period": "Osmanlı dönemi",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.95,
+      "confidence": 0.95,
+      "phonetics": "[hoca]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Öğretmen, öğretici.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Hocası sınıfı yönetemiyordu, kimse söz onu dinlemiyordu.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "Bir konuda derinlemesine bilgili, yetkin kişi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu konunun hocası odur, kimseyle değişmez.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "gercek",
+         "definition": "Din adamı, İslâm âlimi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Caminin hocası yirmi yıldır aynı minarenin dibinde.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "öğretmen", "type": "related"},
+        {"word": "hocalık", "type": "derivative"},
+        {"word": "ders", "type": "related"},
+        {"word": "ust", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "hocası", "root": "hoca", "suffixes": ["sı"],
+         "explanation": "3. kişi iyelik eki (-sı); gövde düşmesiyle"},
+        {"surface": "hocaya", "root": "hoca", "suffixes": ["ya"],
+         "explanation": "datif hâl eki (-a); kaynaştırma ile y'ye dönüşür"},
+        {"surface": "hocalar", "root": "hoca", "suffixes": ["lar"],
+         "explanation": "çoğul eki (-lar); ünsüz yumuşamasıyla"}
+      ]
+    },
+
+    {
+      "word": "müfredat",
+      "origin": "Arapça",
+      "origin_period": "Osmanlı dönemi",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.85,
+      "confidence": 0.9,
+      "phonetics": "[müfredat]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Bir eğitim kurumunda öğretilecek konuların tümü.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Müfredat o kadar genişti ki tek öğretmenin sırtında kalmıştı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "Kapsanan konu, alan.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu raporun müfredatı, kimsenin okumadığı bir şey.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "ders", "type": "related"},
+        {"word": "program", "type": "related"},
+        {"word": "eğitim", "type": "related"},
+        {"word": "içerik", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "müfredatı", "root": "müfredat", "suffixes": ["ı"],
+         "explanation": "3. kişi iyelik eki (-ı); gövde düşmesiyle"},
+        {"surface": "müfredatta", "root": "müfredat", "suffixes": ["ta"],
+         "explanation": "bulunma hâl eki (-ta); ünsüz benzeşmesi (t/t) ile"},
+        {"surface": "müfredattan", "root": "müfredat", "suffixes": ["tan"],
+         "explanation": "ayrılma hâl eki (-tan); ünsüz benzeşmesi (t/t) ile"}
+      ]
+    },
+
+    {
+      "word": "imtihan",
+      "origin": "Arapça",
+      "origin_period": "Osmanlı dönemi",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.9,
+      "confidence": 0.95,
+      "phonetics": "[imtihan]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Öğrencilerin bilgisini ölçmek için yapılan sınav.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "İmtihan yedi saat sürdü, ikinci oturumda iki kişi çıktı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "Zorlu sınav, çetin deneme.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Hayatın imtihanıymış gibi davranıyordu, kimse seyretmiyordu.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "sınav", "type": "related"},
+        {"word": "not", "type": "related"},
+        {"word": "ders", "type": "related"},
+        {"word": "mezuniyet", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "imtihanı", "root": "imtihan", "suffixes": ["ı"],
+         "explanation": "3. kişi iyelik eki (-ı); gövde düşmesiyle"},
+        {"surface": "imtihanda", "root": "imtihan", "suffixes": ["da"],
+         "explanation": "bulunma hâl eki (-da); ünsüz benzeşmesi (n/d) ile"},
+        {"surface": "imtihanımdan", "root": "imtihan", "suffixes": ["ımdan"],
+         "explanation": "1. kişi iyelik eki (-ım) + ayrılma hâl eki (-dan); kaynaştırma ile n"}
+      ]
+    },
+
+    {
+      "word": "tahta",
+      "origin": "Arapça",
+      "origin_period": "Osmanlı dönemi",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.9,
+      "confidence": 0.95,
+      "phonetics": "[tahta]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Sınıfta öğretmenin yazı yazdığı, mürekkeple yazılan kara levha.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Tahtanın bir köşesine sınav tarihini yazıp unutmuş.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "Kara, is, kül.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Tencereler ocağın tahtasından sararmıştı.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "mecaz",
+         "definition": "Devlet yönetiminin çalışma düzeni.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bütün tahta aynı yerdeydi, kimse kımıldamadı.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "tahtakâlık", "type": "related"},
+        {"word": "deri", "type": "related"},
+        {"word": "ders", "type": "related"},
+        {"word": "hükümet", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "tahtası", "root": "tahta", "suffixes": ["sı"],
+         "explanation": "3. kişi iyelik eki (-sı)"},
+        {"surface": "tahtada", "root": "tahta", "suffixes": ["da"],
+         "explanation": "bulunma hâl eki (-da); ünsüz benzeşmesi (t/d) ile"},
+        {"surface": "tahtalar", "root": "tahta", "suffixes": ["lar"],
+         "explanation": "çoğul eki (-lar); ünsüz benzeşmesiyle"}
+      ]
+    },
+
+    {
+      "word": "araba",
+      "origin": "Arapça",
+      "origin_period": "Osmanlı dönemi",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.95,
+      "confidence": 0.95,
+      "phonetics": "[araba]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Yolcu veya yük taşımak için, kendi gücüyle ya da çekilerek yürüyen taşıt.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Arabası arızdı, yaya yürümekten başka yol kalmadı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Bir şeyi taşımak için kullanılan araç.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "El arabasıyle taş taşıyorlardı, motor yoktu.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "mecaz",
+         "definition": "Birlikte hareket edilen topluluk, grup.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bütün araba bir saat boyunca sessiz kaldı.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "araba", "type": "derivative"},
+        {"word": "sürücü", "type": "related"},
+        {"word": "yol", "type": "related"},
+        {"word": "araç", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "arabası", "root": "araba", "suffixes": ["sı"],
+         "explanation": "3. kişi iyelik eki (-sı)"},
+        {"surface": "arabada", "root": "araba", "suffixes": ["da"],
+         "explanation": "bulunma hâl eki (-da); ünsüz benzeşmesi (b/d) ile"},
+        {"surface": "arabalar", "root": "araba", "suffixes": ["lar"],
+         "explanation": "çoğul eki (-lar); ünsüz benzeşmesiyle"}
+      ]
+    },
+
+    {
+      "word": "otobüs",
+      "origin": "Fransızca",
+      "origin_period": "20. yy",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.95,
+      "confidence": 0.9,
+      "phonetics": "[otobüs]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Şehir içinde sabit güzergâhta duraklardan yolcu taşıyan büyük araç.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Otobüs yine doluydu, bir saatte bir araç geldi.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "Uzun mesafeli, yavaş ilerleyen yol.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "İki kasaba arası otobüstü, kırk dakika sürüyordu.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "durak", "type": "related"},
+        {"word": "yolcu", "type": "related"},
+        {"word": "bilet", "type": "related"},
+        {"word": "trafik", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "otobüsü", "root": "otobüs", "suffixes": ["ü"],
+         "explanation": "3. kişi iyelik eki (-ü); gövde düşmesiyle"},
+        {"surface": "otobüste", "root": "otobüs", "suffixes": ["te"],
+         "explanation": "bulunma hâl eki (-te); ünsüz benzeşmesi (s/t) ile"},
+        {"surface": "otobüsler", "root": "otobüs", "suffixes": ["ler"],
+         "explanation": "çoğul eki (-ler); gövde düşmesiyle"}
+      ]
+    },
+
+    {
+      "word": "tren",
+      "origin": "Fransızca",
+      "origin_period": "19. yy",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.9,
+      "confidence": 0.9,
+      "phonetics": "[tren]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Ray üzerinde hareket eden, vagonlardan oluşan uzun araç.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Tren saatinde geldi, kimse inmeden kaldı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Tramvay, elektrikli şehir içi aracı.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Eski bir tren sesi geldi, herkes pencereden baktı.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "istasyon", "type": "related"},
+        {"word": "ray", "type": "related"},
+        {"word": "bilet", "type": "related"},
+        {"word": "vagon", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "treni", "root": "tren", "suffixes": ["i"],
+         "explanation": "3. kişi iyelik eki (-i); ünsüz yumuşamasıyla"},
+        {"surface": "trende", "root": "tren", "suffixes": ["de"],
+         "explanation": "bulunma hâl eki (-de); ünsüz benzeşmesi (n/d) ile"},
+        {"surface": "trenler", "root": "tren", "suffixes": ["ler"],
+         "explanation": "çoğul eki (-ler); ünsüz yumuşamasıyla"}
+      ]
+    },
+
+    {
+      "word": "uçak",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.95,
+      "confidence": 1.0,
+      "phonetics": "[uçak]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Kanatlarla uçan, motorlu, yolcu veya yük taşıyan hava aracı.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Uçağın inişi iki saat gecikti, kimse şaşırmadı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "Kâğıt uçurma oyununda oynanan kâğıt parçası.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Çocuklar bahçede saatlerce uçak uçurdu.",
+         "confidence": 0.9},
+        {"order": 3, "type": "isim", "sense": "gercek",
+         "definition": "Havada uçan kuş türü, akbaba.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Kayanların üzerinde bir uçak döndü, yırtıcıydı.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "havalimanı", "type": "related"},
+        {"word": "uçuş", "type": "derivative"},
+        {"word": "uçmak", "type": "related"},
+        {"word": "bilet", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "uçağı", "root": "uçak", "suffixes": ["ı"],
+         "explanation": "3. kişi iyelik eki (-ı); ünsüz yumuşamasıyla"},
+        {"surface": "uçakta", "root": "uçak", "suffixes": ["ta"],
+         "explanation": "bulunma hâl eki (-ta); ünsüz benzeşmesi (k/t) ile"},
+        {"surface": "uçaklar", "root": "uçak", "suffixes": ["lar"],
+         "explanation": "çoğul eki (-lar); ünsüz benzeşmesiyle"}
+      ]
+    },
+
+    {
+      "word": "gemi",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.9,
+      "confidence": 1.0,
+      "phonetics": "[gemi]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Denizlerde yüzen, yolcu ya da yük taşıyan büyük taşıt.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Gemi limandan çıkarken düdük üç kez uzun çaldı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "Toplumun büyük bölümü, devlet gücü.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu karar devletin gemisini salladı, ama batırmadı.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "kaptan", "type": "related"},
+        {"word": "liman", "type": "related"},
+        {"word": "deniz", "type": "related"},
+        {"word": "yolcu", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "gemisi", "root": "gemi", "suffixes": ["si"],
+         "explanation": "3. kişi iyelik eki (-si); gövde düşmesiyle"},
+        {"surface": "gemide", "root": "gemi", "suffixes": ["de"],
+         "explanation": "bulunma hâl eki (-de); ünsüz benzeşmesi (m/d) ile"},
+        {"surface": "gemiler", "root": "gemi", "suffixes": ["ler"],
+         "explanation": "çoğul eki (-ler); ünsüz benzeşmesiyle"}
+      ]
+    },
+
+    {
+      "word": "bisiklet",
+      "origin": "Fransızca",
+      "origin_period": "19. yy",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.9,
+      "confidence": 0.9,
+      "phonetics": "[bisiklet]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "İki tekerlekli, pedal ile sürülen, sürücüsü üzerinde oturan araç.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bisikletle köye giderken her yerde selam verirdi.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Bisiklet takımı, yarış takımı.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bisikletle dört günde dört ülke geçtik.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "kemer", "type": "related"},
+        {"word": "pedal", "type": "related"},
+        {"word": "yol", "type": "related"},
+        {"word": "sürücü", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "bisikleti", "root": "bisiklet", "suffixes": ["i"],
+         "explanation": "3. kişi iyelik eki (-i); ünsüz yumuşamasıyla"},
+        {"surface": "bisiklette", "root": "bisiklet", "suffixes": ["te"],
+         "explanation": "bulunma hâl eki (-te); ünsüz benzeşmesi (t/t) ile"},
+        {"surface": "bisikletler", "root": "bisiklet", "suffixes": ["ler"],
+         "explanation": "çoğul eki (-ler); ünsüz yumuşamasıyla"}
+      ]
+    },
+
+    {
+      "word": "bilet",
+      "origin": "İtalyanca",
+      "origin_period": "19. yy",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.9,
+      "confidence": 0.9,
+      "phonetics": "[bilet]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Bir taşıt aracında ya da bir eğlencede seyretme hakkı karşılığı kesilen kart.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Biletini cebinde unuttu, otobüsle kalmayı yeğledi.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "Geçme, girme izni.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu bilet bir daha kullanılamaz.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "bilet almak", "type": "related"},
+        {"word": "seyirci", "type": "related"},
+        {"word": "otobüs", "type": "related"},
+        {"word": "kupon", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "bileti", "root": "bilet", "suffixes": ["i"],
+         "explanation": "3. kişi iyelik eki (-i); ünsüz yumuşamasıyla"},
+        {"surface": "bilette", "root": "bilet", "suffixes": ["te"],
+         "explanation": "bulunma hâl eki (-te); ünsüz benzeşmesi (t/t) ile"},
+        {"surface": "biletler", "root": "bilet", "suffixes": ["ler"],
+         "explanation": "çoğul eki (-ler); ünsüz yumuşamasıyla"}
+      ]
+    },
+
+    {
+      "word": "istasyon",
+      "origin": "İtalyanca",
+      "origin_period": "19. yy",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.85,
+      "confidence": 0.9,
+      "phonetics": "[istasyon]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Trenlerin durduğu, yolcuların bindiği ve indiği yapı.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "İstasyonda yarım saat bekledi, tren gelmedi.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Bir kurumun bölümü, merkezi binası.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "İstasyon binası yüz yıl önce yapılmış, hâlâ ayaktaydı.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "tren", "type": "related"},
+        {"word": "peron", "type": "related"},
+        {"word": "bilet", "type": "related"},
+        {"word": "gar", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "istasyonda", "root": "istasyon", "suffixes": ["da"],
+         "explanation": "bulunma hâl eki (-da); gövde düşmesiyle"},
+        {"surface": "istasyonu", "root": "istasyon", "suffixes": ["u"],
+         "explanation": "3. kişi iyelik eki (-u); gövde düşmesiyle"},
+        {"surface": "istasyonlar", "root": "istasyon", "suffixes": ["lar"],
+         "explanation": "çoğul eki (-lar); gövde düşmesiyle"}
+      ]
+    },
+
+    {
+      "word": "havalimanı",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.9,
+      "confidence": 1.0,
+      "phonetics": "[havalimanı]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Uçakların kalkıp indiği, yolcu işlemlerinin yapıldığı büyük alan.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Havalimanına üç saat yoldan gidilirdi, o dönemde.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "Çok kalabalık, sürekli hareket eden yer.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Havalimanı gibi bir yerdi, kimse birbirini duyamıyordu.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "uçak", "type": "related"},
+        {"word": "bagaj", "type": "related"},
+        {"word": "uçuş", "type": "related"},
+        {"word": "terminal", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "havalimanında", "root": "havalimanı", "suffixes": ["nda"],
+         "explanation": "bulunma hâl eki (-da); kaynaştırma ile n"},
+        {"surface": "havalimanını", "root": "havalimanı", "suffixes": ["nı"],
+         "explanation": "belirtme hâl eki (-ı); kaynaştırma ile n"},
+        {"surface": "havalimanları", "root": "havalimanı", "suffixes": ["ları"],
+         "explanation": "çoğul eki (-lar) + belirtme hâl eki (-ı); kaynaştırma ile n"}
+      ]
+    },
+
+    {
+      "word": "tünel",
+      "origin": "İtalyanca",
+      "origin_period": "19. yy",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.85,
+      "confidence": 0.9,
+      "phonetics": "[tünel]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Dağın ya da yerin içinden açılan, iki ucu olan geçit.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Tünel çıkışında beklediler, içeriden ses gelmiyordu.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "Bir şeyin içinden geçilebilen dar yol.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Ağaç gövdesinde bir tünel açmışlar, dışarıya çıkış yoktu.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "tüneli", "type": "derivative"},
+        {"word": "yol", "type": "related"},
+        {"word": "dağ", "type": "related"},
+        {"word": "yeraltı", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "tüneli", "root": "tünel", "suffixes": ["i"],
+         "explanation": "3. kişi iyelik eki (-i); ünsüz yumuşamasıyla"},
+        {"surface": "tünelde", "root": "tünel", "suffixes": ["de"],
+         "explanation": "bulunma hâl eki (-de); ünsüz benzeşmesi (l/d) ile"},
+        {"surface": "tüneller", "root": "tünel", "suffixes": ["ler"],
+         "explanation": "çoğul eki (-ler); ünsüz yumuşamasıyla"}
+      ]
+    },
+
+    {
+      "word": "trafik",
+      "origin": "Fransızca",
+      "origin_period": "19. yy",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.95,
+      "confidence": 0.9,
+      "phonetics": "[trafik]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Yollarda araçların birbirini geçmeye çalışarak oluşturduğu yoğun hareket.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Trafik öyle ağırlaştı ki bir kilometre saatte ilerledik.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "Kurumların, kuruluşların işleyişi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Ormanları talan trafik hiç durmuyordu.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "trafiğe", "type": "derivative"},
+        {"word": "kaza", "type": "related"},
+        {"word": "yol", "type": "related"},
+        {"word": "sıra", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "trafiği", "root": "trafik", "suffixes": ["i"],
+         "explanation": "3. kişi iyelik eki (-i); ünsüz yumuşamasıyla"},
+        {"surface": "trafikte", "root": "trafik", "suffixes": ["te"],
+         "explanation": "bulunma hâl eki (-te); ünsüz benzeşmesi (k/t) ile"},
+        {"surface": "trafikten", "root": "trafik", "suffixes": ["ten"],
+         "explanation": "ayrılma hâl eki (-ten); ünsüz benzeşmesi (k/t) ile"}
+      ]
+    },
+
+    {
+      "word": "kaza",
+      "origin": "Arapça",
+      "origin_period": "Osmanlı dönemi",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.95,
+      "confidence": 0.95,
+      "phonetics": "[kaza]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Beklenmedik, istemeden gerçekleşen olay.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Kaza zinciri hâlinde sürdü, üç kişi yaralandı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Talihsizlik, şanssızlık.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Kaza yazı raporunda sadece bir cümle vardı.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "gercek",
+         "definition": "İl kademe; şansa, tesadüfe dayanan durum.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Hayatına kaza eseri karar verdi, kimse sormadı.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "kaza ile", "type": "related"},
+        {"word": "araba", "type": "related"},
+        {"word": "trafik", "type": "related"},
+        {"word": "tesadüf", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "kazası", "root": "kaza", "suffixes": ["sı"],
+         "explanation": "3. kişi iyelik eki (-sı)"},
+        {"surface": "kazada", "root": "kaza", "suffixes": ["da"],
+         "explanation": "bulunma hâl eki (-da); ünsüz benzeşmesi (z/d) ile"},
+        {"surface": "kazalar", "root": "kaza", "suffixes": ["lar"],
+         "explanation": "çoğul eki (-lar); ünsüz benzeşmesiyle"}
+      ]
+    },
+
+    {
+      "word": "ehliyet",
+      "origin": "Arapça",
+      "origin_period": "Osmanlı dönemi",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.9,
+      "confidence": 0.95,
+      "phonetics": "[ehliyet]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Motorlu araç kullanmak için yetkili kişiye verilen belge.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Ehliyeti yirmi yıl önce aldı, ama hiç kullanmadı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Bir şeyi yapma hakkı, yetki.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bunu yapma ehliyeti kimde var, göreyim.",
+         "confidence": 0.95}
+      ],
+      "relations": [
+        {"word": "ehliyetli", "type": "derivative"},
+        {"word": "araba", "type": "related"},
+        {"word": "sürücü", "type": "related"},
+        {"word": "belge", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "ehliyeti", "root": "ehliyet", "suffixes": ["i"],
+         "explanation": "3. kişi iyelik eki (-i); ünsüz yumuşamasıyla"},
+        {"surface": "ehliyetsiz", "root": "ehliyet", "suffixes": ["siz"],
+         "explanation": "-siz yapım eki; ünsüz yumuşamasıyla"},
+        {"surface": "ehliyetli", "root": "ehliyet", "suffixes": ["li"],
+         "explanation": "-li yapım eki; ünsüz yumuşamasıyla"}
+      ]
+    },
+
+    {
+      "word": "yakıt",
+      "origin": "Fransızca",
+      "origin_period": "19. yy",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.85,
+      "confidence": 0.9,
+      "phonetics": "[yakıt]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Yanan ya da yanma özelliği taşıyan, ısı ve enerji veren madde.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Yakıtın yarısı yolda gitti, depo boşaldı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "Gerekli olan güç, enerji.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Şirketin yakıtı on yıl dayandı, sonra bitti.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "yakıtın", "type": "derivative"},
+        {"word": "motor", "type": "related"},
+        {"word": "enerji", "type": "related"},
+        {"word": "benzin", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "yakıtı", "root": "yakıt", "suffixes": ["ı"],
+         "explanation": "3. kişi iyelik eki (-ı); gövde düşmesiyle"},
+        {"surface": "yakıtta", "root": "yakıt", "suffixes": ["ta"],
+         "explanation": "bulunma hâl eki (-ta); ünsüz benzeşmesi (t/t) ile"},
+        {"surface": "yakıtsız", "root": "yakıt", "suffixes": ["sız"],
+         "explanation": "-sız yapım eki; ünsüz benzeşmesiyle"}
+      ]
+    },
+
+    {
+      "word": "sürücü",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.9,
+      "confidence": 1.0,
+      "phonetics": "[sürücü]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Araç kullanan, direksiyondaki kişi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Sürücü yolcuları uyarmadan virajı aldı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Bir aracı, bir taşıtı kullanan kişinin tamamı.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Gümrükte otuz iki sürücü bekliyordu.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "mecaz",
+         "definition": "Bir şeyi yönlendiren, idare eden kişi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Birinin sürücüsü olmadan hiçbir şey yürümüyor.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "sürmek", "type": "related"},
+        {"word": "ehliyet", "type": "related"},
+        {"word": "araba", "type": "related"},
+        {"word": "şoför", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "sürücüsü", "root": "sürücü", "suffixes": ["sü"],
+         "explanation": "3. kişi iyelik eki (-sü/-su); gövde düşmesiyle"},
+        {"surface": "sürücüye", "root": "sürücü", "suffixes": ["ye"],
+         "explanation": "datif hâl eki (-e); kaynaştırma ile y'ye dönüşür"},
+        {"surface": "sürücüler", "root": "sürücü", "suffixes": ["ler"],
+         "explanation": "çoğul eki (-ler); gövde düşmesiyle"}
+      ]
+    },
+
+    {
+      "word": "üretim",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.95,
+      "confidence": 1.0,
+      "phonetics": "[üretim]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Bir malın ya da hizmetin ortaya çıkarılması süreci.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Üretim, talebin üç katıydı, depoda her şey birikmişti.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Üretilen miktar.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Geçen yılın üretimi bu yılın yarısı kadardı.",
+         "confidence": 0.95}
+      ],
+      "relations": [
+        {"word": "üretici", "type": "derivative"},
+        {"word": "tüketim", "type": "antonym"},
+        {"word": "fabrika", "type": "related"},
+        {"word": "emek", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "üretimi", "root": "üretim", "suffixes": ["i"],
+         "explanation": "3. kişi iyelik eki (-i); ünsüz yumuşamasıyla"},
+        {"surface": "üretimde", "root": "üretim", "suffixes": ["de"],
+         "explanation": "bulunma hâl eki (-de); ünsüz benzeşmesi (m/d) ile"},
+        {"surface": "üretimden", "root": "üretim", "suffixes": ["den"],
+         "explanation": "ayrılma hâl eki (-den); ünsüz benzeşmesi (m/d) ile"}
+      ]
+    },
+
+    {
+      "word": "tüketim",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.95,
+      "confidence": 1.0,
+      "phonetics": "[tüketim]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Üretilmiş mal ve hizmetlerin ihtiyaç için kullanılması.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Tüketim azaldı, üretim aynı kaldı, fiyatlar düştü.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Harcanan mal miktarı.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Ailenin tüketimi maaşın tamamını götürüyordu.",
+         "confidence": 0.95}
+      ],
+      "relations": [
+        {"word": "tüketici", "type": "derivative"},
+        {"word": "tüketmek", "type": "related"},
+        {"word": "üretim", "type": "antonym"},
+        {"word": "ihtiyaç", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "tüketimi", "root": "tüketim", "suffixes": ["i"],
+         "explanation": "3. kişi iyelik eki (-i); ünsüz yumuşamasıyla"},
+        {"surface": "tüketimde", "root": "tüketim", "suffixes": ["de"],
+         "explanation": "bulunma hâl eki (-de); ünsüz yumuşamasıyla"},
+        {"surface": "tüketimini", "root": "tüketim", "suffixes": ["ini"],
+         "explanation": "3. kişi iyelik eki (-i) + belirtme hâl eki (-i); kaynaştırma ile n"}
+      ]
+    },
+
+    {
+      "word": "kazanç",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.9,
+      "confidence": 1.0,
+      "phonetics": "[kazanç]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Giderler karşılandıktan sonra kalan para.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Kazanç geçen yılın yarısına indi, kimse açıklama yapmadı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Bir şeyden elde edilen yarar, kâr.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "O işten hiçbir kazanç yok, sadece meşguliyet.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "mecaz",
+         "definition": "Başarı, elde edilen sonuç.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Kazanç büyüktü, ama kimse bunu kutlamadı.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "kazançlı", "type": "derivative"},
+        {"word": "zarar", "type": "antonym"},
+        {"word": "maaş", "type": "related"},
+        {"word": "başarı", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "kazancı", "root": "kazanç", "suffixes": ["ı"],
+         "explanation": "3. kişi iyelik eki (-ı); ünsüz yumuşamasıyla"},
+        {"surface": "kazancıyla", "root": "kazanç", "suffixes": ["ıyla"],
+         "explanation": "3. kişi iyelik eki (-ı) + aletle eki (-la); kaynaştırma ile y"},
+        {"surface": "kazançlı", "root": "kazanç", "suffixes": ["lı"],
+         "explanation": "-lı yapım eki; ünsüz yumuşamasıyla"}
+      ]
+    },
+
+    {
+      "word": "maaş",
+      "origin": "Arapça",
+      "origin_period": "Osmanlı dönemi",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.95,
+      "confidence": 0.95,
+      "phonetics": "[maaş]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Yapılan iş için düzenli olarak ödenen para.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Maaş üç ay geç ödendi, kimse soru soramayacak durumdaydı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Emeğin karşılığı olan ücret.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Yıllık izin ücreti de maaştan kesildi.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "mecaz",
+         "definition": "Bir işe verilen bedel, karşılık.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu bilgiyi satmanın maaşı ne, kimse hesaplamıyor.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "maaşlı", "type": "derivative"},
+        {"word": "ücret", "type": "related"},
+        {"word": "emek", "type": "related"},
+        {"word": "işçi", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "maaşı", "root": "maaş", "suffixes": ["ı"],
+         "explanation": "3. kişi iyelik eki (-ı); ünsüz yumuşamasıyla"},
+        {"surface": "maaşını", "root": "maaş", "suffixes": ["ını"],
+         "explanation": "3. kişi iyelik eki (-ı) + belirtme hâl eki (-ı); kaynaştırma ile n"},
+        {"surface": "maaşlı", "root": "maaş", "suffixes": ["lı"],
+         "explanation": "-lı yapım eki; ünsüz yumuşamasıyla"}
+      ]
+    },
+
+    {
+      "word": "ücret",
+      "origin": "Arapça",
+      "origin_period": "Osmanlı dönemi",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.95,
+      "confidence": 0.95,
+      "phonetics": "[ücret]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Bir hizmet ya da emek karşılığı ödenen para.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Ücreti peşin ödemeyi reddetti, sözleşmede yazmıyormuş.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Bedel, karşılık.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu bilginin ücreti nedir, sorun hemen.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "mecaz",
+         "definition": "Bir şeye katlanmanın karşılığı.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Ağrının ücretini ödemişti, yıllardır sırtı ağrıyordu.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "ücretli", "type": "derivative"},
+        {"word": "maaş", "type": "related"},
+        {"word": "bedel", "type": "related"},
+        {"word": "ekonomik", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "ücreti", "root": "ücret", "suffixes": ["i"],
+         "explanation": "3. kişi iyelik eki (-i); gövde düşmesiyle"},
+        {"surface": "ücrete", "root": "ücret", "suffixes": ["e"],
+         "explanation": "datif hâl eki (-e); ünsüz yumuşamasıyla"},
+        {"surface": "ücretler", "root": "ücret", "suffixes": ["ler"],
+         "explanation": "çoğul eki (-ler); ünsüz yumuşamasıyla"}
+      ]
+    },
+
+    {
+      "word": "meslek",
+      "origin": "Arapça",
+      "origin_period": "Osmanlı dönemi",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.95,
+      "confidence": 0.95,
+      "phonetics": "[meslek]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Kişinin kazancını sağladığı, sürekli olarak yaptığı iş.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Mesleğini bırakmak istiyordu ama kimse dinlemeyecekti.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Öğrenilmiş, uzmanlık gerektiren iş kolu.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu meslek yüz yıldır aileden miras alınıyor.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "gercek",
+         "definition": "Meslek erbabı, o işle uğraşan kimse.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Meslek onu bir başka adam gibi görüyordu.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "mesleki", "type": "derivative"},
+        {"word": "zihin", "type": "related"},
+        {"word": "meslektaş", "type": "derivative"},
+        {"word": "maaş", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "mesleği", "root": "meslek", "suffixes": ["i"],
+         "explanation": "3. kişi iyelik eki (-i); ünsüz yumuşamasıyla"},
+        {"surface": "meslekte", "root": "meslek", "suffixes": ["te"],
+         "explanation": "bulunma hâl eki (-te); ünsüz benzeşmesi (k/t) ile"},
+        {"surface": "meslekler", "root": "meslek", "suffixes": ["ler"],
+         "explanation": "çoğul eki (-ler); ünsüz yumuşamasıyla"}
+      ]
+    },
+
+    {
+      "word": "zanaat",
+      "origin": "Arapça",
+      "origin_period": "Osmanlı dönemi",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.9,
+      "confidence": 0.95,
+      "phonetics": "[zanaat]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "El becerisiyle, küçük atölyelerde yapılan zanaat.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Zanaat eskiden babadan oğula geçerdi, şimdi kimse öğrenmiyor.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Bir işi ustalıkla yapma becerisi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu iş zanaat ister, oysa kimse ustalık tanımıyor.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "mecaz",
+         "definition": "Sanat, zarafet.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Yazılarında zanaat vardı, ama içerik zayıftı.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "zanaatkâr", "type": "derivative"},
+        {"word": "sanat", "type": "related"},
+        {"word": "meslek", "type": "related"},
+        {"word": "usta", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "zanaati", "root": "zanaat", "suffixes": ["i"],
+         "explanation": "3. kişi iyelik eki (-i); ünsüz yumuşamasıyla"},
+        {"surface": "zanatta", "root": "zanaat", "suffixes": ["ta"],
+         "explanation": "bulunma hâl eki (-ta); ünsüz yumuşamasıyla"},
+        {"surface": "zanaatlar", "root": "zanaat", "suffixes": ["lar"],
+         "explanation": "çoğul eki (-lar); ünsüz yumuşamasıyla"}
+      ]
+    },
+
+    {
+      "word": "ticaret",
+      "origin": "Arapça",
+      "origin_period": "Osmanlı dönemi",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.9,
+      "confidence": 0.95,
+      "phonetics": "[ticaret]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Mal alıp satma, ürünleri değiş tokuş etme işi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu ilçe ticaretle büyümüş, tarım sonradan gelmiş.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "Bir şeyi alıp satma, değiştirme.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Güvenlik açısından bu bilgi ticareti konusu değildi.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "ticaretî", "type": "derivative"},
+        {"word": "satmak", "type": "related"},
+        {"word": "pazar", "type": "related"},
+        {"word": "müşteri", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "ticareti", "root": "ticaret", "suffixes": ["i"],
+         "explanation": "3. kişi iyelik eki (-i); ünsüz yumuşamasıyla"},
+        {"surface": "ticarette", "root": "ticaret", "suffixes": ["te"],
+         "explanation": "bulunma hâl eki (-te); ünsüz benzeşmesi (t/t) ile"},
+        {"surface": "ticaretin", "root": "ticaret", "suffixes": ["in"],
+         "explanation": "2. kişi iyelik eki (-in); ünsüz yumuşamasıyla"}
+      ]
+    },
+
+    {
+      "word": "banka",
+      "origin": "İtalyanca",
+      "origin_period": "19. yy",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.95,
+      "confidence": 0.9,
+      "phonetics": "[banka]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Mevduat alıp kredi veren, para işleriyle uğraşan kurum.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bankanın kapısı saat sekizde açıldı, öncesinde yüz kişi vardı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Bir bankanın merkez binası.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Şubesi yoktu, en yakın banka yirmi kilometre ötedeydi.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "gercek",
+         "definition": "Deniz kıyısında gemilerin sığınacağı, düz ve derin alan.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Gemi, açıkta bekleyemeyeceği için banka önüne yaslandı.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "bankacı", "type": "derivative"},
+        {"word": "hesap", "type": "related"},
+        {"word": "para", "type": "related"},
+        {"word": "kredi", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "bankası", "root": "banka", "suffixes": ["sı"],
+         "explanation": "3. kişi iyelik eki (-sı)"},
+        {"surface": "bankada", "root": "banka", "suffixes": ["da"],
+         "explanation": "bulunma hâl eki (-da); ünsüz yumuşamasıyla"},
+        {"surface": "bankalar", "root": "banka", "suffixes": ["lar"],
+         "explanation": "çoğul eki (-lar); ünsüz yumuşamasıyla"}
+      ]
+    },
+
+    {
+      "word": "hesap",
+      "origin": "Arapça",
+      "origin_period": "Osmanlı dönemi",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.95,
+      "confidence": 0.95,
+      "phonetics": "[hesap]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Sayılar arasındaki ilişkileri yapma işi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Hesabı yanlış yaptı, zarar kendi cebinden çıktı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Bankada tutulan para kaydı.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Hesabına para yatırmadı, kimse de sormadı.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "mecaz",
+         "definition": "İnceleme, düşünme. \"Hesap sormak\" deyiminde.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Kimse hesap sormuyordu, iş bitmişti.",
+         "confidence": 0.95},
+        {"order": 4, "type": "isim", "sense": "mecaz",
+         "definition": "İlgi, önem. \"Hesaba katmak\" deyiminde.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Gençlere hiç hesap katılmıyordu.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "hesaplamak", "type": "derivative"},
+        {"word": "hesapla", "type": "derivative"},
+        {"word": "banka", "type": "related"},
+        {"word": "para", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "hesabı", "root": "hesap", "suffixes": ["ı"],
+         "explanation": "3. kişi iyelik eki (-ı); ünsüz yumuşamasıyla"},
+        {"surface": "hesabını", "root": "hesap", "suffixes": ["ını"],
+         "explanation": "3. kişi iyelik eki (-ı) + belirtme hâl eki (-ı); kaynaştırma ile n"},
+        {"surface": "hesaplı", "root": "hesap", "suffixes": ["lı"],
+         "explanation": "-lı yapım eki; ünsüz yumuşamasıyla"}
+      ]
+    },
+
+    {
+      "word": "borç",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.95,
+      "confidence": 1.0,
+      "phonetics": "[borç]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Başkasından alınan, geri ödenmesi gereken para.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Borcu ödeyemeyince adı da listeden silindi.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "Ödünç alınan mal, eşya.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bir kavanoz balığın borcunu altı ay sonra getirdi.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "mecaz",
+         "definition": "Yapılması gereken görev, sorumluluk.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu işin borcu bana kaldı, kimse yardım etmedi.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "borçlu", "type": "derivative"},
+        {"word": "alacaklı", "type": "antonym"},
+        {"word": "ödemek", "type": "related"},
+        {"word": "faiz", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "borcu", "root": "borç", "suffixes": ["u"],
+         "explanation": "3. kişi iyelik eki (-u); ünsüz yumuşamasıyla"},
+        {"surface": "borçlu", "root": "borç", "suffixes": ["lu"],
+         "explanation": "-lu yapım eki; ünsüz yumuşamasıyla"},
+        {"surface": "borçtan", "root": "borç", "suffixes": ["tan"],
+         "explanation": "ayrılma hâl eki (-tan); ünsüz benzeşmesi (ç/t) ile"}
+      ]
+    },
+
+    {
+      "word": "vergi",
+      "origin": "Arapça",
+      "origin_period": "Osmanlı dönemi",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.9,
+      "confidence": 0.95,
+      "phonetics": "[vergi]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Devletin, kamu hizmetleri için halktan topladığı para.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Vergi arttı, maaş artmadı, kimse bir şey söyleyemedi.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "Bir durumun istenmeyen yan etkisi, bedeli.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Yeni düzenlemenin vergisi, küçük esnafı bitirdi.",
+         "confidence": 0.95}
+      ],
+      "relations": [
+        {"word": "vergili", "type": "derivative"},
+        {"word": "vergisiz", "type": "derivative"},
+        {"word": "maliye", "type": "related"},
+        {"word": "bütçe", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "vergisi", "root": "vergi", "suffixes": ["si"],
+         "explanation": "3. kişi iyelik eki (-si); ünsüz yumuşamasıyla"},
+        {"surface": "vergiye", "root": "vergi", "suffixes": ["ye"],
+         "explanation": "datif hâl eki (-e); kaynaştırma ile y'ye dönüşür"},
+        {"surface": "vergiler", "root": "vergi", "suffixes": ["ler"],
+         "explanation": "çoğul eki (-ler); ünsüz yumuşamasıyla"}
+      ]
+    },
+
+    {
+      "word": "müşteri",
+      "origin": "Arapça",
+      "origin_period": "Osmanlı dönemi",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.95,
+      "confidence": 0.95,
+      "phonetics": "[müşteri]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Bir dükkândan ya da firmadan mal, hizmet alan kişi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Müşteri geldi, adam kalkıp ayağa dikildi.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Bir işletmenin sayısını, büyüklüğünü belirleyen kişi sayısı.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu dükkânda müşteri az ama her biri geri geliyor.",
+         "confidence": 0.95}
+      ],
+      "relations": [
+        {"word": "satmak", "type": "related"},
+        {"word": "dükkân", "type": "related"},
+        {"word": "hizmet", "type": "related"},
+        {"word": "müşteriler", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "müşterisi", "root": "müşteri", "suffixes": ["si"],
+         "explanation": "3. kişi iyelik eki (-si); ünsüz yumuşamasıyla"},
+        {"surface": "müşteriye", "root": "müşteri", "suffixes": ["ye"],
+         "explanation": "datif hâl eki (-e); kaynaştırma ile y'ye dönüşür"},
+        {"surface": "müşteriler", "root": "müşteri", "suffixes": ["ler"],
+         "explanation": "çoğul eki (-ler); ünsüz yumuşamasıyla"}
+      ]
+    },
+
+    {
+      "word": "patron",
+      "origin": "Fransızca",
+      "origin_period": "19. yy",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.9,
+      "confidence": 0.9,
+      "phonetics": "[patron]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Bir işletmeyi kuran ya da yöneten, çalışanların amiri.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Patron işten çıktı, üç gün kimse konuşmadı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Yüksek kazançlı, zengin kimse.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Babası patron olmuş, o hâlâ emekli olamıyordu.",
+         "confidence": 0.9},
+        {"order": 3, "type": "isim", "sense": "gercek",
+         "definition": "Kendi dükkânında çalışarak geçinen esnaf.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Mahallede herkes patron, patron değil.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "işveren", "type": "related"},
+        {"word": "işçi", "type": "antonym"},
+        {"word": "işletme", "type": "related"},
+        {"word": "meslek", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "patronu", "root": "patron", "suffixes": ["u"],
+         "explanation": "3. kişi iyelik eki (-u); gövde düşmesiyle"},
+        {"surface": "patrona", "root": "patron", "suffixes": ["a"],
+         "explanation": "datif hâl eki (-a); gövde düşmesiyle"},
+        {"surface": "patronlar", "root": "patron", "suffixes": ["lar"],
+         "explanation": "çoğul eki (-lar); gövde düşmesiyle"}
+      ]
+    },
+
+    {
+      "word": "işçi",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.95,
+      "confidence": 1.0,
+      "phonetics": "[işçi]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Ücret karşılığında çalışan, emeğini satan kişi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "İşçi hakları grevi iki hafta sürdü, sonra hiç konuşulmadı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Zanaatla uğraşan, usta çırak ilişkisi içinde çalışan kişi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu işçi elli yıldır aynı atölyede.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "işçilik", "type": "derivative"},
+        {"word": "patron", "type": "antonym"},
+        {"word": "emek", "type": "related"},
+        {"word": "maaş", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "işçisi", "root": "işçi", "suffixes": ["si"],
+         "explanation": "3. kişi iyelik eki (-si/-su); gövde düşmesiyle"},
+        {"surface": "işçiler", "root": "işçi", "suffixes": ["ler"],
+         "explanation": "çoğul eki (-ler); gövde düşmesiyle"},
+        {"surface": "işçiliğin", "root": "işçi", "suffixes": ["liğin"],
+         "explanation": "-lik yapım eki + 2. kişi iyelik eki (-in); kaynaştırma ile (liğin)"}
+      ]
+    },
+
+    {
+      "word": "emekli",
+      "origin": "Arapça",
+      "origin_period": "Osmanlı dönemi",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.95,
+      "confidence": 0.95,
+      "phonetics": "[emekli]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Çalışma hayatını tamamlayıp işten ayrılmış, emekli olmuş kişi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Emekli olunca iş yerini özledi, evdeki sessizliği değil.",
+         "confidence": 1.0},
+        {"order": 2, "type": "sıfat", "sense": "gercek",
+         "definition": "Emeğini çekmiş, hizmet süresini tamamlamış olan.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Emekli bir öğretmenin maaşı, hâlâ çalışan bir memurun yarısıydı.",
+         "confidence": 0.95},
+        {"order": 3, "type": "sıfat", "sense": "mecaz",
+         "definition": "Emek harcamış, çalışmış olan.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu kitap emekli bir sürünün yolculuğu, edebiyat değil.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "emeklilik", "type": "derivative"},
+        {"word": "emekli maaşı", "type": "related"},
+        {"word": "çalışmak", "type": "related"},
+        {"word": "emek", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "emeklisi", "root": "emekli", "suffixes": ["si"],
+         "explanation": "3. kişi iyelik eki (-si); ünsüz yumuşamasıyla"},
+        {"surface": "emeklilik", "root": "emekli", "suffixes": ["lik"],
+         "explanation": "-lik yapım eki; ünsüz yumuşamasıyla"},
+        {"surface": "emekliden", "root": "emekli", "suffixes": ["den"],
+         "explanation": "ayrılma hâl eki (-den); ünsüz yumuşamasıyla"}
+      ]
+    },
+
+    {
+      "word": "sigorta",
+      "origin": "İtalyanca",
+      "origin_period": "19. yy",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.85,
+      "confidence": 0.9,
+      "phonetics": "[sigorta]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Belirli bir zarar riskine karşı düzenli ödeme yapılarak güvence satın alınması.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Sigortası yoktu, o yüzden ameliyatı erteledi.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Bir kişinin, malın ya da sorumluluğun güvence altına alınması işlemi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Araç sigortası her yıl yenileniyor, her yıl pahalılaşıyor.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "mecaz",
+         "definition": "Malî destek, himaye.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bütün gece radyoyu sigorta etti, hiç uyumadı.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "sigortalanmak", "type": "derivative"},
+        {"word": "prim", "type": "related"},
+        {"word": "risk", "type": "related"},
+        {"word": "sertifika", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "sigortası", "root": "sigorta", "suffixes": ["sı"],
+         "explanation": "3. kişi iyelik eki (-sı)"},
+        {"surface": "sigortada", "root": "sigorta", "suffixes": ["da"],
+         "explanation": "bulunma hâl eki (-da); ünsüz yumuşamasıyla"},
+        {"surface": "sigortalı", "root": "sigorta", "suffixes": ["lı"],
+         "explanation": "-lı yapım eki; ünsüz yumuşamasıyla"}
+      ]
+    },
+
+    {
+      "word": "işsiz",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.9,
+      "confidence": 1.0,
+      "phonetics": "[işsiz]",
+      "meanings": [
+        {"order": 1, "type": "sıfat", "sense": "gercek",
+         "definition": "İşi olmayan, çalışmayan kişi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Üç yıldır işsizdi, kimse de bir iş vermedi.",
+         "confidence": 1.0},
+        {"order": 2, "type": "sıfat", "sense": "gercek",
+         "definition": "Boşta kalan, kullanılmayan.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "İşsiz kalan makineler bahçede çürüyordu.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "gercek",
+         "definition": "Çalışmayan, iş bulamayan kişi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "İşsiz kalanlar yıllardır kayıt listelerinde bekliyor.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "işsizlik", "type": "derivative"},
+        {"word": "işsizlik sigortası", "type": "related"},
+        {"word": "çalışmak", "type": "antonym"},
+        {"word": "iş", "type": "antonym"}
+      ],
+      "morphology": [
+        {"surface": "işsiz", "root": "iş", "suffixes": ["siz"],
+         "explanation": "-siz yapım eki; ünsüz benzeşmesi (ş/s) ile"},
+        {"surface": "işsize", "root": "işsiz", "suffixes": ["e"],
+         "explanation": "datif hâl eki (-e); ünsüz yumuşamasıyla"},
+        {"surface": "işsizliği", "root": "işsiz", "suffixes": ["liği"],
+         "explanation": "-lik yapım eki + 3. kişi iyelik eki (-i); kaynaştırma ile (liği)"}
+      ]
+    },
+
+    {
+      "word": "bütçe",
+      "origin": "Fransızca",
+      "origin_period": "19. yy",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.9,
+      "confidence": 0.9,
+      "phonetics": "[bütçe]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Belirli bir süre için ayrılan, sınırlı para.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bütçesi bitmişti, ay sonuna kadar idare etmeliydi.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Bir kurumun gelir ve gider planı.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Belediye bütçesi tartışmalıydı, kimse sunumu izlememişti.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "mecaz",
+         "definition": "Sınırlar, imkânlar.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bütçesi kısıtlı bir insan, hayır diyebilmeyi de öğrenmeli.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "bütçeli", "type": "derivative"},
+        {"word": "harcama", "type": "related"},
+        {"word": "vergi", "type": "related"},
+        {"word": "gelir", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "bütçesi", "root": "bütçe", "suffixes": ["si"],
+         "explanation": "3. kişi iyelik eki (-si); gövde düşmesiyle"},
+        {"surface": "bütçeye", "root": "bütçe", "suffixes": ["ye"],
+         "explanation": "datif hâl eki (-e); kaynaştırma ile y'ye dönüşür"},
+        {"surface": "bütçeler", "root": "bütçe", "suffixes": ["ler"],
+         "explanation": "çoğul eki (-ler); gövde düşmesiyle"}
+      ]
+    },
+
+    {
+      "word": "kâr",
+      "origin": "Arapça",
+      "origin_period": "Osmanlı dönemi",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.85,
+      "confidence": 0.95,
+      "phonetics": "[kar]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Satıştan elde edilen, gideri karşılayan fazlalık.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Kâr yoktu, sadece zarardan kaçınıyordu.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "Yarar, fayda.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Sessizliğin kârını kimse hesaplamaz.",
+         "confidence": 0.9},
+        {"order": 3, "type": "isim", "sense": "gercek",
+         "definition": "Kazanç, gelir.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu işin kârı başkasının zararından geliyordu.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "kârlı", "type": "derivative"},
+        {"word": "zarar", "type": "antonym"},
+        {"word": "kazanç", "type": "related"},
+        {"word": "ticaret", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "kârı", "root": "kâr", "suffixes": ["ı"],
+         "explanation": "3. kişi iyelik eki (-ı); ünsüz yumuşamasıyla"},
+        {"surface": "kârdan", "root": "kâr", "suffixes": ["dan"],
+         "explanation": "ayrılma hâl eki (-dan); ünsüz benzeşmesi (r/d) ile"},
+        {"surface": "kârlı", "root": "kâr", "suffixes": ["lı"],
+         "explanation": "-lı yapım eki; ünsüz benzeşmesiyle"}
+      ]
+    },
+
+    {
+      "word": "hukuk",
+      "origin": "Arapça",
+      "origin_period": "Osmanlı dönemi",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.9,
+      "confidence": 0.95,
+      "phonetics": "[hukuk]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Toplumda uyulması zorunlu, devletin koyduğu ve yaptığı kurallar bütünü.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Hukuk bir kez değişti, kimse nedenini anlamadı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "Doğru, ölçülü davranış.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bunda hukuk, bu kadar insana bir şey yapmamak.",
+         "confidence": 0.9},
+        {"order": 3, "type": "isim", "sense": "gercek",
+         "definition": "Tıp ve hekimlik bilgisi. \"Halk hekimliği\" deyiminde.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Köyde halk hukuku, birinin gözleri iyileşmişti.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "hukuksuz", "type": "derivative"},
+        {"word": "mahkeme", "type": "related"},
+        {"word": "yasa", "type": "related"},
+        {"word": "adalet", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "hukuku", "root": "hukuk", "suffixes": ["u"],
+         "explanation": "3. kişi iyelik eki (-u); ünsüz yumuşamasıyla"},
+        {"surface": "hukuka", "root": "hukuk", "suffixes": ["a"],
+         "explanation": "datif hâl eki (-a); ünsüz yumuşamasıyla"},
+        {"surface": "hukuksuz", "root": "hukuk", "suffixes": ["suz"],
+         "explanation": "-suz yapım eki; ünsüz yumuşamasıyla"}
+      ]
+    },
+
+    {
+      "word": "mahkeme",
+      "origin": "Arapça",
+      "origin_period": "Osmanlı dönemi",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.9,
+      "confidence": 0.95,
+      "phonetics": "[mahkeme]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Uyuşmazlıkları görüp karara bağlayan, yargısal görev yapan kurum.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Davayı mahkeme kabul etti, yıllar sürüp gitti.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Bir olayın karara bağlandığı toplantı.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Parti bir mahkeme gibi toplandı, kimse suçlamadı.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "yargıç", "type": "related"},
+        {"word": "dava", "type": "related"},
+        {"word": "avukat", "type": "related"},
+        {"word": "hukuk", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "mahkemesi", "root": "mahkeme", "suffixes": ["si"],
+         "explanation": "3. kişi iyelik eki (-si); gövde düşmesiyle"},
+        {"surface": "mahkemede", "root": "mahkeme", "suffixes": ["de"],
+         "explanation": "bulunma hâl eki (-de); gövde düşmesiyle"},
+        {"surface": "mahkemeler", "root": "mahkeme", "suffixes": ["ler"],
+         "explanation": "çoğul eki (-ler); gövde düşmesiyle"}
+      ]
+    },
+
+    {
+      "word": "yargıç",
+      "origin": "Farsça",
+      "origin_period": "Osmanlı dönemi",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.85,
+      "confidence": 0.95,
+      "phonetics": "[yargıç]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Mahkemede davayı görüp karara bağlayan kimse.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Yargıç kararı okurken salonda kimse kıpırdamadı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Bir idarenin en yüksek amiri.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Belediye yargıcı geldi, eski belediye başkanı geldi de.",
+         "confidence": 0.9},
+        {"order": 3, "type": "isim", "sense": "mecaz",
+         "definition": "Bir şeyi tartıp değerlendiren kişi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Yıllardır o işin tek yargıcıydı.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "yargı", "type": "derivative"},
+        {"word": "mahkeme", "type": "related"},
+        {"word": "hâkim", "type": "related"},
+        {"word": "dava", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "yargıcı", "root": "yargıç", "suffixes": ["ı"],
+         "explanation": "3. kişi iyelik eki (-ı); gövde düşmesiyle"},
+        {"surface": "yargıca", "root": "yargıç", "suffixes": ["a"],
+         "explanation": "datif hâl eki (-a); gövde düşmesiyle"},
+        {"surface": "yargıçlar", "root": "yargıç", "suffixes": ["lar"],
+         "explanation": "çoğul eki (-lar); ünsüz benzeşmesiyle"}
+      ]
+    },
+
+    {
+      "word": "avukat",
+      "origin": "Arapça",
+      "origin_period": "Osmanlı dönemi",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.9,
+      "confidence": 0.95,
+      "phonetics": "[avukat]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Mahkemede bir kişiyi temsil eden, hukuk bilgisi olan meslek erbabı.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Avukatı olmadan girdi, kendi savunmasını yaptı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Avukatlık mesleğini yapan kişi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Avukat eskiydi, dosyayı tek başına çözdü.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "mecaz",
+         "definition": "Bir konuda sözünü dinletmek için çabalayan kimse.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Kendi avukatıydı, kimseye danışmıyordu.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "avukatlık", "type": "derivative"},
+        {"word": "dava", "type": "related"},
+        {"word": "mahkeme", "type": "related"},
+        {"word": "hukuk", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "avukatı", "root": "avukat", "suffixes": ["ı"],
+         "explanation": "3. kişi iyelik eki (-ı); ünsüz yumuşamasıyla"},
+        {"surface": "avukatıyla", "root": "avukat", "suffixes": ["ıyla"],
+         "explanation": "3. kişi iyelik eki (-ı) + aletle eki (-la); kaynaştırma ile y"},
+        {"surface": "avukatlar", "root": "avukat", "suffixes": ["lar"],
+         "explanation": "çoğul eki (-lar); ünsüz yumuşamasıyla"}
+      ]
+    },
+
+    {
+      "word": "dava",
+      "origin": "Arapça",
+      "origin_period": "Osmanlı dönemi",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.95,
+      "confidence": 0.95,
+      "phonetics": "[dava]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Mahkemede bir hakkın korunması için açılan, resmî uyuşmazlık.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Davayı kazandı ama kimse memnun olmadı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "Bir konuyu gündeme getirme, dilekçe.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Dava açtı, kimse dinlemedi, geri çekti.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "mecaz",
+         "definition": "Sıkıntı, mesele.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Yıllardır aynı dava, kimse çözemedi.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "davacı", "type": "derivative"},
+        {"word": "dava açmak", "type": "related"},
+        {"word": "mahkeme", "type": "related"},
+        {"word": "avukat", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "davası", "root": "dava", "suffixes": ["sı"],
+         "explanation": "3. kişi iyelik eki (-sı)"},
+        {"surface": "davaya", "root": "dava", "suffixes": ["ya"],
+         "explanation": "datif hâl eki (-a); kaynaştırma ile y'ye dönüşür"},
+        {"surface": "davalar", "root": "dava", "suffixes": ["lar"],
+         "explanation": "çoğul eki (-lar); ünsüz yumuşamasıyla"}
+      ]
+    },
+
+    {
+      "word": "tanık",
+      "origin": "Arapça",
+      "origin_period": "Osmanlı dönemi",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.9,
+      "confidence": 0.95,
+      "phonetics": "[tanık]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Bir olayı kendi gözüyle görmüş ya da duymuş, bunu söyleyebilen kişi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Tek tanık vardı, o da dinlemek zorundaydı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "Bir şeyin doğruluğunu doğrulayan belirti.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "O sessizlik bir tanıktı, başka kanıt aranmadı.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "tanıklık", "type": "derivative"},
+        {"word": "delil", "type": "related"},
+        {"word": "mahkeme", "type": "related"},
+        {"word": "itiraz", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "tanığı", "root": "tanık", "suffixes": ["ı"],
+         "explanation": "3. kişi iyelik eki (-ı); gövde düşmesiyle"},
+        {"surface": "tanığa", "root": "tanık", "suffixes": ["a"],
+         "explanation": "datif hâl eki (-a); ünsüz yumuşamasıyla"},
+        {"surface": "tanıklar", "root": "tanık", "suffixes": ["lar"],
+         "explanation": "çoğul eki (-lar); ünsüz yumuşamasıyla"}
+      ]
+    },
+
+    {
+      "word": "delil",
+      "origin": "Arapça",
+      "origin_period": "Osmanlı dönemi",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.9,
+      "confidence": 0.95,
+      "phonetics": "[delil]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Bir iddianın doğru olduğunu gösteren, mahkemede sunulan belge ya da nesne.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Tek bir fotoğraf, davanın bütün delili oldu.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "Bir şeyin anlaşılmasını sağlayan belirti, kanıt.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bacaklarındaki çamur bir delildi.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "mecaz",
+         "definition": "İşaret, ölçü.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Yüz ifadesi, çocuğun durumunun en açık deliliydi.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "delil", "type": "derivative"},
+        {"word": "kanıt", "type": "related"},
+        {"word": "tanık", "type": "related"},
+        {"word": "mahkeme", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "delili", "root": "delil", "suffixes": ["i"],
+         "explanation": "3. kişi iyelik eki (-i); ünsüz yumuşamasıyla"},
+        {"surface": "delilden", "root": "delil", "suffixes": ["den"],
+         "explanation": "ayrılma hâl eki (-den); ünsüz benzeşmesi (l/d) ile"},
+        {"surface": "delilsiz", "root": "delil", "suffixes": ["siz"],
+         "explanation": "-siz yapım eki; ünsüz yumuşamasıyla"}
+      ]
+    },
+
+    {
+      "word": "yasa",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.9,
+      "confidence": 1.0,
+      "phonetics": "[yasa]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Meclisçe yapılan, uyulması zorunlu kural.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Yasa yürürlüğe girdi, kimse ne olacağını bilmiyordu.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "Düzen, ölçü, usul.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Herkes kendi yasasını koydu, ortada yasa kalmadı.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "gercek",
+         "definition": "Süre, dönem. \"Yasa girmek\" deyiminde.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "O iş yasaya girdi, artık kimse dokunamıyordu.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "yasal", "type": "derivative"},
+        {"word": "yönetmelik", "type": "related"},
+        {"word": "hukuk", "type": "related"},
+        {"word": "meclis", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "yasası", "root": "yasa", "suffixes": ["sı"],
+         "explanation": "3. kişi iyelik eki (-sı)"},
+        {"surface": "yasaya", "root": "yasa", "suffixes": ["ya"],
+         "explanation": "datif hâl eki (-a); kaynaştırma ile y'ye dönüşür"},
+        {"surface": "yasalar", "root": "yasa", "suffixes": ["lar"],
+         "explanation": "çoğul eki (-lar); ünsüz yumuşamasıyla"}
+      ]
+    },
+
+    {
+      "word": "hâkim",
+      "origin": "Arapça",
+      "origin_period": "Osmanlı dönemi",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.9,
+      "confidence": 0.95,
+      "phonetics": "[hakim]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Bir kadının nikâhını kıyan, töreni yöneten din adamı.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Nikâhı kıyan hâkim iki kişiyi de tanıyordu.",
+         "confidence": 1.0},
+        {"order": 2, "type": "sıfat", "sense": "gercek",
+         "definition": "Bir bölgeye, ülkeye ait olan; orada doğmuş ya da yaşamış.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Hâkim çevrede kimse kısa yoldan gitmezdi.",
+         "confidence": 0.95},
+        {"order": 3, "type": "sıfat", "sense": "mecaz",
+         "definition": "Üstün, baskın, belirleyici.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Sahada en hâkim oyuncu oyunu baştan sona yönetti.",
+         "confidence": 0.9},
+        {"order": 4, "type": "sıfat", "sense": "mecaz",
+         "definition": "Adaletli, hakkaniyet sahibi.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Hâkim bir aile reisiydi, kimse itiraz edemezdi.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "hakimiyet", "type": "derivative"},
+        {"word": "yargıç", "type": "related"},
+        {"word": "yönetim", "type": "related"},
+        {"word": "yerli", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "hakimi", "root": "hakim", "suffixes": ["i"],
+         "explanation": "3. kişi iyelik eki (-i); gövde düşmesiyle"},
+        {"surface": "hakimiyet", "root": "hakim", "suffixes": ["iyet"],
+         "explanation": "-iyet yapım eki; ünsüz yumuşamasıyla"},
+        {"surface": "hakimde", "root": "hakim", "suffixes": ["de"],
+         "explanation": "bulunma hâl eki (-de); ünsüz benzeşmesi (m/d) ile"}
+      ]
+    },
+
+    {
+      "word": "itiraz",
+      "origin": "Arapça",
+      "origin_period": "Osmanlı dönemi",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.9,
+      "confidence": 0.95,
+      "phonetics": "[itiraz]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Bir karara, bir görüşe karşı çıkma, itirazda bulunma.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Karara itiraz etti, gerekçesini yazdı, sonuç değişmedi.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "Karşı çıkma hakkı.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "İtiraz hakkını kullandı, üç ay kaybetti.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "gercek",
+         "definition": "Bir kararın kanuna aykırı olduğunu ileri süren dilekçe.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "İtiraz reddedildi, dosya kapandı.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "itiraz etmek", "type": "related"},
+        {"word": "karşı çıkma", "type": "related"},
+        {"word": "mahkeme", "type": "related"},
+        {"word": "onay", "type": "antonym"}
+      ],
+      "morphology": [
+        {"surface": "itirazı", "root": "itiraz", "suffixes": ["ı"],
+         "explanation": "3. kişi iyelik eki (-ı); ünsüz yumuşamasıyla"},
+        {"surface": "itiraza", "root": "itiraz", "suffixes": ["a"],
+         "explanation": "datif hâl eki (-a); ünsüz yumuşamasıyla"},
+        {"surface": "itirazlar", "root": "itiraz", "suffixes": ["lar"],
+         "explanation": "çoğul eki (-lar); ünsüz yumuşamasıyla"}
+      ]
+    },
+
+    {
+      "word": "telefon",
+      "origin": "Fransızca",
+      "origin_period": "19. yy",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.95,
+      "confidence": 0.9,
+      "phonetics": "[telefon]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Uzaktan sesli ya da görüntülü iletişim kurmaya yarayan araç.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Telefonu çalmadı, aradı, yine açmadı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Telefonla yapılan konuşma.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Telefon yarım saat sürdü, ikisi de ağladı.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "mecaz",
+         "definition": "Bir haberin hızla yayılması.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu olay dede gibi telefondur, mahalleden çıkmadı.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "telefon etmek", "type": "related"},
+        {"word": "numara", "type": "related"},
+        {"word": "internet", "type": "related"},
+        {"word": "mesaj", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "telefonu", "root": "telefon", "suffixes": ["u"],
+         "explanation": "3. kişi iyelik eki (-u); gövde düşmesiyle"},
+        {"surface": "telefonda", "root": "telefon", "suffixes": ["da"],
+         "explanation": "bulunma hâl eki (-da); gövde düşmesiyle"},
+        {"surface": "telefonlar", "root": "telefon", "suffixes": ["lar"],
+         "explanation": "çoğul eki (-lar); gövde düşmesiyle"}
+      ]
+    },
+
+    {
+      "word": "bilgisayar",
+      "origin": "Öz Türkçe",
+      "origin_period": "Öz Türkçe",
+      "is_pure_turkish": true,
+      "usage_frequency": 0.95,
+      "confidence": 1.0,
+      "phonetics": "[bilgisayar]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Bilgi işleyen, hesap yapan, veri saklayan elektronik araç.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bilgisayarı çöktü, sabaha kadar yazı kaybetti.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Bu tür bilgi işleyen sistemin tamamı.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bütün bilgisayarı tek bir hesaba bağlıydı.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "mecaz",
+         "definition": "Verileri işleyen kurum ya da birim.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Nüfus kayıtları hâlâ bilgisayarda, kâğıtta değil.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "bilgi", "type": "related"},
+        {"word": "internet", "type": "related"},
+        {"word": "yazılım", "type": "related"},
+        {"word": "hesap", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "bilgisayarı", "root": "bilgisayar", "suffixes": ["ı"],
+         "explanation": "3. kişi iyelik eki (-ı); ünsüz yumuşamasıyla"},
+        {"surface": "bilgisayarda", "root": "bilgisayar", "suffixes": ["da"],
+         "explanation": "bulunma hâl eki (-da); ünsüz benzeşmesi (r/d) ile"},
+        {"surface": "bilgisayarlar", "root": "bilgisayar", "suffixes": ["lar"],
+         "explanation": "çoğul eki (-lar); ünsüz benzeşmesiyle"}
+      ]
+    },
+
+    {
+      "word": "elektrik",
+      "origin": "Fransızca",
+      "origin_period": "19. yy",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.9,
+      "confidence": 0.9,
+      "phonetics": "[elektrik]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Akımdan gelen, aydınlatma ve çalıştırmada kullanılan enerji.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Elektrik kesildi, mahalle dört saat karanlıkta kaldı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "İtici, güçlü etki.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu haberin elektriği bütün şehri sardı.",
+         "confidence": 0.95}
+      ],
+      "relations": [
+        {"word": "elektrikli", "type": "derivative"},
+        {"word": "elektriksiz", "type": "derivative"},
+        {"word": "akım", "type": "related"},
+        {"word": "motor", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "elektriği", "root": "elektrik", "suffixes": ["i"],
+         "explanation": "3. kişi iyelik eki (-i); ünsüz yumuşamasıyla"},
+        {"surface": "elektrikte", "root": "elektrik", "suffixes": ["te"],
+         "explanation": "bulunma hâl eki (-te); ünsüz benzeşmesi (k/t) ile"},
+        {"surface": "elektrikli", "root": "elektrik", "suffixes": ["li"],
+         "explanation": "-li yapım eki; ünsüz benzeşmesiyle"}
+      ]
+    },
+
+    {
+      "word": "motor",
+      "origin": "Latince",
+      "origin_period": "19. yy",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.9,
+      "confidence": 0.9,
+      "phonetics": "[motor]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Yakıt enerjisini harekete çeviren makine parçası.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Motor once arıza yaptı, sonra direksiyon.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "Bir şeyi harekete geçiren itici güç.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Projenin motoru, o alttaki iki cümledi.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "mecaz",
+         "definition": "İtici, harekete geçirici sebep.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Yirmi yıl boyunca motoru sabır oldu.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "motorlu", "type": "derivative"},
+        {"word": "yakıt", "type": "related"},
+        {"word": "elektrik", "type": "related"},
+        {"word": "araç", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "motoru", "root": "motor", "suffixes": ["u"],
+         "explanation": "3. kişi iyelik eki (-u); ünsüz yumuşamasıyla"},
+        {"surface": "motorda", "root": "motor", "suffixes": ["da"],
+         "explanation": "bulunma hâl eki (-da); ünsüz yumuşamasıyla"},
+        {"surface": "motorlar", "root": "motor", "suffixes": ["lar"],
+         "explanation": "çoğul eki (-lar); ünsüz yumuşamasıyla"}
+      ]
+    },
+
+    {
+      "word": "alet",
+      "origin": "Arapça",
+      "origin_period": "Osmanlı dönemi",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.95,
+      "confidence": 0.95,
+      "phonetics": "[alet]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Bir işi yapmak için kullanılan, elle tutulan nesne.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Her aleti kaybetti, hiçbir iş bitmedi.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Bir cihaz, bir makine.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Mutfakta ne alet varsa hepsi kirliydi.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "mecaz",
+         "definition": "Araç, vasıta. \"Dildek âleti\" deyiminde.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Kelime, anlamı taşıyan bir alet olarak görev yaptı.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "aletli", "type": "derivative"},
+        {"word": "takım", "type": "related"},
+        {"word": "makine", "type": "related"},
+        {"word": "araç", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "aleti", "root": "alet", "suffixes": ["i"],
+         "explanation": "3. kişi iyelik eki (-i); ünsüz yumuşamasıyla"},
+        {"surface": "aletiyle", "root": "alet", "suffixes": ["iyle"],
+         "explanation": "3. kişi iyelik eki (-i) + aletle eki (-le); kaynaştırma ile y"},
+        {"surface": "aletler", "root": "alet", "suffixes": ["ler"],
+         "explanation": "çoğul eki (-ler); ünsüz yumuşamasıyla"}
+      ]
+    },
+
+    {
+      "word": "televizyon",
+      "origin": "Fransızca",
+      "origin_period": "20. yy",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.95,
+      "confidence": 0.9,
+      "phonetics": "[televizyon]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Uzaktan görüntü ve ses ileten, ekranlı cihaz.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Televizyonu açtı, sesi kısmış, kimse dinlememişti.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Bu cihazla yayılan programların bütünü.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Televizyonda aynı haber üç kez verildi.",
+         "confidence": 0.95}
+      ],
+      "relations": [
+        {"word": "program", "type": "related"},
+        {"word": "yayın", "type": "related"},
+        {"word": "izlemek", "type": "related"},
+        {"word": "haber", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "televizyonu", "root": "televizyon", "suffixes": ["u"],
+         "explanation": "3. kişi iyelik eki (-u); ünsüz yumuşamasıyle"},
+        {"surface": "televizyonda", "root": "televizyon", "suffixes": ["da"],
+         "explanation": "bulunma hâl eki (-da); ünsüz yumuşamasıyle"},
+        {"surface": "televizyonlar", "root": "televizyon", "suffixes": ["lar"],
+         "explanation": "çoğul eki (-lar); ünsüz yumuşamasıyle"}
+      ]
+    },
+
+    {
+      "word": "fotoğraf",
+      "origin": "Fransızca",
+      "origin_period": "19. yy",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.9,
+      "confidence": 0.9,
+      "phonetics": "[fotoğraf]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Işığa duyarlı bir yüzeyle kaydedilmiş görüntü.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "O fotoğrafın altına adını yazmış, fotoğrafçı silmiş.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "mecaz",
+         "definition": "Bir görüntünün kopyası.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Gerçek hayattan bir fotoğraftı, ne bir eksik ne bir fazla.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "fotoğrafçı", "type": "derivative"},
+        {"word": "fotoğraf çekmek", "type": "related"},
+        {"word": "resim", "type": "related"},
+        {"word": "anı", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "fotoğrafı", "root": "fotoğraf", "suffixes": ["ı"],
+         "explanation": "3. kişi iyelik eki (-ı); ünsüz yumuşamasıyla"},
+        {"surface": "fotoğrafta", "root": "fotoğraf", "suffixes": ["ta"],
+         "explanation": "bulunma hâl eki (-ta); ünsüz benzeşmesi (f/t) ile"},
+        {"surface": "fotoğraflar", "root": "fotoğraf", "suffixes": ["lar"],
+         "explanation": "çoğul eki (-lar); ünsüz benzeşmesiyle"}
+      ]
+    },
+
+    {
+      "word": "radyo",
+      "origin": "İtalyanca",
+      "origin_period": "20. yy",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.9,
+      "confidence": 0.9,
+      "phonetics": "[radyo]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Sesli yayın yapan alıcı ya da verici cihaz.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Radyo bozuktu, o gece kimse konuşmadı.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Radyo yayıncılığı kurumu.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Savaş yıllarında radyo tek bilgi kaynağıydı.",
+         "confidence": 0.95},
+        {"order": 3, "type": "isim", "sense": "gercek",
+         "definition": "Radyodan yayılan müzik programı.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Sabah altıda hâlâ aynı radyo çalıyordu.",
+         "confidence": 0.9}
+      ],
+      "relations": [
+        {"word": "radyocu", "type": "derivative"},
+        {"word": "yayın", "type": "related"},
+        {"word": "müzik", "type": "related"},
+        {"word": "televizyon", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "radyosu", "root": "radyo", "suffixes": ["su"],
+         "explanation": "3. kişi iyelik eki (-su/-sü); gövde düşmesiyle"},
+        {"surface": "radyoda", "root": "radyo", "suffixes": ["da"],
+         "explanation": "bulunma hâl eki (-da); ünsüz yumuşamasıyla"},
+        {"surface": "radyolar", "root": "radyo", "suffixes": ["lar"],
+         "explanation": "çoğul eki (-lar); ünsüz yumuşamasıyla"}
+      ]
+    },
+
+    {
+      "word": "makine",
+      "origin": "Yunanca",
+      "origin_period": "19. yy",
+      "is_pure_turkish": false,
+      "usage_frequency": 0.9,
+      "confidence": 0.9,
+      "phonetics": "[makine]",
+      "meanings": [
+        {"order": 1, "type": "isim", "sense": "gercek",
+         "definition": "Kuvvetten yararlanarak, insan müdahalesi olmadan çalışan araç.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Makine bir kez çalıştı mı, durmuyordu.",
+         "confidence": 1.0},
+        {"order": 2, "type": "isim", "sense": "gercek",
+         "definition": "Bir kurumun bütünü, düzeni.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Bu makine kendi halinde bir devlet gibiydi.",
+         "confidence": 0.9},
+        {"order": 3, "type": "isim", "sense": "mecaz",
+         "definition": "Süreklilik, işleyiş.",
+         "example_classic": null, "example_author": null,
+         "example_modern": "Devletin makinesi bir kez çalıştı, geri dönüşü yok.",
+         "confidence": 0.85}
+      ],
+      "relations": [
+        {"word": "motor", "type": "related"},
+        {"word": "fabrika", "type": "related"},
+        {"word": "üretim", "type": "related"},
+        {"word": "iş gücü", "type": "related"}
+      ],
+      "morphology": [
+        {"surface": "makinesi", "root": "makine", "suffixes": ["si"],
+         "explanation": "3. kişi iyelik eki (-si); ünsüz yumuşamasıyla"},
+        {"surface": "makinede", "root": "makine", "suffixes": ["de"],
+         "explanation": "bulunma hâl eki (-de); ünsüz yumuşamasıyla"},
+        {"surface": "makineyi", "root": "makine", "suffixes": ["yi"],
+         "explanation": "belirtme hâl eki (-i); kaynaştırma ile y'ye dönüşür"}
+      ]
+    }
+  ]
+}

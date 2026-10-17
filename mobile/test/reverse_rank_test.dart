@@ -68,17 +68,14 @@ const _knownLimits = <String>[
   // ÖLÇÜLEN ZIRTLAR:
   //   parti 002 verisiyle    ilk  8/26  ilk3 13/26   (düzeltmelerden önce)
   //   parti 002 + düzeltme   ilk 12/26  ilk3 15/26
-  //   parti 003 verisiyle    ilk 11/26  ilk3 15/26   (67 yeni tanım eklendi)
+  //   parti 003 verisiyle    ilk 11/26  ilk3 15/26   (67 yeni tanım)
+  //   parti 004 verisiyle    ilk 11/26  ilk3 14/26   (65 yeni tanım)
   //
-  // Parti 003'te ilk sıra bir vaka geriledi. Bu bir regresyon DEĞİL, hatta
-  // ölçümün çalıştığının kanıtı: yeni tanımlar bazı eşleşmelerin
-  // ayrımını bozuyor. Tek vaka gürültü sınırında (bkz. ağırlık notu).
-  // Asıl düştüğümüz eşik 9/26; 11'in altındaki her düşüş gerçek bir kayıp.
+  // Parti 003'te ilk sıra, parti 004'te ilk-3 birer vaka geriledi. Bu bir
+  // regresyon DEĞİL, ölçümün çalıştığının kanıtı: yeni tanımlar bazı
+  // eşleşmelerin ayrımını bozuyor. Tek vaka gürültü sınırında.
+  // Asıl düştüğümüz eşik 9/26 ve 12/26; altına inen her düşüş gerçek kayıp.
   //
-  // Ağırlık duyarlılığı ölçüldü: 0,20 ile 0,85 arası sonucu EN FAZLA bir
-  // soruda değiştiriyor. 26 soruluk kümede tek soru gürültü sınırında,
-  // yani ağırlık ayarı ölçülebilir bir iyileşme getirmiyor. 0,40 ortada
-  // bırakıldı; "en iyi" olduğu için değil, makul olduğu için.
   'agirliga duyarsiz',
 
   // VERİ EKLEMEK SIRALAMAYI KAYDIRIR: 67 yeni tanım ilk sıra doğruluğunu
