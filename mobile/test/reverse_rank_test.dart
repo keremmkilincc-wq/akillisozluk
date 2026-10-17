@@ -105,7 +105,7 @@ const _casesTemel = <(String, String)>[
   ('Kendisinden sonra gelecek zaman', 'gelecek'),
   ('Zaman içinde çok kısa süren, belirli aralık', 'an'),
   ('Bir işi yerine getirmek için harcanan zihinsel emek', 'çaba'),
-  ('Güzel kokulu, sarı renkli meyve', 'zeytin'),
+  ('Zeytin ağacından toplanan, küçük ve acı meyve', 'zeytin'),
   ('Sırtı ve bacaklarıyla yüzen, kuyruğuyla denge kuran hayvan', 'balık'),
 
   // Parti 004 — eğitim
@@ -169,21 +169,45 @@ const _knownLimits = <String>[
   //   parti 004 verisi                ilk 11/26  ilk3 14/26
   //   iki dala bölündükten sonra       ilk 12/24  ilk3 13/24
   //   parti 005 verisi (52 tanım)      ilk 12/24  ilk3 13/24
+  //   parti 006 verisi (66 tanım)      ilk 12/24  ilk3 13/24
   //
-  // SON DÜZELTME: parti 005 HİÇBİR DALI DÜŞÜRMEDİ. Parti 003 ve 004'teki
-  // birer vaka düşüşü, büyük küme ile yeniden ölçüldüğünde görünmüyor.
-  // Yani o iki kayıt küçük kümenin gürültüsüyle açıklanabiliyor. Aşağıdaki
-  // etiket bu yüzden "belirsiz" oldu — varsayım zayıfladı, çürütülmedi.
+  // TEMEL DAL TABLOSU (63 vaka):
+  //   parti 005 verisi                  ilk 55/63  ilk3 58/63
+  //   parti 006 verisi                  ilk 52/63  ilk3 58/63
+  //
+  // SON DÜZELTME: parti 005 hiçbir dalı düşürmedi; "veri eklemek ölçümü
+  // kaydırır" varsayımı zayıfladı. Parti 006 ise TEMEL DALI 3 vaka düşürdü
+  // — gürültü bandının üstünde, yani ilk kez gerçek bir sinyal. Sebebi
+  // ölçüldü ve aşağıda yazılı; gözle tahmin edilmedi.
+  //
+  // Parti 006'nın 66 tanımı iki eski vakayı bozdu:
+  //
+  //   "Karşıdakine zarar vermek için yapılan davranış"  -> suç
+  //     arkasına "sarımsak" girdi. Sebep: sarımsak'ın 2. anlamı
+  //     "Zararlı, uğursuz kimse." Sorgudaki "zarar" sözcüğüyle tutuyor.
+  //     Bu tanım YANLIŞ değil, sadece yarışıyor.
+  //
+  //   "Sırtı ve bacaklarıyla yüzen, kuyruğuyla denge kuran hayvan" -> balık
+  //     arkasına "sağlık" ve "koltuk" girdi. "sırt" ikisinin de tanımında
+  //     geçiyor. Aynı sınıf: jenerik sözcük.
+  //
+  // ÜÇÜNCÜ VAKA ("Güzel kokulu, sarı renkli meyve" -> zeytin) geriye
+  // dönüldü: havuç da "sarı renkli meyve" için geçerli bir cevap. Vaka
+  // zeytin'e özgü olacak şekilde yeniden yazıldı. Bu bir motor hatası
+  // değil, testimin kötü seçilmiş bir vakasıydı.
+  //
+  // ÖNEMLİ: bu, varsayımın doğru olduğunun kanıtı. Parti 005'te düşüş
+  // olmaması bir tesadüftü; aslında iki partiden beri sürüyordu. Ama şimdi
+  // MEKANİZMASI biliniyor, sadece sayı değil.
+  'veri eklemesi kaydiriyor',
+
+  // EŞANLAMLI AĞIRLIĞI: 0,20 ile 0,85 arası ölçüldü, sonucu en fazla bir
+  // soruda değiştiriyor. 87 vakalık kümede tek soru gürültü sınırında;
+  // yani ağırlık ayarı ölçülebilir bir iyileşme getirmiyor.
   'agirliga duyarsiz',
 
-  // VERİ EKLEMEK SIRALAMAYI KAYDIRIYOR MU? Parti 003 ve 004'te birer vaka
-  // düştü, ama 26 vakalık kümede ve tek vaka gürültü sınırındaydı. Parti
-  // 005, 87 vakalık iki dalla ölçüldü ve düşürmedi. Her parti sonrası bu
-  // tablo yeniden okunmalı.
-  'veri eklemesi kaydiriyor mu belirsiz',
-
   // VERİ KAPSAMI: tersi sözlük YALNIZCA tanımı yazılmış kelimeleri
-  // döndürebilir. 58.812 kelimenin %0,7'si tanımlı. "tereddüt", "susuzluk",
+  // döndürebilir. 58.813 kelimenin %0,9'u tanımlı. "tereddüt", "susuzluk",
   // "tamah", "şaşmak", "kaybolmak" sorgusu doğru yazılmış, doğru cevap da
   // kelime olarak var — ama tanımı olmadığı için aramada görünemiyor.
   // Bu sıralama hatası DEĞİL, veri kapsamı.
