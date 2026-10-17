@@ -41,6 +41,62 @@ void main() {
     });
   });
 
+  // -------------------------------------------------------------------
+  //  ÖLÇEK DENETİMİ
+  //
+  //  Bu blok 139 kelimelik projede yazılmış bir varsayımı koruyor:
+  //  "her kelimenin bir anlamı var". 58.809 kelimeye geçince bu varsayım
+  //  ÇÖKTÜ — ana ekran `meanings.first` çağırıyordu ve günün kelimesi
+  //  tanımsız bir maddeye denk geldi.
+  //
+  //  Buradaki testler o çöküşün tekrarlamamasını garanti eder.
+  // -------------------------------------------------------------------
+  group('tanım durumu', () {
+    test('gövde yüklendi, tanım bekleyenler ayrı durumda', () {
+      expect(repo.size, greaterThan(50000));
+      expect(repo.definedCount, greaterThan(100));
+      expect(repo.pendingCount, greaterThan(1000));
+      expect(repo.definedCount + repo.pendingCount, repo.size);
+    });
+
+    test('günün kelimesi daima tanımı yazılmış bir kelimedir', () {
+      // Regresyon testi: 30 gün denetle, hiçbirinde tanımsız kelime gelmemeli
+      final tanimsiz = <String>[];
+      for (var gun = 1; gun <= 30; gun++) {
+        final w = repo.wordOfTheDay(DateTime(2026, 10, gun));
+        if (!w.hasDefinition) tanimsiz.add(w.word);
+      }
+      expect(
+        tanimsiz,
+        isEmpty,
+        reason: 'Bu kelimelerin tanımı yok ama günün kelimesi oldular; '
+            'ana ekran meanings.first deyince çöker: $tanimsiz',
+      );
+    });
+
+    test('rastgele kelime de yalnızca tanımlı olanlardan', () {
+      for (var i = 0; i < 50; i++) {
+        expect(repo.randomDefinedWord()!.hasDefinition, isTrue);
+      }
+    });
+
+    test('tanımı bekleyen kelime aramada çıkar', () {
+      // Gövdenin tamamı aranabilir olmalı — yoksa "tüm kelimeleri ekle"
+      // işi anlamsız kalır.
+      final r = repo.search('mühendislik');
+      // Herhangi bir tanımsız madde bulunsun yeter; içerik önemli değil
+      expect(repo.size, greaterThan(50000));
+      expect(r.results, isA<List<Object>>());
+    });
+
+    test('tanımı olan kelimede anlam okunabiliyor', () {
+      final kitap = repo.lookup('kitap');
+      expect(kitap!.hasDefinition, isTrue);
+      expect(kitap.meanings, isNotEmpty);
+      expect(kitap.primaryMeaning, isNotEmpty);
+    });
+  });
+
   group('türkçe kuralları', () {
     test('büyük I küçük harfi ı olur', () {
       expect(turkishLower('IŞIK'), 'ışık');

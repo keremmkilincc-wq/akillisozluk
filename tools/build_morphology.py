@@ -327,10 +327,24 @@ def main() -> int:
 
     # TDK listesi buyuk harfli OZEL ADLARI korur (Abana, Adana, Afgan).
     # Sogzluk maddesi degildirler; otomatik elenir.
+    #
+    # BURADA ONCEDEN BIR HATA VARDI; 800 maddeyi yanlislikla sozluk maddesi
+    # sayiyordu:
+    #
+    #     if not w.isascii() and w[:1].isupper():
+    #
+    # "not w.isascii()" kosulu Turkce ozel adlarin BUYUK BOLUMUNU gizliyordu.
+    # Cogu saf ASCII'dir: "Abbas", "Abhaz", "Ahlat", "Kavak", "Lapon", "Hakas",
+    # "Hatay", "Kepez", "Japon". Bunlar filtreye hic girmiyor, madde saniliyordu.
+    #
+    # Wordle havuzu hazirlanirken fark edildi: 5 harfli "cevap" kelimeleri
+    # Abbas, Lapon, Japon, Ahlat ile doluydu. Oynanamaz bir oyun.
+    #
+    # Dogru kural tek basina buyuk harf kontroludur.
     lemmas: set[str] = set()
     proper: set[str] = set()
     for w in entries:
-        if not w.isascii() and w[:1].isupper():
+        if w[:1].isupper():
             proper.add(w)
         else:
             lemmas.add(w)
@@ -358,6 +372,23 @@ def main() -> int:
         mark = "OK " if ok else "HATA"
         print(f"  {mark} {word:<20} -> {got:<14} (beklenen: {expected})")
     print(f"  {passed}/{len(probes)} dogru")
+    print()
+
+    # OZEL AD DENETIMI
+    # Bu regresyon bir kez yandi: 800 ozel ad madde sayiliyordu ve Wordle
+    # havuzu yer/etnik adlarla doldu. Asagidaki adlar madde OLMAMALIDIR.
+    proper_probes = ["Abana", "Adana", "Afgan", "Afrika", "Ahlat",
+                     "Akdeniz", "Abbas", "Lapon", "Hakas", "Japon",
+                     "Hatay", "Kepez", "Kavak", "İstanbul"]
+    sizan_probes = ["kitap", "ev", "insan", "göz", "deniz", "ateş", "sevgi"]
+
+    yanlis = [w for w in proper_probes if w in lemmas]
+    eksik = [w for w in sizan_probes if w not in lemmas]
+    print("OZEL AD / MADDE AYRIMI")
+    print(f"  ozel ad olmamasi gerekenler ({len(proper_probes)}): "
+          f"{'hepsi madde degil - TAMAM' if not yanlis else 'SIZINTI: ' + ', '.join(yanlis)}")
+    print(f"  madde olmasi gerekenler  ({len(sizan_probes)}): "
+          f"{'hepsi madde - TAMAM' if not eksik else 'EKSIK: ' + ', '.join(eksik)}")
     print()
 
     payload = {

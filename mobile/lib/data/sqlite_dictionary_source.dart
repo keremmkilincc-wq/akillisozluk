@@ -112,6 +112,9 @@ class SqliteDictionarySource {
         confidence: ((r['confidence'] as num?)?.toDouble()) ?? 1.0,
         phonetics: r['phonetics'] as String?,
         examTags: r['exam_tags'] as String? ?? '',
+        definitionStatus: r['definition_status'] == 'yazildi'
+            ? DefinitionStatus.written
+            : DefinitionStatus.pending,
         meanings: const [],
         relations: const [],
         morphology: const [],
@@ -187,6 +190,7 @@ class SqliteDictionarySource {
         confidence: byId[id]!.confidence,
         phonetics: byId[id]!.phonetics,
         examTags: byId[id]!.examTags,
+        definitionStatus: byId[id]!.definitionStatus,
         meanings: List.unmodifiable(meaningsByWord[id] ?? const []),
         relations: List.unmodifiable(relationsByWord[id] ?? const []),
         morphology: List.unmodifiable(morphByWord[id] ?? const []),

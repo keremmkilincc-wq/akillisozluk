@@ -240,12 +240,15 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   const SizedBox(height: Gap.lg),
                   Text(
-                    word.primaryMeaning,
+                    word.primaryMeaning.isEmpty
+                        ? 'Bu madde için tanım hazırlanıyor.'
+                        : word.primaryMeaning,
                     style: AppType.definition(14.5, color: c.onSurface.withValues(alpha: 0.85)),
                     maxLines: 3,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  if (word.meanings.first.exampleModern != null) ...[
+                  if (word.meanings.isNotEmpty &&
+                      word.meanings.first.exampleModern != null) ...[
                     const SizedBox(height: Gap.lg),
                     Container(
                       padding: const EdgeInsets.only(left: Gap.md),

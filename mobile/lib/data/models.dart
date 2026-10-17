@@ -102,6 +102,19 @@ class Meaning {
   bool get isUnverified => confidence < 0.9;
 }
 
+/// Bir maddenin tanım durumu.
+///
+/// Gövde 58.809 madde; 139 tanım yazıldı, gerisi bekliyor. Bu ayrım
+/// uygulamada görünür çünkü "henüz yazılmadı" ile "veri hatası" aynı
+/// görünmemeli.
+enum DefinitionStatus {
+  /// Tanım yazıldı ve denetimden geçti.
+  written,
+
+  /// Madde var, tanımı henüz yazılmadı.
+  pending,
+}
+
 class Word {
   final String word;
   final String origin;
@@ -111,6 +124,7 @@ class Word {
   final double confidence;
   final String? phonetics;
   final String examTags;
+  final DefinitionStatus definitionStatus;
 
   final List<Meaning> meanings;
   final List<Relation> relations;
@@ -125,6 +139,7 @@ class Word {
     required this.confidence,
     required this.phonetics,
     required this.examTags,
+    required this.definitionStatus,
     required this.meanings,
     required this.relations,
     required this.morphology,
@@ -139,6 +154,9 @@ class Word {
         confidence: (j['confidence'] as num?)?.toDouble() ?? 1.0,
         phonetics: j['phonetics'] as String?,
         examTags: j['exam_tags'] as String? ?? '',
+        definitionStatus: j['definition_status'] == 'yazildi'
+            ? DefinitionStatus.written
+            : DefinitionStatus.pending,
         meanings: (j['meanings'] as List<dynamic>? ?? const [])
             .map((m) => Meaning.fromJson(m as Map<String, dynamic>))
             .toList(),
@@ -151,6 +169,9 @@ class Word {
       );
 
   String get primaryMeaning => meanings.isEmpty ? '' : meanings.first.definition;
+
+  /// Tanım yazıldı mı?
+  bool get hasDefinition => definitionStatus == DefinitionStatus.written;
 
   List<String> get examList =>
       examTags.isEmpty ? const [] : examTags.split(',');

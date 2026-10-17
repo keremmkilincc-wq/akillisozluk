@@ -208,8 +208,48 @@ class SearchHit {
 class FuzzySearch {
   late final Map<String, String> _foldedWords;
   late final Map<String, List<String>> _trigramIndex;
-  late final Map<String, Set<String>> _deletionIndex;
   final List<String> _allWords;
+
+  /// Silme komşuluğu indeksi.
+  ///
+  /// TBMLE kurulur ve 58.809 kelimede 778 ms suruyordu — uygulama acilisinin
+  /// %59'u. Ama o 778 ms aciilis sirasinda hic kullanilmaz; indeks yalnizca
+  /// ilk aramada ise yarar.
+  ///
+  /// Yani kullanicidan 778 ms saklamak yerine, onu SONRA'ya tasiyorduk.
+  /// Burada yapilan: kurulum ilk aramada yapilir, sonucu onbelleklenir.
+  /// Uygulama hizli acilir; ilk arama bir kez bekler.
+  Map<String, Set<String>>? _deletionIndex;
+
+  /// Indeks bu cumle ile bir kez kuruldu mu?
+  bool _deletionIndexReady = false;
+
+  /// Indeksin kurulup kurulmadigini disa bildirir (yukleme gostergesi icin).
+  bool get deletionIndexReady => _deletionIndexReady;
+
+  Map<String, Set<String>> _ensure() {
+    if (_deletionIndexReady) return _deletionIndex!;
+    _ensureDeletionIndex();
+    return _deletionIndex!;
+  }
+
+  int _ensureDeletionIndex() {
+    if (_deletionIndexReady) return 0;
+    final started = DateTime.now();
+    final index = <String, Set<String>>{};
+    if (_allWords.length <= _maxWordsForDeletionIndex) {
+      for (final w in _allWords) {
+        final f = foldTurkish(w);
+        if (f.length < 3 || f.length > _maxIndexedLength) continue;
+        for (final variant in _deletions(f)) {
+          index.putIfAbsent(variant, () => <String>{}).add(w);
+        }
+      }
+    }
+    _deletionIndex = index;
+    _deletionIndexReady = true;
+    return DateTime.now().difference(started).inMilliseconds;
+  }
 
   /// Silme indeksine alınacak azami sözcük uzunluğu. Uzun sözcükler
   /// yazım hatası hedefi olmaz ve indeksi şişirirler.
@@ -219,10 +259,10 @@ class FuzzySearch {
   /// kurulmaz ve arama trigram'a düşer (100k kelime hedefi için not).
   static const _maxWordsForDeletionIndex = 60000;
 
+  /// Indeks KURULMAZ; ilk aramada kurulur (bkz. [_ensureDeletionIndex]).
   FuzzySearch(List<String> words) : _allWords = List.unmodifiable(words) {
     _foldedWords = {};
     _trigramIndex = {};
-    _deletionIndex = {};
 
     for (final w in words) {
       final f = foldTurkish(w);
@@ -230,18 +270,6 @@ class FuzzySearch {
 
       for (final t in trigrams(w)) {
         _trigramIndex.putIfAbsent(t, () => <String>[]).add(w);
-      }
-    }
-
-    if (words.length <= _maxWordsForDeletionIndex) {
-      for (final w in words) {
-        final f = foldTurkish(w);
-        if (f.length < 3 || f.length > _maxIndexedLength) continue;
-        for (final variant in _deletions(f)) {
-          _deletionIndex
-              .putIfAbsent(variant, () => <String>{})
-              .add(w);
-        }
       }
     }
   }
@@ -288,8 +316,10 @@ class FuzzySearch {
 
     // Silme komşuluğu — harf yer değişikliği ve atlanan/eklenen harf
     if (fq.length >= 3 && fq.length <= _maxIndexedLength) {
+      // Indeks ilk aramada kurulur; aciilis maliyetini oteye atar.
+      final deletionIndex = _ensure();
       for (final variant in _deletions(fq)) {
-        final bucket = _deletionIndex[variant];
+        final bucket = deletionIndex[variant];
         if (bucket != null) candidateWords.addAll(bucket);
       }
     }

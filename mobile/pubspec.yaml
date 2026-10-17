@@ -43,3 +43,6 @@ flutter:
     # (ÖNEMLİ: buraya eklenmezse APK'ya giremez, repoda olması yetmez —
     #  bu hata projede bir kez yapıldı ve düzeltildi.)
     - assets/dict.db
+    # Wordle kelime listesi — tools/build_wordle.py URETIR, elle yazilir.
+    # Bu varlik olmadan oyun acilmaz.
+    - assets/data/wordle_clean.json

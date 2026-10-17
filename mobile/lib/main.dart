@@ -10,6 +10,7 @@ import 'data/dictionary_repository.dart';
 import 'data/favorites_store.dart';
 import 'ui/favorites_screen.dart';
 import 'ui/games_screen.dart';
+import 'ui/wordle_screen.dart';
 import 'ui/home_screen.dart';
 import 'ui/reverse_screen.dart';
 import 'ui/search_screen.dart';
@@ -31,6 +32,7 @@ Future<void> main() async {
 ///
 ///   ?screen=search&q=şöför         → arama ekranı, sorgu dolu
 ///   ?screen=detail&word=kitap      → kelime detay
+///   ?screen=wordle                 → kelime tahmini oyunu
 ///
 /// Üretimde etkisi yok; yalnızca web derlemesinde anlamlıdır. Bu olmadan
 /// ekranları doğrulamak için her seferinde uygulamayı yeniden derlemek
@@ -46,6 +48,8 @@ Widget _initialScreen(DictionaryRepository repo) {
       return const ReverseScreen();
     case 'rules':
       return const WritingRulesScreen();
+    case 'wordle':
+      return const WordleScreen();
     case 'games':
       return const GamesScreen();
     case 'lists':

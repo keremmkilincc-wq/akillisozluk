@@ -10,6 +10,8 @@
 
 library;
 
+import 'dart:math';
+
 import 'package:flutter/material.dart' show ChangeNotifier;
 import 'package:sqflite/sqflite.dart' show DatabaseFactory;
 
@@ -111,12 +113,41 @@ class DictionaryRepository extends ChangeNotifier {
 
   Word? lookup(String word) => _byWord[word.toLowerCase()];
 
+  /// Tanımı YAZILMIŞ kelimeler.
+  ///
+  /// Gövde 58.809 madde ama tanımlı olan 139. İkisini ayırmak zorunluydu:
+  /// "tüm kelimeleri ekle" ile "her kelimenin tanımı var" aynı şey değil.
+  List<Word> get _defined =>
+      _words.where((w) => w.hasDefinition).toList(growable: false);
+
   /// Günün kelimesi: gün sayısına göre tohumlanır, böylece herkes aynı
   /// kelimeyi görür ve cihaz çevrimdışıyken de tutarlıdır.
+  ///
+  /// YALNIZCA tanımı yazılmış kelimeler arasından seçer.
+  ///
+  /// Bu kural bir hatanın sonucu eklendi: 139 kelimeyle çalışırken her
+  /// kelimenin anlamı vardı ve liste.index yeterdi. Gövde 58.809'a çıkınca
+  /// günün kelimesi tanımsız bir maddeye denk geldi ve ana ekran
+  /// `meanings.first` deyince çöktü.
+  ///
+  /// Ders: "her zaman bir anlamı vardı" sessiz bir varsayımdı; 139'da
+  /// doğruydu, 58.000'de değil. Varsayım ölçekle birlikte kırılır.
   Word wordOfTheDay(DateTime date) {
+    final pool = _defined;
+    if (pool.isEmpty) return _words.first;
     final seed = date.year * 10000 + date.month * 100 + date.day;
-    return _words[seed % _words.length];
+    return pool[seed % pool.length];
   }
+
+  /// Rastgele kelime — yalnızca tanımı yazılmış olanlardan.
+  Word? randomDefinedWord() {
+    final pool = _defined;
+    if (pool.isEmpty) return null;
+    return pool[Random().nextInt(pool.length)];
+  }
+
+  int get definedCount => _words.where((w) => w.hasDefinition).length;
+  int get pendingCount => _words.length - definedCount;
 
   List<Word> byExam(String tag) =>
       _words.where((w) => w.examList.contains(tag)).toList();

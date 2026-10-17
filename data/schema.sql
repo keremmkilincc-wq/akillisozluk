@@ -36,6 +36,19 @@ CREATE TABLE IF NOT EXISTS words (
   -- Sınav etiketleri (Faz 5) — boşsa hiçbir sınava girmez
   exam_tags         TEXT    NOT NULL DEFAULT '',   -- "yks,kpss,ales,yds" (virgüllü)
 
+  -- Tanim durumu
+  --
+  -- Govde 58.792 madde; her birine elle tanim yazilacak ama henuz
+  -- yazilmadi. Bu bayrak ayrimi acikca tutar:
+  --   'yazildi'   -> en az bir anlami var (incelenmis, guven puani 1.0)
+  --   'bekliyor'  -> madde olarak var, tanimi henuz yazilmadi
+  --
+  -- Neden ayri bir bayrak, "anlami olup olmamak" degil:
+  -- anlam satiri yok diye bakmak ucuz bir sorgu, ama uygulamada
+  -- "tanimi hazirlaniyor" durumu ile "veri hatasi" ayni gorunur.
+  -- Bayak ikisini ayirir.
+  definition_status TEXT    NOT NULL DEFAULT 'bekliyor',
+
   -- İçerik bayrakları
   has_audio         INTEGER NOT NULL DEFAULT 0,
   is_controversial  INTEGER NOT NULL DEFAULT 0    -- küçük çocuk içeriği vb.

@@ -94,10 +94,54 @@ def load_writing_rules(seed: dict) -> list[dict]:
 #  Yükleme
 # -----------------------------------------------------------------------------
 
-def build(seed_path: Path, out_path: Path) -> int:
-    seed = json.loads(seed_path.read_text(encoding="utf-8"))
-    words = seed["words"]
-    meta = seed.get("meta", {})
+def load_seeds(seed_dir: Path) -> tuple[list[dict], dict, list[dict]]:
+    """Tum seed dosyalarini birlestirir.
+
+    Neden coklu: tanim yazimi parti parti ilerliyor. Her parti kendi
+    dosyasinda durur (words_000_core.json, words_001_eylem.json ...) ve
+    burada birlestirilir. Bu sayede bir partiyi yazmak digerlerini
+    dokunmadan mumkun; dosya sayisi arttikca da sure degismez.
+
+    Ayni kelime iki dosyada varsa SONRAKI dosya kazanir — yani yeni parti
+    eskisini duzeltebilir.
+    """
+    files = sorted(seed_dir.glob("words*.json"))
+    if not files:
+        raise SystemExit(f"HATA: {seed_dir} icinde words*.json yok")
+
+    merged: dict[str, dict] = {}
+    meta: dict = {}
+    rules: dict[tuple, dict] = {}
+
+    for f in files:
+        data = json.loads(f.read_text(encoding="utf-8"))
+        meta.update(data.get("meta", {}))
+        for w in data.get("words", []):
+            merged[w["word"]] = w
+        # Yazim kurallari da birlesir; ayni kural iki dosyadaysa sonraki kazanir
+        for r in data.get("writing_rules", []):
+            rules[(r["base_word"], r["wrong_form"])] = r
+
+    print(f"  seed dosyalari   : {len(files)} ({', '.join(f.name for f in files)})")
+    return list(merged.values()), meta, list(rules.values())
+
+
+def load_corpus(corpus_path: Path) -> list[str]:
+    """Tanim bekleyen madde havuzunu dondurur (Tanim YOK — sadece kimlik).
+
+    Bu kelimeler aranabilir, listelenebilir, morfolojisi gorunur; ama
+    tanimlari UYDURULMAZ. Uydurma tanim, hic tanimden kotudur: kullanici
+    dogru sanar.
+    """
+    if not corpus_path.exists():
+        return []
+    data = json.loads(corpus_path.read_text(encoding="utf-8"))
+    return data.get("lemmas", [])
+
+
+def build(seed_dir: Path, out_path: Path, corpus_path: Path | None = None) -> int:
+    words, meta, writing_rules = load_seeds(seed_dir)
+    corpus = load_corpus(corpus_path) if corpus_path else []
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     if out_path.exists():
@@ -115,8 +159,9 @@ def build(seed_path: Path, out_path: Path) -> int:
             INSERT INTO words (
                 word, normalized_word, search_folded,
                 origin, origin_period, is_pure_turkish, phonetics,
-                usage_frequency, confidence, source_note, exam_tags, has_audio
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0)
+                usage_frequency, confidence, source_note, exam_tags,
+                definition_status, has_audio
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'yazildi', 0)
             """,
             (
                 surface,
@@ -186,7 +231,7 @@ def build(seed_path: Path, out_path: Path) -> int:
             )
 
     # Yazım kuralları — kaynak JSON (tek doğru kaynak)
-    for rule in load_writing_rules(seed):
+    for rule in writing_rules:
         conn.execute(
             """
             INSERT OR IGNORE INTO writing_rules
@@ -200,6 +245,58 @@ def build(seed_path: Path, out_path: Path) -> int:
                 rule["exam_tags"] or "", float(rule["confidence"] or 1.0),
             ),
         )
+
+    # -----------------------------------------------------------------------
+    #  TANIM BEKLEYEN GOVDE
+    #
+    #  Elle yazilmis kelimeler yuklendi. Simdi kalan tum maddeler eklenir:
+    #  aranabilir, listelenebilir, morfolojisi gorunur — ama tanimlari
+    #  UYDURULMAZ. definition_status = 'bekliyor'.
+    #
+    #  Neden onemli: uygulama 58.792 madde gosterebilir ve hicbiri yanlis
+    #  bilgi icermez. Tanimi olmayan madde "bu madde icin calisma suruyor"
+    #  der; uydurma tanim ise kullaniciya dogruymus gibi sunulur.
+    # -----------------------------------------------------------------------
+    pending = 0
+    if corpus:
+        batch: list[tuple] = []
+        for surface in corpus:
+            if surface in word_ids:
+                continue
+            batch.append((
+                surface, normalize(surface), fold(surface),
+                None, None, 0, None,
+                0.0, 0.0, "TDK listesi - tanim bekliyor", "",
+                "bekliyor", 0,
+            ))
+            if len(batch) >= 5000:
+                conn.executemany(
+                    """
+                    INSERT INTO words (
+                        word, normalized_word, search_folded,
+                        origin, origin_period, is_pure_turkish, phonetics,
+                        usage_frequency, confidence, source_note, exam_tags,
+                        definition_status, has_audio
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    """,
+                    batch,
+                )
+                pending += len(batch)
+                batch.clear()
+
+        if batch:
+            conn.executemany(
+                """
+                INSERT INTO words (
+                    word, normalized_word, search_folded,
+                    origin, origin_period, is_pure_turkish, phonetics,
+                    usage_frequency, confidence, source_note, exam_tags,
+                    definition_status, has_audio
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                batch,
+            )
+            pending += len(batch)
 
     # Tam metin indeksini doldur (external content tablosu)
     conn.execute(
@@ -234,6 +331,11 @@ def build(seed_path: Path, out_path: Path) -> int:
     print(f"  boyut          : {size_mb:.2f} MB")
     for key, value in counts.items():
         print(f"  {key:<14}: {value}")
+    print(f"  {'bekleyen':<14}: {pending}")
+
+    written = counts["words"] - pending
+    pct = 100.0 * written / counts["words"] if counts["words"] else 0.0
+    print(f"  {'yazilmis':<14}: {written} / {counts['words']}  ({pct:.1f}%)")
 
     if problems:
         print("\n  UYARILAR")
@@ -250,12 +352,30 @@ def verify(conn: sqlite3.Connection) -> list[str]:
     problems: list[str] = []
 
     # 1. Anlamı olmayan kelime var mı?
-    orphan = conn.execute(
-        "SELECT COUNT(*) FROM words w "
-        "WHERE NOT EXISTS (SELECT 1 FROM meanings m WHERE m.word_id = w.id)"
+    #
+    # Artık HATA DEĞİL: gövdenin 58.653 kelimesinin henüz tanımı yok ve
+    # olması da beklenen durum. Hata olan şey TUTARSIZLIK:
+    #   "yazildi" diyor ama anlamı yok  -> veri hattı bozuk
+    #   anlamı var ama "bekliyor" diyor -> bayrak unutulmuş
+    lies = conn.execute(
+        "SELECT COUNT(*) FROM words w WHERE w.definition_status = 'yazildi' "
+        "AND NOT EXISTS (SELECT 1 FROM meanings m WHERE m.word_id = w.id)"
     ).fetchone()[0]
-    if orphan:
-        problems.append(f"{orphan} kelimenin hiç anlamı yok")
+    if lies:
+        problems.append(
+            f"{lies} kelime 'yazildi' diyor ama anlamı yok "
+            f"(bayrak elle yazılmış tanımlar arasında unutulmuş)"
+        )
+
+    stale = conn.execute(
+        "SELECT COUNT(*) FROM words w WHERE w.definition_status = 'bekliyor' "
+        "AND EXISTS (SELECT 1 FROM meanings m WHERE m.word_id = w.id)"
+    ).fetchone()[0]
+    if stale:
+        problems.append(
+            f"{stale} kelimenin anlamı var ama 'bekliyor' diyor "
+            f"(tanım yazıldı, bayrak güncellenmedi)"
+        )
 
     # 2. normalize/fold doğru mu?  (Python tarafında, çünkü SQL'de yok)
     bad_normalized = []
@@ -307,9 +427,21 @@ def verify(conn: sqlite3.Connection) -> list[str]:
 def main() -> int:
     parser = argparse.ArgumentParser(description="Sözlük veritabanını üretir")
     parser.add_argument(
-        "--seed",
+        "--seed-dir",
         type=Path,
-        default=ROOT / "data" / "seed" / "words_sample.json",
+        default=ROOT / "data" / "seed",
+        help="words*.json dosyalarinin bulundugu klasor (hepsi birlestirilir)",
+    )
+    parser.add_argument(
+        "--corpus",
+        type=Path,
+        default=ROOT / "data" / "morphology.json",
+        help="Tanim bekleyen madde havuzu (build_morphology.py ciktisi)",
+    )
+    parser.add_argument(
+        "--no-corpus",
+        action="store_true",
+        help="Sadece elle yazilmis tanimlari yukle (govde ekleme)",
     )
     parser.add_argument(
         "--out",
@@ -318,12 +450,19 @@ def main() -> int:
     )
     args = parser.parse_args()
 
-    if not args.seed.exists():
-        print(f"HATA: seed dosyasi bulunamadi: {args.seed}", file=sys.stderr)
+    if not args.seed_dir.exists():
+        print(f"HATA: seed klasoru bulunamadi: {args.seed_dir}", file=sys.stderr)
         return 2
 
-    print(f"  kaynak : {args.seed}")
-    return build(args.seed, args.out)
+    print(f"  seed    : {args.seed_dir}")
+    print(f"  govde   : "
+          f"{'kapali (--no-corpus)' if args.no_corpus else args.corpus}")
+
+    return build(
+        args.seed_dir,
+        args.out,
+        None if args.no_corpus else args.corpus,
+    )
 
 
 if __name__ == "__main__":

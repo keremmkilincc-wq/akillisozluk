@@ -19,6 +19,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 import '../core/theme.dart';
+import 'wordle_screen.dart';
 import '../data/dictionary_repository.dart';
 import '../data/models.dart';
 import 'widgets/common.dart';
@@ -46,6 +47,16 @@ class GamesScreen extends StatelessWidget {
               style: AppType.body(13.5, color: context.mutedText),
             ),
             const SizedBox(height: Gap.xl),
+
+            // Wordle listenin başında: en bilinen oyun, ilk bakılan yer.
+            _GameCard(
+              icon: Icons.grid_view_rounded,
+              title: 'Kelime Tahmini',
+              subtitle: '5 harf, 6 deneme. Günün kelimesi herkes için aynı',
+              accent: context.scheme.primary,
+              route: (_) => const WordleScreen(),
+            ),
+            const SizedBox(height: Gap.md),
 
             _GameCard(
               icon: Icons.eco_outlined,

@@ -14,6 +14,7 @@ import 'package:akilli_sozluk/ui/home_screen.dart';
 import 'package:akilli_sozluk/ui/reverse_screen.dart';
 import 'package:akilli_sozluk/ui/writing_rules_screen.dart';
 import 'package:akilli_sozluk/ui/word_detail_screen.dart';
+import 'package:akilli_sozluk/ui/wordle_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provider/provider.dart';
@@ -104,11 +105,22 @@ void main() {
     expect(find.textContaining('aday'), findsOneWidget);
   });
 
-  testWidgets('oyun ekranı iki oyunu listeliyor', (tester) async {
+  testWidgets('oyun ekranı oyunları listeliyor', (tester) async {
     await pump(tester, const GamesScreen());
 
+    expect(find.text('Kelime Tahmini'), findsOneWidget);
     expect(find.text('Hangi Kelime Öz Türkçe?'), findsOneWidget);
     expect(find.text('Eş Anlamlı Düellosu'), findsOneWidget);
+  });
+
+  testWidgets('wordle ekranı kuruluyor ve hak gösteriyor', (tester) async {
+    await pump(tester, const WordleScreen());
+
+    // Ekran açılıyor: 6 hak kalmış olmalı.
+    expect(find.textContaining('hak kaldı'), findsOneWidget);
+
+    // Tahta 6 satır (6 deneme) çizilmeli.
+    expect(find.byType(WordleScreen), findsOneWidget);
   });
 
   testWidgets('uygulama kökü sözlükle birlikte açılıyor', (tester) async {
